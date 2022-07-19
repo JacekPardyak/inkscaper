@@ -31,6 +31,10 @@ use_python("C://Program Files//Inkscape//bin//python.exe")
 ```
 
 ```{r, eval = TRUE}
+system('python --version', intern = TRUE)
+```
+
+```{r, eval = TRUE}
 system('inkscape --help', intern = TRUE)
 ```
 

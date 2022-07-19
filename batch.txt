@@ -1,0 +1,16 @@
+inkscape --version
+python --version
+cd "C:\Users\jacek\inkscaper"
+inkscape --actions="export-area-drawing; export-background:ffffffff; export-filename:Red_Bird.png; export-do" Red_Bird.svg
+python "C:\Program Files\Inkscape\share\inkscape\extensions\dxf12_outlines.py" --output="Red_Bird.dxf" Red_Bird.svg
+
+import sys
+sys.path.append('my/path/to/module/folder')
+
+pythonpath.bat "C:\Program Files\Inkscape\bin" "C:\Program Files\Inkscape\share\inkscape\extensions\dxf12_outlines.py" --output='Red_Bird.dxf' Red_Bird.svg
+
+
+# ---------------
+cd C:\Program Files\Inkscape\bin\ 
+"C:\Program Files\Inkscape\share\inkscape\extensions\"
+python.exe "C:\Program Files\Inkscape\share\inkscape\extensions\dxf12_outlines.py" --output="C:\Users\jacek\inkscaper\Red_Bird.dxf"  "C:\Users\jacek\inkscaper\Red_Bird.svg"
