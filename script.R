@@ -24,7 +24,7 @@ inx_dxf <- tempfile("inx", fileext = c(".dxf"))
 nc %>%
   sf::st_geometry() %>%
   sf::st_write(dsn = inx_dxf, driver ="DXF", delete_dsn = TRUE)
-inx_svg <- inx_dxf %>% inx_extension_win(inkscape_extension_name = "dxf_input.py", ext = ".svg")
+inx_svg <- inx_dxf %>% inx_extension(inkscape_extension_name = "dxf_input.py", ext = ".svg")
 inx_svg  %>% inx_source()
 
 browseURL(inx_svg)
