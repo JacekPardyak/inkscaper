@@ -13,6 +13,10 @@ logo <- inx_extension(input = 'https://upload.wikimedia.org/wikipedia/commons/1/
 logo %>% ggplot() +
   geom_sf()
 
+img <- inx_actions(input =  "Red_Bird.svg", actions="", ext = ".png") %>% png::readPNG()
+ggplot() +
+  annotation_raster(img, -Inf, Inf, -Inf, Inf) +
+  theme_void()
 # ------------------------------------
 # sf <-> svg
 filename <- system.file("shape/nc.shp", package="sf")
@@ -26,6 +30,13 @@ nc %>%
   sf::st_write(dsn = inx_dxf, driver ="DXF", delete_dsn = TRUE)
 inx_svg <- inx_dxf %>% inx_extension(inkscape_extension_name = "dxf_input.py", ext = ".svg")
 inx_svg  %>% inx_source()
+
+# -----------------------------------------------
+# svg <-> png
+img <- inx_actions(input = inx_svg, actions="", ext = ".png") %>% png::readPNG()
+export-area-drawing
+
+
 
 browseURL(inx_svg)
 
