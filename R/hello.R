@@ -18,6 +18,9 @@ hello <- function() {
 }
 
 inx_extension_win <- function(input, inkscape_extension_name, ext){
+  path = system('inkscape --system-data-directory', intern = TRUE)
+  inkscape_extensions_path = paste(path, "\\extensions", sep = "")
+  inkscape_python_home  = paste(gsub("\\share\\inkscape", "", path, fixed = T), "\\bin", sep = "")
   if(is_url(input)) {
     input_file_path = download_svg(input)
   } else {
@@ -29,8 +32,8 @@ inx_extension_win <- function(input, inkscape_extension_name, ext){
   '@ECHO OFF
 cd %s
 python.exe "%s" --output="%s"  "%s"' %>% sprintf(
-  Sys.getenv("inkscape_python_home"),
-  paste(Sys.getenv("inkscape_extensions_path"), inkscape_extension_name, sep = "\\"),
+  inkscape_python_home,
+  paste(inkscape_extensions_path, inkscape_extension_name, sep = "\\"),
   output,
   input_file_path) %>% writeLines(command)
   system(command)
@@ -38,6 +41,8 @@ python.exe "%s" --output="%s"  "%s"' %>% sprintf(
 }
 
 inx_extension_linux <- function(input, inkscape_extension_name, ext){
+  path = system('inkscape --system-data-directory', intern = TRUE)
+  inkscape_extensions_path = paste(path, "/extensions", sep = "")
   if(is_url(input)) {
     input_file_path = download_svg(input)
   } else {
