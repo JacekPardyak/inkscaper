@@ -17,14 +17,14 @@ hello <- function() {
   print("Hello, world!")
 }
 
-inx_extension_win <- function(input, inkscape_extension_name){
+inx_extension_win <- function(input, inkscape_extension_name, ext){
   if(is_url(input)) {
     input_file_path = download_svg(input)
   } else {
     input_file_path = tempfile("inx")
     file.copy(input, input_file_path)
   }
-  output = tempfile("inx", fileext = c(".dxf"))
+  output = tempfile("inx", fileext = ext)
   command = tempfile(pattern = "inx_", fileext = ".bat")
   '@ECHO OFF
 cd %s
@@ -37,24 +37,24 @@ python.exe "%s" --output="%s"  "%s"' %>% sprintf(
   output
 }
 
-inx_extension_linux <- function(input, inkscape_extension_name){
+inx_extension_linux <- function(input, inkscape_extension_name, ext){
   if(is_url(input)) {
     input_file_path = download_svg(input)
   } else {
     input_file_path = tempfile("inx")
     file.copy(input, input_file_path)
   }
-  output <- tempfile("inx", fileext = c(".svg"))
+  output <- tempfile("inx", fileext = ext)
   command <- sprintf('python %s --output="%s" "%s"', paste(inkscape_extensions_path, inkscape_extension_name, sep = "/"), output, input_file_path)
   system(command, intern = TRUE)
   output
 }
 
-inx_extension <- function(input, inkscape_extension_name){
+inx_extension <- function(input, inkscape_extension_name, ext){
   if(Sys.info()['sysname']  == "Windows") {
-    inx_extension_win(input, inkscape_extension_name)
+    inx_extension_win(input, inkscape_extension_name, ext)
   } else{
-    inx_extension_linux(input, inkscape_extension_name)
+    inx_extension_linux(input, inkscape_extension_name, ext)
   }
 }
 
