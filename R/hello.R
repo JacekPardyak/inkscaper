@@ -64,9 +64,15 @@ inx_extension <- function(input, inkscape_extension_name, ext){
 }
 
 inx_actions <- function(input, actions, ext) {
+  if(is_url(input)) {
+    input_file_path = download_svg(input)
+  } else {
+    input_file_path = tempfile("inx")
+    file.copy(input, input_file_path)
+  }
   output <- tempfile("inx", fileext = ext)
   command <- paste('inkscape --actions="', paste(actions, collapse = "; "), '; export-filename:%s; export-do" %s', sep = "")
-  command <- sprintf(command, output, input)
+  command <- sprintf(command, output, input_file_path)
   system(command, intern = TRUE)
   output
 }
