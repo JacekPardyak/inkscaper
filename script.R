@@ -151,3 +151,13 @@ Sys.info()['sysname']  == "Windows"
 unname(s) == unname(s)
 class(s)
 #== list(sysname)
+
+is_windows <- function(){
+  identical(.Platform$OS.type, 'windows')
+}
+
+is_windows()
+
+.Platform$OS.type
+
+#https://github.com/ropensci/magick/blob/master/R/utils.R
