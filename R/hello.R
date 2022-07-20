@@ -1,6 +1,6 @@
 # Hello, world!
 #
-# This is an example function named 'hello' 
+# This is an example function named 'hello'
 # which prints 'Hello, world!'.
 #
 # You can learn more about package authoring with RStudio at:
@@ -16,3 +16,46 @@
 hello <- function() {
   print("Hello, world!")
 }
+
+inx_extension_win <- function(input, inkscape_extension_name){
+  if(is_url(input)) {
+    input_file_path = download_svg(input)
+  } else {
+    input_file_path = tempfile("inx")
+    file.copy(input, input_file_path)
+  }
+  output = tempfile("inx", fileext = c(".dxf"))
+  command = tempfile(pattern = "inx_", fileext = ".bat")
+  '@ECHO OFF
+cd %s
+python.exe "%s" --output="%s"  "%s"' %>% sprintf(
+  Sys.getenv("inkscape_python_home"),
+  paste(Sys.getenv("inkscape_extensions_path"), inkscape_extension_name, sep = "\\"),
+  output,
+  input_file_path) %>% writeLines(command)
+  system(command)
+  output
+}
+
+inx_extension_linux <- function(input, inkscape_extension_name){
+  if(is_url(input)) {
+    input_file_path = download_svg(input)
+  } else {
+    input_file_path = tempfile("inx")
+    file.copy(input, input_file_path)
+  }
+  output <- tempfile("inx", fileext = c(".svg"))
+  command <- sprintf('python %s --output="%s" "%s"', paste(inkscape_extensions_path, inkscape_extension_name, sep = "/"), output, input_file_path)
+  system(command, intern = TRUE)
+  output
+}
+
+inx_extension <- function(input, inkscape_extension_name){
+  if(Sys.info()['sysname']  == "Windows") {
+    inx_extension_win(input, inkscape_extension_name)
+  } else{
+    inx_extension_linux(input, inkscape_extension_name)
+  }
+}
+
+

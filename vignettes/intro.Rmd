@@ -1,0 +1,72 @@
+---
+title: "R converter"
+author: "JG Pardyak"
+date: '2022-07-18'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{bash, eval = FALSE}
+!sudo add-apt-repository universe
+!sudo add-apt-repository ppa:inkscape.dev/stable
+!sudo apt-get update
+!sudo apt install inkscape
+```
+
+```{R, eval = TRUE}
+system('inkscape --help')
+```
+```{r}
+library(reticulate)
+use_python("C://Program Files//Inkscape//bin//python.exe")
+```
+
+```{r, eval = TRUE}
+system('python --version', intern = TRUE)
+```
+
+```{r, eval = TRUE}
+system('inkscape --help', intern = TRUE)
+```
+
+
+```{r, eval = TRUE}
+url = "https://upload.wikimedia.org/wikipedia/commons/1/1b/Red_Bird.svg"
+file = tempfile(tmpdir = tempdir(), fileext = ".svg")
+download.file(url, file)
+file
+#!wget -O 
+#!python /usr/share/inkscape/extensions/dxf12_outlines.py --output="Red_Bird.dxf" "Red_Bird.svg"
+#import requests
+#URL = ""
+#response = requests.get(URL)
+#open("Red_Bird.svg", "wb").write(response.content)
+
+```
+```{r, eval = TRUE}
+system('python "C://Program Files//Inkscape//share//inkscape//extensions//dxf12_outlines.py" --output="Red_Bird.dxf" "Red_Bird.svg"')
+```
+
+```{python}
+import lxml
+```
+
+
+```{r, eval = TRUE}
+system("python --version")
+```
+
+```{python, eval = FALSE}
+import subprocess
+batcmd="dir"
+result = subprocess.check_output(batcmd, shell=True)
+```
