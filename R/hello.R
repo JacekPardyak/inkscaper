@@ -63,4 +63,10 @@ inx_extension <- function(input, inkscape_extension_name, ext){
   }
 }
 
-
+inx_actions <- function(input, actions, ext) {
+  output <- tempfile("inx", fileext = ext)
+  command <- paste('inkscape --actions="', paste(actions, collapse = "; "), '; export-filename:%s; export-do" %s', sep = "")
+  command <- sprintf(command, output, input)
+  system(command, intern = TRUE)
+  output
+}
