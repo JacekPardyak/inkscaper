@@ -5,26 +5,39 @@ system('inkscape --version', intern = TRUE)
 # w starszych wersjach inkscape gorzej
 
 library(inkscaper)
-url <- 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Red_Bird.svg'
+url <- 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Station_Clock.svg'
 logo <- inx_extension(input = url, inkscape_extension_name = "dxf12_outlines.py", ext =".dxf") %>%
   st_read()
 logo %>% ggplot() +
   geom_sf()
 
-url <- 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cartoon-dragon.svg'
+
+library(rsvg)
+library(grid)
+
+
+"./test/Station_Clock.svg" %>%
+  rsvg() %>%
+  grid.raster()
+
+
+url <- 'test/Station_Clock_Paths.svg'
 logo <- inx_extension(input = url, inkscape_extension_name = "dxf12_outlines.py", ext =".dxf") %>%
   st_read()
 logo %>% ggplot() +
   geom_sf()
+
 
 collection <- logo %>%
   select(geometry) %>% st_union() %>% st_polygonize() %>%
   first() #%>%
 
+collection %>% ggplot() +
+  geom_sf()
 
 result <- st_sfc() %>% st_sf(geometry = .)
 for (i in c(1:length(collection))) {
-  row = coll %>% nth(i) %>%
+  row = collection %>% nth(i) %>%
     st_sfc()  %>% st_sf(geometry = .) %>% mutate(facet = i)
   result <- row %>% bind_rows(result)
 }
