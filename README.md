@@ -1,1 +1,1 @@
-# R and Python Converter SVG ⇔ sHP
+# R wrapper for Inkscape
