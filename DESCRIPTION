@@ -9,7 +9,6 @@ Description: More about what it does (maybe more than one line)
 Imports: 
     knitr,
     magrittr,
-    qpdf,
     readr
 License: GPL-2 | MIT + file LICENSE
 Encoding: UTF-8

@@ -13,5 +13,7 @@ dataframe with the names and descriptions of the Inkscape extensions
 Build a dataframe with the names and descriptions of the Inkscape extensions
 }
 \examples{
+\dontrun{
 inx_extensions_list()
+}
 }

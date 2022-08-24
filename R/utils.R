@@ -127,3 +127,26 @@ inx_extensions_list_linux <- function(){
   }
   df
 }
+
+inx_verbs_list_win <- function(){
+  output = tempfile("inx_", fileext = ".txt")
+  con  = tempfile(pattern = "inx_", fileext = ".bat")
+  fmt = '@ECHO OFF
+inkscape --actions="verb-list" > %s'
+  text = sprintf(fmt, output)
+  writeLines(text, con)
+  system(con)
+  verbs <- readr::read_delim(output, delim = ":", col_names = FALSE)
+  names(verbs) = c("Verb", "Description")
+  verbs
+}
+
+inx_verbs_list_linux <- function(){
+  output = tempfile("inx_", fileext = ".txt")
+  fmt = 'inkscape --actions="verb-list" > %s'
+  text = sprintf(fmt, output)
+  system(text)
+  verbs <- readr::read_delim(output, delim = ":", col_names = FALSE)
+  names(verbs) = c("Verb", "Description")
+  verbs
+}
