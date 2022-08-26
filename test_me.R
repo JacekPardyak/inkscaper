@@ -40,10 +40,9 @@ inx_actions(actions = "", ext = ".png") %>%
 
 
 #install.packages(
-system("sudo add-apt-repository universe")
-system("sudo add-apt-repository ppa:inkscape.dev/stable")
-system("sudo apt update")
-system("sudo apt install inkscape")
+#system("sudo add-apt-repository universe")
+#system("sudo add-apt-repository ppa:inkscape.dev/stable")
+#system("sudo apt update")
+#system("sudo apt install inkscape")
 system("inkscape --version", intern = TRUE)
 
-)
