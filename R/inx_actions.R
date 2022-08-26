@@ -21,7 +21,7 @@ inx_actions <- function(input, actions, ext){
   output = tempfile("inx_", fileext = ext)
   actions = paste(actions, "export-filename:%s;export-do;", sep = ";")
   actions = sprintf(actions, output)
-  fmt = 'inkscape --batch-process --actions="%s;" %s'
+  fmt = 'inkscape --batch-process --actions="%s" %s'
   command <- sprintf(fmt, actions, input_file_path)
   system(command, intern = TRUE)
   output

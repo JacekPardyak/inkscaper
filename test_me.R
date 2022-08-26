@@ -38,14 +38,21 @@ inx_actions(actions = "", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
 
+input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
 
+# 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
 #install.packages(
-system("sudo add-apt-repository universe")
-system("sudo add-apt-repository ppa:inkscape.dev/stable")
-system("sudo apt update")
-system("sudo apt install inkscape")
+#system("sudo add-apt-repository universe")
+#system("sudo add-apt-repository ppa:inkscape.dev/stable")
+#system("sudo apt update")
+#system("sudo apt install inkscape")
 system("inkscape --version", intern = TRUE)
 
+<<<<<<< HEAD
+=======
 if(!(require(sf))){
   system('apt-get -y update && apt-get install -y  libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
   system('sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable')
@@ -55,6 +62,10 @@ if(!(require(sf))){
   #install_github("r-spatial/sf")
   install.packages('sf')
 }
+<<<<<<< HEAD
 
 
 # on linux python installed
+=======
+>>>>>>> bdcbfee60751cf0ba1d88931cc5dd82643a82fb4
+>>>>>>> 3d8248770ebe01a83883c4dfb4e5a10af475407d
