@@ -20,17 +20,6 @@ file for conversion
 Title
 }
 \examples{
-library(tidyverse)
-library(sf)
-# empty plot - attempt to convert SVG containing native {rect} objects
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" \%>\%
-svg_to_dxf() \%>\%
-st_read() \%>\% ggplot() +
-  geom_sf()
-# right plot - attempt to convert SVG containing paths from native {rect} objects
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" \%>\%
-inx_actions(actions = list('select-all', 'object-to-path'), ext = ".svg") \%>\%
-svg_to_dxf() \%>\%
-st_read() \%>\% ggplot() +
-  geom_sf()
+input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+inx_actions(input = input, actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png")
 }

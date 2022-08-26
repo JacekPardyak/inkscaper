@@ -8,29 +8,28 @@
 #' @export
 #'
 #' @examples
-#' library(tidyverse)
-#' library(sf)
-#' # empty plot - attempt to convert SVG containing native {rect} objects
-#' "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
-#' svg_to_dxf() %>%
-#' st_read() %>% ggplot() +
-#'   geom_sf()
-#' # right plot - attempt to convert SVG containing paths from native {rect} objects
-#' "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
-#' inx_actions(actions = list('select-all', 'object-to-path'), ext = ".svg") %>%
-#' svg_to_dxf() %>%
-#' st_read() %>% ggplot() +
-#'   geom_sf()
-inx_actions <- function(input, actions, ext) {
-  if(is_url(input)) {
-    input_file_path = download_svg(input)
-  } else {
-    input_file_path = tempfile("inx_")
-    file.copy(input, input_file_path)
-  }
-  output <- tempfile("inx_", fileext = ext)
-  command <- paste('inkscape --actions="', paste(actions, collapse = "; "), '; export-filename:%s; export-do" %s', sep = "")
-  command <- sprintf(command, output, input_file_path)
+#' input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+#' inx_actions(input = input, actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png")
+
+inx_actions <- function(input, actions, ext){
+   if(is_url(input)) {
+      input_file_path = download_svg(input)
+    } else {
+      input_file_path = tempfile("inx_")
+      file.copy(input, input_file_path)
+    }
+  output = tempfile("inx_", fileext = ext)
+  actions = paste(actions, "export-filename:%s;export-do;", sep = ";")
+  actions = sprintf(actions, output)
+  fmt = 'inkscape --batch-process --actions="%s;" %s'
+  command <- sprintf(fmt, actions, input_file_path)
   system(command, intern = TRUE)
   output
 }
+# inx_verbs(input = "MyStar.svg", actions = "select-by-id:MyStar;ObjectFlipVertically;", ext = ".svg") %>% svg_to_dxf() %>% st_read() %>% ggplot() + geom_sf()
+# library(tidyverse)
+# library(sf)
+#
+# inx_verbs(input = input, actions = "", ext = ".png") %>%
+# png::readPNG() %>%
+# grid::grid.raster()

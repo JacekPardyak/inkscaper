@@ -27,6 +27,8 @@ The ImageMagick library has an overwhelming amount of functionality. Magick expo
 
 ## Installing `magick`
 
+installing on windows - add path
+
 On Windows or macOS the package is most easily installed via CRAN.
 
 ```r
@@ -42,6 +44,10 @@ library(magick)
 str(magick::magick_config())
 ```
 
+
+### Examples
+
+Most of the verbs require a GUI even though they are run in package inkscaper, therefore in the operating system console. When inkscape is installed on a non-gui platform, e.g. Colab, the function `inx_verb` still works, but such a verb is omitted.
 
 ### Build from source
 

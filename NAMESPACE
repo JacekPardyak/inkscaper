@@ -2,9 +2,6 @@
 
 export("%>%")
 export(inx_actions)
-export(inx_actions_list)
 export(inx_extension)
-export(inx_extensions_list)
-export(inx_verbs_list)
 export(svg_to_dxf)
 importFrom(magrittr,"%>%")

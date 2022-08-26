@@ -1,0 +1,3761 @@
+Extension,Description
+addnodes.py,"usage: addnodes.py [-h] [--output OUTPUT] [--segments SEGMENTS] [--max MAX]
+                   [--method METHOD] [--unit UNIT] [--id IDS]
+                   [--selected-nodes SELECTED_NODES]
+                   [INPUT_FILE]
+
+Extension to split a path by adding nodes to it
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --segments SEGMENTS   Number of segments to divide the path into
+  --max MAX             Number of segments to divide the path into
+  --method METHOD       The kind of division to perform
+  --unit UNIT           Unit for maximum segment length
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_blackandwhite.py,"usage: color_blackandwhite.py [-h] [--output OUTPUT] [-t THRESHOLD] [--id IDS]
+                              [--selected-nodes SELECTED_NODES]
+                              [INPUT_FILE]
+
+Convert colours to black and white
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -t THRESHOLD, --threshold THRESHOLD
+                        Threshold Color Level
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_brighter.py,"usage: color_brighter.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Make colours brighter
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_custom.py,"usage: color_custom.py [-h] [--output OUTPUT] [--tab TAB] [-r R] [-g G] [-b B]
+                       [-s SCALE] [--id IDS] [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Custom colour functions per channel
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -r R, --r R           red channel function
+  -g G, --g G           green channel function
+  -b B, --b B           blue channel function
+  -s SCALE, --scale SCALE
+                        The input (r,g,b) range
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_darker.py,"usage: color_darker.py [-h] [--output OUTPUT] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Make the colours darker
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_desaturate.py,"usage: color_desaturate.py [-h] [--output OUTPUT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Remove color but maintain intesity
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_grayscale.py,"usage: color_grayscale.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Make all colours grayscale
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_hsl_adjust.py,"usage: color_hsl_adjust.py [-h] [--output OUTPUT] [--tab TAB] [-x HUE]
+                           [-s SATURATION] [-l LIGHTNESS]
+                           [--random_h RANDOM_HUE]
+                           [--random_s RANDOM_SATURATION]
+                           [--random_l RANDOM_LIGHTNESS] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Modify the HSL levels of each color
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -x HUE, --hue HUE     Adjust hue
+  -s SATURATION, --saturation SATURATION
+                        Adjust saturation
+  -l LIGHTNESS, --lightness LIGHTNESS
+                        Adjust lightness
+  --random_h RANDOM_HUE
+  --random_s RANDOM_SATURATION
+  --random_l RANDOM_LIGHTNESS
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_lesshue.py,"usage: color_lesshue.py [-h] [--output OUTPUT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Remove Hue from the color
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_lesslight.py,"usage: color_lesslight.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Reduce the light of the color
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_lesssaturation.py,"usage: color_lesssaturation.py [-h] [--output OUTPUT] [--id IDS]
+                               [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+Make colours less saturated
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_list.py,"usage: color_list.py [-h] [--output OUTPUT] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Make the colours darker
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_morehue.py,"usage: color_morehue.py [-h] [--output OUTPUT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Add hue to any selected object
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_morelight.py,"usage: color_morelight.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Lighten selected objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_moresaturation.py,"usage: color_moresaturation.py [-h] [--output OUTPUT] [--id IDS]
+                               [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+Increase saturation of selected objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_negative.py,"usage: color_negative.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Make the colour oposite
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_randomize.py,"usage: color_randomize.py [-h] [--output OUTPUT] [--tab TAB] [-y HUE_RANGE]
+                          [-t SATURATION_RANGE] [-m LIGHTNESS_RANGE]
+                          [-o OPACITY_RANGE] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Randomize the colours of all objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -y HUE_RANGE, --hue_range HUE_RANGE
+                        Hue range
+  -t SATURATION_RANGE, --saturation_range SATURATION_RANGE
+                        Saturation range
+  -m LIGHTNESS_RANGE, --lightness_range LIGHTNESS_RANGE
+                        Lightness range
+  -o OPACITY_RANGE, --opacity_range OPACITY_RANGE
+                        Opacity range
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_removeblue.py,"usage: color_removeblue.py [-h] [--output OUTPUT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Remove blue color from selected objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_removegreen.py,"usage: color_removegreen.py [-h] [--output OUTPUT] [--id IDS]
+                            [--selected-nodes SELECTED_NODES]
+                            [INPUT_FILE]
+
+Remove green color from selected objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_removered.py,"usage: color_removered.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Remove red color from selected objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_replace.py,"usage: color_replace.py [-h] [--output OUTPUT] [--tab TAB] [-f FROM_COLOR]
+                        [-t TO_COLOR] [-i IGNORE_OPACITY] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Replace color in SVG with another
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -f FROM_COLOR, --from_color FROM_COLOR
+                        Replace color
+  -t TO_COLOR, --to_color TO_COLOR
+                        By color
+  -i IGNORE_OPACITY, --ignore_opacity IGNORE_OPACITY
+                        Whether color should be replaced regardless of opacity
+                        match
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+color_rgbbarrel.py,"usage: color_rgbbarrel.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Cycle colors RGB -> BRG aka Do a Barrel Roll!
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+convert2dashes.py,"usage: convert2dashes.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Extension to convert paths into dash-array line
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+dhw_input.py,"usage: dhw_input.py [-h] [--output OUTPUT] [INPUT_FILE]
+
+Open DHW files and convert to svg on the fly
+
+positional arguments:
+  INPUT_FILE       Filename of the input file (default is stdin)
+
+options:
+  -h, --help       show this help message and exit
+  --output OUTPUT  Optional output filename for saving the result (default is
+                   stdout)."
+dimension.py,"usage: dimension.py [-h] [--output OUTPUT] [--xoffset XOFFSET]
+                    [--yoffset YOFFSET] [--type TYPE] [--id IDS]
+                    [--selected-nodes SELECTED_NODES]
+                    [INPUT_FILE]
+
+Add dimensions as a path modifier
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --xoffset XOFFSET     x offset of the vertical dimension arrow
+  --yoffset YOFFSET     y offset of the horizontal dimension arrow
+  --type TYPE           Bounding box type
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+doc_ai_convert.py,"usage: doc_ai_convert.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Main class of the doc_ai_convert extension This extension performs the
+following two actions: 1) Recognize intended dimensions of original document.
+- If the AI document was set up with a size given in picas, cm, mm, or in, and
+then exported to SVG, no conversion is needed. - If the AI document was set up
+with any other dimensions, (point, yard, px, ft/in, ft, or m), then the
+exported SVG will be in units of 72 DPI pixels. This causes an issue, as
+Inkscape uses CSS pixels (px) which are at 96 DPI. In this case, we re-
+interpret the size as 72 DPI points (pt), which will convert the artwork to
+appear at the correct size. 2) Recognize Adobe Illustrator layers. - Group
+(<g>) elements with non-empty data-name attributes are groups in an
+Illustrator SVG document. - We re-label these as layers such that Inkscape
+will recognize them.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+docinfo.py,"usage: docinfo.py [-h] [--output OUTPUT] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Show document information
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+dpiswitcher.py,"usage: dpiswitcher.py [-h] [--output OUTPUT] [--switcher SWITCHER] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --switcher SWITCHER   Select the DPI switch you want
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+draw_from_triangle.py,"usage: draw_from_triangle.py [-h] [--output OUTPUT] [--tab TAB]
+                             [--circumcircle CIRCUMCIRCLE]
+                             [--circumcentre CIRCUMCENTRE]
+                             [--incircle INCIRCLE] [--incentre INCENTRE]
+                             [--contact_tri CONTACT_TRI]
+                             [--excircles EXCIRCLES] [--excentres EXCENTRES]
+                             [--extouch_tri EXTOUCH_TRI]
+                             [--excentral_tri EXCENTRAL_TRI]
+                             [--orthocentre ORTHOCENTRE]
+                             [--orthic_tri ORTHIC_TRI] [--altitudes ALTITUDES]
+                             [--anglebisectors ANGLEBISECTORS]
+                             [--centroid CENTROID]
+                             [--ninepointcentre NINEPOINTCENTRE]
+                             [--ninepointcircle NINEPOINTCIRCLE]
+                             [--symmedians SYMMEDIANS] [--sym_point SYM_POINT]
+                             [--sym_tri SYM_TRI] [--gergonne_pt GERGONNE_PT]
+                             [--nagel_pt NAGEL_PT] [--mode MODE]
+                             [--cust_str CUST_STR] [--cust_pt CUST_PT]
+                             [--cust_radius CUST_RADIUS] [--radius RADIUS]
+                             [--isogonal_conj ISOGONAL_CONJ]
+                             [--isotomic_conj ISOTOMIC_CONJ] [--id IDS]
+                             [--selected-nodes SELECTED_NODES]
+                             [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --circumcircle CIRCUMCIRCLE
+  --circumcentre CIRCUMCENTRE
+  --incircle INCIRCLE
+  --incentre INCENTRE
+  --contact_tri CONTACT_TRI
+  --excircles EXCIRCLES
+  --excentres EXCENTRES
+  --extouch_tri EXTOUCH_TRI
+  --excentral_tri EXCENTRAL_TRI
+  --orthocentre ORTHOCENTRE
+  --orthic_tri ORTHIC_TRI
+  --altitudes ALTITUDES
+  --anglebisectors ANGLEBISECTORS
+  --centroid CENTROID
+  --ninepointcentre NINEPOINTCENTRE
+  --ninepointcircle NINEPOINTCIRCLE
+  --symmedians SYMMEDIANS
+  --sym_point SYM_POINT
+  --sym_tri SYM_TRI
+  --gergonne_pt GERGONNE_PT
+  --nagel_pt NAGEL_PT
+  --mode MODE
+  --cust_str CUST_STR
+  --cust_pt CUST_PT
+  --cust_radius CUST_RADIUS
+  --radius RADIUS
+  --isogonal_conj ISOGONAL_CONJ
+  --isotomic_conj ISOTOMIC_CONJ
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+dxf_input.py,"usage: dxf_input.py [-h] [--output OUTPUT] [--tab TAB]
+                    [--scalemethod SCALEMETHOD] [--scale SCALE]
+                    [--textscale TEXTSCALE] [--xmin XMIN] [--ymin YMIN]
+                    [--gcodetoolspoints GCODETOOLSPOINTS]
+                    [--encoding INPUT_ENCODE] [--font FONT]
+                    [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --scalemethod SCALEMETHOD
+  --scale SCALE
+  --textscale TEXTSCALE
+  --xmin XMIN
+  --ymin YMIN
+  --gcodetoolspoints GCODETOOLSPOINTS
+  --encoding INPUT_ENCODE
+  --font FONT"
+dxf_outlines.py,"usage: dxf_outlines.py [-h] [--output OUTPUT] [--tab TAB] [-R ROBO] [-P POLY]
+                       [--units UNITS] [--encoding CHAR_ENCODE]
+                       [--layer_option LAYER_OPTION] [--layer_name LAYER_NAME]
+                       [--id IDS] [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -R ROBO, --ROBO ROBO
+  -P POLY, --POLY POLY
+  --units UNITS
+  --encoding CHAR_ENCODE
+  --layer_option LAYER_OPTION
+  --layer_name LAYER_NAME
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+dxf12_outlines.py,"usage: dxf12_outlines.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Create dxf12 output from the svg
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+edge3d.py,"usage: edge3d.py [-h] [--output OUTPUT] [--angle ANGLE] [--stddev STDDEV]
+                 [--blurheight BLURHEIGHT] [--blurwidth BLURWIDTH]
+                 [--shades SHADES] [--bw BW] [--thick THICK] [--id IDS]
+                 [--selected-nodes SELECTED_NODES]
+                 [INPUT_FILE]
+
+Generate a 3d edge
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --angle ANGLE         angle of illumination, clockwise, 45 = upper right
+  --stddev STDDEV       Gaussian Blur stdDeviation
+  --blurheight BLURHEIGHT
+                        Gaussian Blur height
+  --blurwidth BLURWIDTH
+                        Gaussian Blur width
+  --shades SHADES       Number of shades
+  --bw BW               Black and white
+  --thick THICK         stroke-width for pieces
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+export_gimp_palette.py,"usage: export_gimp_palette.py [-h] [--output OUTPUT] [--id IDS]
+                              [--selected-nodes SELECTED_NODES]
+                              [INPUT_FILE]
+
+Export all colors in a document to a gimp pallet
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+extrude.py,"usage: extrude.py [-h] [--output OUTPUT] [--tab TAB]
+                  [-m {lines,polygons,snug}] [-s SUBPATHS] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+This effect draws lines between each nth node of each selected path. It can be
+chosen whether these regions are filled and whether the fill uses rectangles
+or copies of the path segments. The lines will be inserted between the two
+elements.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -m {lines,polygons,snug}, --mode {lines,polygons,snug}
+                        Join paths with lines, polygons or copies of the
+                        segments (""snug"")
+  -s SUBPATHS, --subpaths SUBPATHS
+                        If true, connecting lines will be inserted as subpaths
+                        of a single path. If false, they will be inserted in
+                        newly created group. Only applies to mode=lines
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+fig_input.py,"usage: fig_input.py [-h] [--output OUTPUT] [INPUT_FILE]
+
+Load FIG Files by calling fig2dev program
+
+positional arguments:
+  INPUT_FILE       Filename of the input file (default is stdin)
+
+options:
+  -h, --help       show this help message and exit
+  --output OUTPUT  Optional output filename for saving the result (default is
+                   stdout)."
+flatten.py,"usage: flatten.py [-h] [--output OUTPUT] [--flatness FLATNESS] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Flattern a path
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --flatness FLATNESS   Minimum flattness
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+foldablebox.py,"usage: foldablebox.py [-h] [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
+                      [--depth DEPTH] [--unit UNIT] [--proportion PROPORTION]
+                      [--guide GUIDE] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Foldable Box generation.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --width WIDTH         The Box Width
+  --height HEIGHT       The Box Height
+  --depth DEPTH         The Box Depth (z dimention)
+  --unit UNIT           The unit of the box dimensions
+  --proportion PROPORTION
+                        Inner tab proportion
+  --guide GUIDE         Add guide lines
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+fractalize.py,"usage: fractalize.py [-h] [--output OUTPUT] [-s SUBDIVS] [-f SMOOTH]
+                     [--id IDS] [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -s SUBDIVS, --subdivs SUBDIVS
+                        Number of subdivisons
+  -f SMOOTH, --smooth SMOOTH
+                        Smoothness of the subdivision
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+frame.py,"usage: frame.py [-h] [--output OUTPUT] [--tab TAB] [--clip CLIP]
+                [--type {rect,ellipse}] [--corner_radius CORNER_RADIUS]
+                [--fill_color FILL_COLOR] [--group GROUP]
+                [--stroke_color STROKE_COLOR] [--width WIDTH]
+                [--offset_absolute OFFSET_ABSOLUTE]
+                [--offset_relative OFFSET_RELATIVE]
+                [--z_position {top,bottom,split}] [--asgroup ASGROUP]
+                [--id IDS] [--selected-nodes SELECTED_NODES]
+                [INPUT_FILE]
+
+An Inkscape extension that creates a frame around a selected object.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --clip CLIP
+  --type {rect,ellipse}
+  --corner_radius CORNER_RADIUS
+  --fill_color FILL_COLOR
+  --group GROUP
+  --stroke_color STROKE_COLOR
+  --width WIDTH
+  --offset_absolute OFFSET_ABSOLUTE
+                        Offset in user units, positive = outside
+  --offset_relative OFFSET_RELATIVE
+                        Relative offset in percentage of the bounding box size
+  --z_position {top,bottom,split}
+  --asgroup ASGROUP
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+funcplot.py,"usage: funcplot.py [-h] [--output OUTPUT] [--tab TAB] [--xstart XSTART]
+                   [--xend XEND] [--times2pi TIMES2PI] [--polar POLAR]
+                   [--ybottom YBOTTOM] [--ytop YTOP] [--samples SAMPLES]
+                   [--fofx FOFX] [--fponum FPONUM] [--fpofx FPOFX]
+                   [--clip CLIP] [--remove REMOVE] [--isoscale ISOSCALE]
+                   [--drawaxis DRAWAXIS] [--endpts ENDPTS] [--id IDS]
+                   [--selected-nodes SELECTED_NODES]
+                   [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --xstart XSTART       Start x-value
+  --xend XEND           End x-value
+  --times2pi TIMES2PI   * x-range by 2*pi
+  --polar POLAR         Use polar coords
+  --ybottom YBOTTOM     y-value of rect's bottom
+  --ytop YTOP           y-value of rectangle's top
+  --samples SAMPLES     Samples
+  --fofx FOFX           f(x) for plotting
+  --fponum FPONUM       Numerical 1st deriv
+  --fpofx FPOFX         f'(x) for plotting
+  --clip CLIP           Clip with source rect
+  --remove REMOVE       Remove source rect
+  --isoscale ISOSCALE   Isotropic scaling
+  --drawaxis DRAWAXIS   Draw axis
+  --endpts ENDPTS       Add end points
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+generate_voronoi.py,"usage: generate_voronoi.py [-h] [--output OUTPUT] [--tab TAB] [--size SIZE]
+                           [--border BORDER] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --size SIZE           Average size of cell (px)
+  --border BORDER       Size of Border (px)
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+gimp_xcf.py,"usage: gimp_xcf.py [-h] [--output OUTPUT] [--tab TAB] [-d GUIDES] [-r GRID]
+                   [-b BACKGROUND] [-i DPI] [--id IDS]
+                   [--selected-nodes SELECTED_NODES]
+                   [INPUT_FILE]
+
+Provide a quick and dirty way of using gimp to output an xcf from Inkscape.
+Both Inkscape and Gimp must be installed for this extension to work.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  -d GUIDES, --guides GUIDES
+                        Save the Guides in the XCF
+  -r GRID, --grid GRID  Save the Grid with the .XCF
+  -b BACKGROUND, --background BACKGROUND
+                        Add background color
+  -i DPI, --dpi DPI     File resolution
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+grid_cartesian.py,"usage: grid_cartesian.py [-h] [--output OUTPUT] [--border_th BORDER_TH]
+                         [--border_th_unit BORDER_TH_UNIT] [--tab TAB]
+                         [--x_divs X_DIVS] [--dx DX] [--dx_unit DX_UNIT]
+                         [--x_subdivs X_SUBDIVS] [--x_log X_LOG]
+                         [--x_subsubdivs X_SUBSUBDIVS]
+                         [--x_half_freq X_HALF_FREQ] [--x_divs_th X_DIVS_TH]
+                         [--x_subdivs_th X_SUBDIVS_TH]
+                         [--x_subsubdivs_th X_SUBSUBDIVS_TH]
+                         [--x_div_unit X_DIV_UNIT] [--y_divs Y_DIVS] [--dy DY]
+                         [--dy_unit DY_UNIT] [--y_subdivs Y_SUBDIVS]
+                         [--y_log Y_LOG] [--y_subsubdivs Y_SUBSUBDIVS]
+                         [--y_half_freq Y_HALF_FREQ] [--y_divs_th Y_DIVS_TH]
+                         [--y_subdivs_th Y_SUBDIVS_TH]
+                         [--y_subsubdivs_th Y_SUBSUBDIVS_TH]
+                         [--y_div_unit Y_DIV_UNIT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --border_th BORDER_TH
+  --border_th_unit BORDER_TH_UNIT
+  --tab TAB
+  --x_divs X_DIVS
+  --dx DX
+  --dx_unit DX_UNIT
+  --x_subdivs X_SUBDIVS
+  --x_log X_LOG
+  --x_subsubdivs X_SUBSUBDIVS
+  --x_half_freq X_HALF_FREQ
+  --x_divs_th X_DIVS_TH
+  --x_subdivs_th X_SUBDIVS_TH
+  --x_subsubdivs_th X_SUBSUBDIVS_TH
+  --x_div_unit X_DIV_UNIT
+  --y_divs Y_DIVS
+  --dy DY
+  --dy_unit DY_UNIT
+  --y_subdivs Y_SUBDIVS
+  --y_log Y_LOG
+  --y_subsubdivs Y_SUBSUBDIVS
+  --y_half_freq Y_HALF_FREQ
+  --y_divs_th Y_DIVS_TH
+  --y_subdivs_th Y_SUBDIVS_TH
+  --y_subsubdivs_th Y_SUBSUBDIVS_TH
+  --y_div_unit Y_DIV_UNIT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+grid_isometric.py,"usage: grid_isometric.py [-h] [--output OUTPUT] [--x_divs X_DIVS]
+                         [--y_divs Y_DIVS] [--dx DX] [--subdivs SUBDIVS]
+                         [--subsubdivs SUBSUBDIVS] [--divs_th DIVS_TH]
+                         [--subdivs_th SUBDIVS_TH]
+                         [--subsubdivs_th SUBSUBDIVS_TH]
+                         [--border_th BORDER_TH] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --x_divs X_DIVS       Major X Divisions
+  --y_divs Y_DIVS       Major Y Divisions
+  --dx DX               Major X division Spacing
+  --subdivs SUBDIVS     Subdivisions per Major X division
+  --subsubdivs SUBSUBDIVS
+                        Subsubdivisions per Minor X division
+  --divs_th DIVS_TH     Major X Division Line thickness
+  --subdivs_th SUBDIVS_TH
+                        Minor X Division Line thickness
+  --subsubdivs_th SUBSUBDIVS_TH
+                        Subminor X Division Line thickness
+  --border_th BORDER_TH
+                        Border Line thickness
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+grid_polar.py,"usage: grid_polar.py [-h] [--output OUTPUT] [--tab TAB] [--r_divs R_DIVS]
+                     [--dr DR] [--r_subdivs R_SUBDIVS] [--r_log R_LOG]
+                     [--r_divs_th R_DIVS_TH] [--r_subdivs_th R_SUBDIVS_TH]
+                     [--a_divs A_DIVS] [--a_divs_cent A_DIVS_CENT]
+                     [--a_subdivs A_SUBDIVS] [--a_subdivs_cent A_SUBDIVS_CENT]
+                     [--a_divs_th A_DIVS_TH] [--a_subdivs_th A_SUBDIVS_TH]
+                     [--c_dot_dia C_DOT_DIA] [--a_labels A_LABELS]
+                     [--a_label_size A_LABEL_SIZE]
+                     [--a_label_outset A_LABEL_OUTSET] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --r_divs R_DIVS       Circular Divisions
+  --dr DR               Circular Division Spacing
+  --r_subdivs R_SUBDIVS
+                        Subdivisions per Major div
+  --r_log R_LOG         Logarithmic subdiv
+  --r_divs_th R_DIVS_TH
+                        Major Line thickness
+  --r_subdivs_th R_SUBDIVS_TH
+                        Minor Line thickness
+  --a_divs A_DIVS       Angle Divisions
+  --a_divs_cent A_DIVS_CENT
+                        Angle Divisions at Centre
+  --a_subdivs A_SUBDIVS
+                        Angcular Subdivisions
+  --a_subdivs_cent A_SUBDIVS_CENT
+                        Angular Subdivisions end
+  --a_divs_th A_DIVS_TH
+                        Major Angular thickness
+  --a_subdivs_th A_SUBDIVS_TH
+                        Minor Angular thickness
+  --c_dot_dia C_DOT_DIA
+                        Diameter of Centre Dot
+  --a_labels A_LABELS   The kind of labels to apply
+  --a_label_size A_LABEL_SIZE
+                        Pixel size of the labels
+  --a_label_outset A_LABEL_OUTSET
+                        Label Radial outset
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+guides_creator.py,"usage: guides_creator.py [-h] [--output OUTPUT] [--pages PAGES] [--tab TAB]
+                         [--guides_preset GUIDES_PRESET]
+                         [--vertical_guides VERTICAL_GUIDES]
+                         [--horizontal_guides HORIZONTAL_GUIDES]
+                         [--start_from_edges START_FROM_EDGES] [--ul UL]
+                         [--ur UR] [--ll LL] [--lr LR]
+                         [--margins_preset {custom,book_left,book_right,book_alternating_right,book_alternating_left}]
+                         [--vert VERT] [--horz HORZ]
+                         [--header_margin HEADER_MARGIN]
+                         [--footer_margin FOOTER_MARGIN]
+                         [--left_margin LEFT_MARGIN]
+                         [--right_margin RIGHT_MARGIN] [--delete DELETE]
+                         [--nodup NODUP] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Create a set of guides based on the given options
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --pages PAGES         On which pages the guides are created, e.g. ""1, 2,
+                        4-6, 8-"". Default: All pages.
+  --tab TAB             Type of guides to create.
+  --guides_preset GUIDES_PRESET
+                        Preset
+  --vertical_guides VERTICAL_GUIDES
+                        Vertical guides
+  --horizontal_guides HORIZONTAL_GUIDES
+                        Horizontal guides
+  --start_from_edges START_FROM_EDGES
+                        Start from edges
+  --ul UL               Upper left corner
+  --ur UR               Upper right corner
+  --ll LL               Lower left corner
+  --lr LR               Lower right corner
+  --margins_preset {custom,book_left,book_right,book_alternating_right,book_alternating_left}
+                        Margins preset
+  --vert VERT           Vert subdivisions
+  --horz HORZ           Horz subdivisions
+  --header_margin HEADER_MARGIN
+                        Header margin
+  --footer_margin FOOTER_MARGIN
+                        Footer margin
+  --left_margin LEFT_MARGIN
+                        Left margin
+  --right_margin RIGHT_MARGIN
+                        Right margin
+  --delete DELETE       Delete existing guides
+  --nodup NODUP         Omit duplicated guides
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+guillotine.py,"usage: guillotine.py [-h] [--output OUTPUT] [--directory DIRECTORY]
+                     [--image IMAGE] [--ignore IGNORE] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Exports slices made using guides
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --directory DIRECTORY
+  --image IMAGE
+  --ignore IGNORE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+handles.py,"usage: handles.py [-h] [--output OUTPUT] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Renders the handle lines for the selected curves onto the canvas.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+hershey.py,"usage: hershey.py [-h] [--output OUTPUT] [--id IDS]
+                  [--selected-nodes SELECTED_NODES] [--tab MODE]
+                  [--fontface FONTFACE] [--otherfont OTHERFONT]
+                  [--preserve PRESERVE_TEXT] [--action UTIL_MODE]
+                  [--text SAMPLE_TEXT]
+                  [INPUT_FILE]
+
+An extension for use with Inkscape 1.0
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  --tab MODE            The active tab or mode when Apply was pressed
+  --fontface FONTFACE   The selected font face when Apply was pressed
+  --otherfont OTHERFONT
+                        Optional other font name or path to use
+  --preserve PRESERVE_TEXT
+                        Preserve original text
+  --action UTIL_MODE    The utility option selected
+  --text SAMPLE_TEXT    Text to use for font table"
+hpgl_decoder.py,
+hpgl_encoder.py,
+hpgl_input.py,"usage: hpgl_input.py [-h] [--output OUTPUT] [--resolutionX RESOLUTIONX]
+                     [--resolutionY RESOLUTIONY]
+                     [--showMovements SHOWMOVEMENTS]
+                     [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --resolutionX RESOLUTIONX
+                        Resolution X (dpi)
+  --resolutionY RESOLUTIONY
+                        Resolution Y (dpi)
+  --showMovements SHOWMOVEMENTS
+                        Show Movements between paths"
+hpgl_output.py,"usage: hpgl_output.py [-h] [--output OUTPUT] [--tab TAB]
+                      [--resolutionX RESOLUTIONX] [--resolutionY RESOLUTIONY]
+                      [--pen PEN] [--force FORCE] [--speed SPEED]
+                      [--orientation ORIENTATION] [--mirrorX MIRRORX]
+                      [--mirrorY MIRRORY] [--center CENTER]
+                      [--overcut OVERCUT] [--precut PRECUT] [--flat FLAT]
+                      [--autoAlign AUTOALIGN] [--toolOffset TOOLOFFSET]
+                      [--id IDS] [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Save as HPGL Output
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --resolutionX RESOLUTIONX
+                        Resolution X (dpi)
+  --resolutionY RESOLUTIONY
+                        Resolution Y (dpi)
+  --pen PEN             Pen number
+  --force FORCE         Pen force (g)
+  --speed SPEED         Pen speed (cm/s)
+  --orientation ORIENTATION
+                        Rotation (Clockwise)
+  --mirrorX MIRRORX     Mirror X axis
+  --mirrorY MIRRORY     Mirror Y axis
+  --center CENTER       Center zero point
+  --overcut OVERCUT     Overcut (mm)
+  --precut PRECUT       Use precut
+  --flat FLAT           Curve flatness
+  --autoAlign AUTOALIGN
+                        Auto align
+  --toolOffset TOOLOFFSET
+                        Tool (Knife) offset correction (mm)
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+image_attributes.py,"usage: image_attributes.py [-h] [--output OUTPUT] [--tab_main TAB_MAIN]
+                           [--fix_scaling FIX_SCALING]
+                           [--fix_rendering FIX_RENDERING]
+                           [--aspect_ratio ASPECT_RATIO]
+                           [--aspect_clip ASPECT_CLIP]
+                           [--aspect_ratio_scope ASPECT_RATIO_SCOPE]
+                           [--image_rendering IMAGE_RENDERING]
+                           [--image_rendering_scope IMAGE_RENDERING_SCOPE]
+                           [--id IDS] [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Set attributes in images
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab_main TAB_MAIN
+  --fix_scaling FIX_SCALING
+  --fix_rendering FIX_RENDERING
+  --aspect_ratio ASPECT_RATIO
+                        Value for attribute 'preserveAspectRatio'
+  --aspect_clip ASPECT_CLIP
+                        optional 'meetOrSlice' value
+  --aspect_ratio_scope ASPECT_RATIO_SCOPE
+                        When to edit 'preserveAspectRatio' attribute
+  --image_rendering IMAGE_RENDERING
+                        Value for attribute 'image-rendering'
+  --image_rendering_scope IMAGE_RENDERING_SCOPE
+                        When to edit 'image-rendering' attribute
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+image_embed.py,"usage: image_embed.py [-h] [--output OUTPUT] [--selectedonly SELECTEDONLY]
+                      [--id IDS] [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Allow selected image tags to become embeded image tags
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --selectedonly SELECTEDONLY
+                        embed only selected images
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+image_extract.py,"usage: image_extract.py [-h] [--output OUTPUT] [-s SELECTEDONLY]
+                        [-l LINKEXTRACTED] [--directory DIRECTORY]
+                        [--basename BASENAME] [--filepath FILEPATH] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Extract images and save to filenames
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -s SELECTEDONLY, --selectedonly SELECTEDONLY
+                        Extract only selected images
+  -l LINKEXTRACTED, --linkextracted LINKEXTRACTED
+                        Replace image data with link to image
+  --directory DIRECTORY
+                        Location to save the images. If the directory starts
+                        with ./, the filename is interpreted relative to the
+                        location of the opened file.
+  --basename BASENAME   Optional file name prefix.
+  --filepath FILEPATH   Path to a new file. If given, --basename and
+                        --directory options are ignored.
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+ink2canvas.py,"usage: ink2canvas.py [-h] [--output OUTPUT] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Creates a canvas output
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+inkscape_follow_link.py,"usage: inkscape_follow_link.py [-h] [--output OUTPUT] [--id IDS]
+                               [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+Get the first selected item and follow it's href/url
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+inkwebeffect.py,
+interp.py,"usage: interp.py [-h] [--output OUTPUT] [-e EXPONENT] [-s STEPS] [-m METHOD]
+                 [-d DUP] [--style STYLE] [--zsort ZSORT] [--id IDS]
+                 [--selected-nodes SELECTED_NODES]
+                 [INPUT_FILE]
+
+Interpolate extension
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -e EXPONENT, --exponent EXPONENT
+                        values other than zero give non linear interpolation
+  -s STEPS, --steps STEPS
+                        number of interpolation steps
+  -m METHOD, --method METHOD
+                        method of interpolation
+  -d DUP, --dup DUP     duplicate endpaths
+  --style STYLE         try interpolation of some style properties
+  --zsort ZSORT         use z-order instead of selection order
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+interp_att_g.py,"usage: interp_att_g.py [-h] [--output OUTPUT] [--id IDS]
+                       [--selected-nodes SELECTED_NODES] [-a ATT]
+                       [-o ATT_OTHER] [-t ATT_OTHER_TYPE] [-w ATT_OTHER_WHERE]
+                       [-s START_VAL] [-e END_VAL] [-u UNIT] [--zsort ZSORT]
+                       [--tab TAB]
+                       [INPUT_FILE]
+
+This effect applies a value for any interpolatable attribute for all elements
+inside the selected group or for all elements in a multiple selection.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  -a ATT, --att ATT     Attribute to be interpolated.
+  -o ATT_OTHER, --att-other ATT_OTHER
+                        Other attribute (for a limited UI).
+  -t ATT_OTHER_TYPE, --att-other-type ATT_OTHER_TYPE
+                        The other attribute type.
+  -w ATT_OTHER_WHERE, --att-other-where ATT_OTHER_WHERE
+                        That is a tag attribute or a style attribute?
+  -s START_VAL, --start-val START_VAL
+                        Initial interpolation value.
+  -e END_VAL, --end-val END_VAL
+                        End interpolation value.
+  -u UNIT, --unit UNIT  Values unit.
+  --zsort ZSORT         use z-order instead of selection order
+  --tab TAB             The selected UI-tab when OK was pressed"
+jessyink_autotexts.py,"usage: jessyink_autotexts.py [-h] [--output OUTPUT] [--tab WHAT]
+                             [--autoText AUTOTEXT] [--id IDS]
+                             [--selected-nodes SELECTED_NODES]
+                             [INPUT_FILE]
+
+Add AutoText to jessyInk
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --autoText AUTOTEXT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_effects.py,"usage: jessyink_effects.py [-h] [--output OUTPUT] [--tab TAB]
+                           [--effectInOrder EFFECTINORDER]
+                           [--effectInDuration EFFECTINDURATION]
+                           [--effectIn EFFECTIN]
+                           [--effectOutOrder EFFECTOUTORDER]
+                           [--effectOutDuration EFFECTOUTDURATION]
+                           [--effectOut EFFECTOUT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Add ad effect to jessy ink selected items
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --effectInOrder EFFECTINORDER
+  --effectInDuration EFFECTINDURATION
+  --effectIn EFFECTIN
+  --effectOutOrder EFFECTOUTORDER
+  --effectOutDuration EFFECTOUTDURATION
+  --effectOut EFFECTOUT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_export.py,"usage: jessyink_export.py [-h] [--output OUTPUT] [--tab WHAT] [--type TYPE]
+                          [--resolution RESOLUTION] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+JessyInkExport Output Extension saves to a zipfile each of the layers.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --type TYPE
+  --resolution RESOLUTION
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_install.py,"usage: jessyink_install.py [-h] [--output OUTPUT] [--tab WHAT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Install jessyInk extension into an SVG
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_key_bindings.py,"usage: jessyink_key_bindings.py [-h] [--output OUTPUT] [--tab TAB]
+                                [--slide_export SLIDE_EXPORT]
+                                [--slide_addSlide SLIDE_ADDSLIDE]
+                                [--slide_resetTimer SLIDE_RESETTIMER]
+                                [--slide_setDuration SLIDE_SETDURATION]
+                                [--slide_backWithEffects SLIDE_BACKWITHEFFECTS]
+                                [--slide_nextWithEffects SLIDE_NEXTWITHEFFECTS]
+                                [--slide_backWithoutEffects SLIDE_BACKWITHOUTEFFECTS]
+                                [--slide_nextWithoutEffects SLIDE_NEXTWITHOUTEFFECTS]
+                                [--slide_switchToIndexMode SLIDE_SWITCHTOINDEXMODE]
+                                [--slide_switchToDrawingMode SLIDE_SWITCHTODRAWINGMODE]
+                                [--slide_toggleProgressBar SLIDE_TOGGLEPROGRESSBAR]
+                                [--slide_firstSlide SLIDE_FIRSTSLIDE]
+                                [--slide_lastSlide SLIDE_LASTSLIDE]
+                                [--drawing_undo DRAWING_UNDO]
+                                [--drawing_switchToSlideMode DRAWING_SWITCHTOSLIDEMODE]
+                                [--drawing_pathWidthDefault DRAWING_PATHWIDTHDEFAULT]
+                                [--drawing_pathWidth1 DRAWING_PATHWIDTH1]
+                                [--drawing_pathWidth3 DRAWING_PATHWIDTH3]
+                                [--drawing_pathWidth5 DRAWING_PATHWIDTH5]
+                                [--drawing_pathWidth7 DRAWING_PATHWIDTH7]
+                                [--drawing_pathWidth9 DRAWING_PATHWIDTH9]
+                                [--drawing_pathColourBlue DRAWING_PATHCOLOURBLUE]
+                                [--drawing_pathColourCyan DRAWING_PATHCOLOURCYAN]
+                                [--drawing_pathColourGreen DRAWING_PATHCOLOURGREEN]
+                                [--drawing_pathColourBlack DRAWING_PATHCOLOURBLACK]
+                                [--drawing_pathColourMagenta DRAWING_PATHCOLOURMAGENTA]
+                                [--drawing_pathColourOrange DRAWING_PATHCOLOURORANGE]
+                                [--drawing_pathColourRed DRAWING_PATHCOLOURRED]
+                                [--drawing_pathColourWhite DRAWING_PATHCOLOURWHITE]
+                                [--drawing_pathColourYellow DRAWING_PATHCOLOURYELLOW]
+                                [--index_selectSlideToLeft INDEX_SELECTSLIDETOLEFT]
+                                [--index_selectSlideToRight INDEX_SELECTSLIDETORIGHT]
+                                [--index_selectSlideAbove INDEX_SELECTSLIDEABOVE]
+                                [--index_selectSlideBelow INDEX_SELECTSLIDEBELOW]
+                                [--index_previousPage INDEX_PREVIOUSPAGE]
+                                [--index_nextPage INDEX_NEXTPAGE]
+                                [--index_firstSlide INDEX_FIRSTSLIDE]
+                                [--index_lastSlide INDEX_LASTSLIDE]
+                                [--index_switchToSlideMode INDEX_SWITCHTOSLIDEMODE]
+                                [--index_decreaseNumberOfColumns INDEX_DECREASENUMBEROFCOLUMNS]
+                                [--index_increaseNumberOfColumns INDEX_INCREASENUMBEROFCOLUMNS]
+                                [--index_setNumberOfColumnsToDefault INDEX_SETNUMBEROFCOLUMNSTODEFAULT]
+                                [--id IDS] [--selected-nodes SELECTED_NODES]
+                                [INPUT_FILE]
+
+Add key bindings to slide show
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --slide_export SLIDE_EXPORT
+  --slide_addSlide SLIDE_ADDSLIDE
+  --slide_resetTimer SLIDE_RESETTIMER
+  --slide_setDuration SLIDE_SETDURATION
+  --slide_backWithEffects SLIDE_BACKWITHEFFECTS
+  --slide_nextWithEffects SLIDE_NEXTWITHEFFECTS
+  --slide_backWithoutEffects SLIDE_BACKWITHOUTEFFECTS
+  --slide_nextWithoutEffects SLIDE_NEXTWITHOUTEFFECTS
+  --slide_switchToIndexMode SLIDE_SWITCHTOINDEXMODE
+  --slide_switchToDrawingMode SLIDE_SWITCHTODRAWINGMODE
+  --slide_toggleProgressBar SLIDE_TOGGLEPROGRESSBAR
+  --slide_firstSlide SLIDE_FIRSTSLIDE
+  --slide_lastSlide SLIDE_LASTSLIDE
+  --drawing_undo DRAWING_UNDO
+  --drawing_switchToSlideMode DRAWING_SWITCHTOSLIDEMODE
+  --drawing_pathWidthDefault DRAWING_PATHWIDTHDEFAULT
+  --drawing_pathWidth1 DRAWING_PATHWIDTH1
+  --drawing_pathWidth3 DRAWING_PATHWIDTH3
+  --drawing_pathWidth5 DRAWING_PATHWIDTH5
+  --drawing_pathWidth7 DRAWING_PATHWIDTH7
+  --drawing_pathWidth9 DRAWING_PATHWIDTH9
+  --drawing_pathColourBlue DRAWING_PATHCOLOURBLUE
+  --drawing_pathColourCyan DRAWING_PATHCOLOURCYAN
+  --drawing_pathColourGreen DRAWING_PATHCOLOURGREEN
+  --drawing_pathColourBlack DRAWING_PATHCOLOURBLACK
+  --drawing_pathColourMagenta DRAWING_PATHCOLOURMAGENTA
+  --drawing_pathColourOrange DRAWING_PATHCOLOURORANGE
+  --drawing_pathColourRed DRAWING_PATHCOLOURRED
+  --drawing_pathColourWhite DRAWING_PATHCOLOURWHITE
+  --drawing_pathColourYellow DRAWING_PATHCOLOURYELLOW
+  --index_selectSlideToLeft INDEX_SELECTSLIDETOLEFT
+  --index_selectSlideToRight INDEX_SELECTSLIDETORIGHT
+  --index_selectSlideAbove INDEX_SELECTSLIDEABOVE
+  --index_selectSlideBelow INDEX_SELECTSLIDEBELOW
+  --index_previousPage INDEX_PREVIOUSPAGE
+  --index_nextPage INDEX_NEXTPAGE
+  --index_firstSlide INDEX_FIRSTSLIDE
+  --index_lastSlide INDEX_LASTSLIDE
+  --index_switchToSlideMode INDEX_SWITCHTOSLIDEMODE
+  --index_decreaseNumberOfColumns INDEX_DECREASENUMBEROFCOLUMNS
+  --index_increaseNumberOfColumns INDEX_INCREASENUMBEROFCOLUMNS
+  --index_setNumberOfColumnsToDefault INDEX_SETNUMBEROFCOLUMNSTODEFAULT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_master_slide.py,"usage: jessyink_master_slide.py [-h] [--output OUTPUT] [--tab TAB]
+                                [--layerName LAYERNAME] [--id IDS]
+                                [--selected-nodes SELECTED_NODES]
+                                [INPUT_FILE]
+
+Effect Extension for master slide
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --layerName LAYERNAME
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_mouse_handler.py,"usage: jessyink_mouse_handler.py [-h] [--output OUTPUT] [--tab TAB]
+                                 [--mouseSetting MOUSESETTING] [--id IDS]
+                                 [--selected-nodes SELECTED_NODES]
+                                 [INPUT_FILE]
+
+Add mouse handler
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --mouseSetting MOUSESETTING
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_summary.py,"usage: jessyink_summary.py [-h] [--output OUTPUT] [--tab TAB] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Print of jessyInk summary
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_transitions.py,"usage: jessyink_transitions.py [-h] [--output OUTPUT] [--tab WHAT]
+                               [--layerName LAYERNAME] [--effectIn EFFECTIN]
+                               [--effectOut EFFECTOUT]
+                               [--effectInDuration EFFECTINDURATION]
+                               [--effectOutDuration EFFECTOUTDURATION]
+                               [--id IDS] [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+Add transition to later
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --layerName LAYERNAME
+  --effectIn EFFECTIN
+  --effectOut EFFECTOUT
+  --effectInDuration EFFECTINDURATION
+  --effectOutDuration EFFECTOUTDURATION
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_uninstall.py,"usage: jessyink_uninstall.py [-h] [--output OUTPUT] [--tab TAB]
+                             [--remove_script REMOVE_SCRIPT]
+                             [--remove_effects REMOVE_EFFECTS]
+                             [--remove_masterSlide REMOVE_MASTERSLIDE]
+                             [--remove_transitions REMOVE_TRANSITIONS]
+                             [--remove_autoTexts REMOVE_AUTOTEXTS]
+                             [--remove_views REMOVE_VIEWS] [--id IDS]
+                             [--selected-nodes SELECTED_NODES]
+                             [INPUT_FILE]
+
+Uninstall jessyInk from this svg
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --remove_script REMOVE_SCRIPT
+  --remove_effects REMOVE_EFFECTS
+  --remove_masterSlide REMOVE_MASTERSLIDE
+  --remove_transitions REMOVE_TRANSITIONS
+  --remove_autoTexts REMOVE_AUTOTEXTS
+  --remove_views REMOVE_VIEWS
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_video.py,"usage: jessyink_video.py [-h] [--output OUTPUT] [--tab WHAT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Add jessyink video
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jessyink_view.py,"usage: jessyink_view.py [-h] [--output OUTPUT] [--tab WHAT]
+                        [--viewOrder VIEWORDER] [--viewDuration VIEWDURATION]
+                        [--removeView REMOVEVIEW] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Assign jessyInk views to objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab WHAT
+  --viewOrder VIEWORDER
+  --viewDuration VIEWDURATION
+  --removeView REMOVEVIEW
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+jitternodes.py,"usage: jitternodes.py [-h] [--output OUTPUT] [--tab TAB] [--radiusx RADIUSX]
+                      [--radiusy RADIUSY] [--ctrl CTRL] [--end END]
+                      [--dist DIST] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Jiggle nodes around
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --radiusx RADIUSX     Randum radius X
+  --radiusy RADIUSY     Randum radius Y
+  --ctrl CTRL           Randomize ctrl points
+  --end END             Randomize nodes
+  --dist DIST           Distribution of displacement
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+layer2png.py,"usage: layer2png.py [-h] [--output OUTPUT] [--tab TAB] [--directory DIRECTORY]
+                    [--layer LAYER] [--iconmode ICONMODE] [--sizes SIZES]
+                    [--overwrite OVERWRITE] [--dpi DPI] [--id IDS]
+                    [--selected-nodes SELECTED_NODES]
+                    [INPUT_FILE]
+
+Exports all rectangles in the current layer
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --directory DIRECTORY
+                        Existing destination directory
+  --layer LAYER         Layer with slices (rects) in it
+  --iconmode ICONMODE   Icon export mode
+  --sizes SIZES         sizes to export comma separated
+  --overwrite OVERWRITE
+                        Overwrite existing exports?
+  --dpi DPI             Dots per inch (300 default)
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+layers2svgfont.py,"usage: layers2svgfont.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Convert layers to an svg font
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+layout_nup.py,"usage: layout_nup.py [-h] [--output OUTPUT] [--unit UNIT] [--rows ROWS]
+                     [--cols COLS] [--paddingTop PADDINGTOP]
+                     [--paddingBottom PADDINGBOTTOM]
+                     [--paddingLeft PADDINGLEFT] [--paddingRight PADDINGRIGHT]
+                     [--marginTop MARGINTOP] [--marginBottom MARGINBOTTOM]
+                     [--marginLeft MARGINLEFT] [--marginRight MARGINRIGHT]
+                     [--pgMarginTop PGMARGINTOP]
+                     [--pgMarginBottom PGMARGINBOTTOM]
+                     [--pgMarginLeft PGMARGINLEFT]
+                     [--pgMarginRight PGMARGINRIGHT] [--pgSizeX PGSIZEX]
+                     [--pgSizeY PGSIZEY] [--sizeX SIZEX] [--sizeY SIZEY]
+                     [--calculateSize CALCULATESIZE] [--showHolder SHOWHOLDER]
+                     [--showCrosses SHOWCROSSES] [--showInner SHOWINNER]
+                     [--showOuter SHOWOUTER] [--showInnerBox SHOWINNERBOX]
+                     [--showOuterBox SHOWOUTERBOX] [--tab TAB] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+N-up Layout generator
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --unit UNIT
+  --rows ROWS
+  --cols COLS
+  --paddingTop PADDINGTOP
+  --paddingBottom PADDINGBOTTOM
+  --paddingLeft PADDINGLEFT
+  --paddingRight PADDINGRIGHT
+  --marginTop MARGINTOP
+  --marginBottom MARGINBOTTOM
+  --marginLeft MARGINLEFT
+  --marginRight MARGINRIGHT
+  --pgMarginTop PGMARGINTOP
+  --pgMarginBottom PGMARGINBOTTOM
+  --pgMarginLeft PGMARGINLEFT
+  --pgMarginRight PGMARGINRIGHT
+  --pgSizeX PGSIZEX
+  --pgSizeY PGSIZEY
+  --sizeX SIZEX
+  --sizeY SIZEY
+  --calculateSize CALCULATESIZE
+  --showHolder SHOWHOLDER
+  --showCrosses SHOWCROSSES
+  --showInner SHOWINNER
+  --showOuter SHOWOUTER
+  --showInnerBox SHOWINNERBOX
+  --showOuterBox SHOWOUTERBOX
+  --tab TAB
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+lindenmayer.py,"usage: lindenmayer.py [-h] [--output OUTPUT] [--tab TAB] [--order ORDER]
+                      [--langle LANGLE] [--rangle RANGLE] [--step STEP]
+                      [--randomizestep RANDOMIZESTEP]
+                      [--randomizeangle RANDOMIZEANGLE] [--axiom AXIOM]
+                      [--rules RULES] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --order ORDER         number of iteration
+  --langle LANGLE       angle for turning left
+  --rangle RANGLE       angle for turning right
+  --step STEP           step size
+  --randomizestep RANDOMIZESTEP
+                        randomize step
+  --randomizeangle RANDOMIZEANGLE
+                        randomize angle
+  --axiom AXIOM         initial state of system
+  --rules RULES         replacement rules
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+lorem_ipsum.py,"usage: lorem_ipsum.py [-h] [--output OUTPUT] [--num NUM] [-c SENTENCECOUNT]
+                      [-f FLUCTUATION] [--tab TAB] [--svg2 SVG2] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Generate text with psuedo latin content
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --num NUM             Number of paragraphs to generate
+  -c SENTENCECOUNT, --sentencecount SENTENCECOUNT
+                        Number of Sentences
+  -f FLUCTUATION, --fluctuation FLUCTUATION
+                        +/-
+  --tab TAB             The selected UI-tab when OK was pressed
+  --svg2 SVG2           Use SVG2 flowed text
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+markers_strokepaint.py,"usage: markers_strokepaint.py [-h] [--output OUTPUT] [--modify MODIFY]
+                              [--type FILL_TYPE] [--alpha ASSIGN_ALPHA]
+                              [--invert INVERT] [--assign_fill ASSIGN_FILL]
+                              [--fill_color FILL_COLOR]
+                              [--assign_stroke ASSIGN_STROKE]
+                              [--stroke_color STROKE_COLOR] [--tab TAB]
+                              [--colortab COLORTAB] [--id IDS]
+                              [--selected-nodes SELECTED_NODES]
+                              [INPUT_FILE]
+
+Add marker stroke to outline markers on selected objects.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --modify MODIFY       Do not create a copy, modify the markers
+  --type FILL_TYPE      Replace the markers' fill with the object stroke or
+                        fill color
+  --alpha ASSIGN_ALPHA  Assign the object fill and stroke alpha to the markers
+  --invert INVERT       Invert fill and stroke colors
+  --assign_fill ASSIGN_FILL
+                        Assign a fill color to the markers
+  --fill_color FILL_COLOR
+                        Choose a custom fill color
+  --assign_stroke ASSIGN_STROKE
+                        Assign a stroke color to the markers
+  --stroke_color STROKE_COLOR
+                        Choose a custom fill color
+  --tab TAB             The selected UI-tab when OK was pressed
+  --colortab COLORTAB   The selected custom color tab when OK was pressed
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+measure.py,"usage: measure.py [-h] [--output OUTPUT] [--type MTYPE] [--method METHOD]
+                  [--presetFormat PRESETFORMAT] [--startOffset STARTOFFSET]
+                  [--startOffsetCustom STARTOFFSETCUSTOM] [--anchor ANCHOR]
+                  [--position POSITION] [--angle ANGLE] [-f FONTSIZE]
+                  [-o OFFSET] [-u UNIT] [-p PRECISION] [-s SCALE] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Measure the length of selected paths
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --type MTYPE          Type of measurement
+  --method METHOD       Text Orientation method
+  --presetFormat PRESETFORMAT
+                        Preset text layout
+  --startOffset STARTOFFSET
+                        Text Offset along Path
+  --startOffsetCustom STARTOFFSETCUSTOM
+                        Text Offset along Path
+  --anchor ANCHOR       Text Anchor
+  --position POSITION   Text Position
+  --angle ANGLE         Angle
+  -f FONTSIZE, --fontsize FONTSIZE
+                        Size of length label text in px
+  -o OFFSET, --offset OFFSET
+                        The distance above the curve
+  -u UNIT, --unit UNIT  The unit of the measurement
+  -p PRECISION, --precision PRECISION
+                        Number of significant digits after decimal point
+  -s SCALE, --scale SCALE
+                        Scale Factor (Drawing:Real Length)
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+media_zip.py,"usage: media_zip.py [-h] [--output OUTPUT] [--image_dir IMAGE_DIR]
+                    [--font_list FONT_LIST] [--id IDS]
+                    [--selected-nodes SELECTED_NODES]
+                    [INPUT_FILE]
+
+Output a compressed file
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --image_dir IMAGE_DIR
+                        Image directory
+  --font_list FONT_LIST
+                        Add font list
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+merge_styles.py,"usage: merge_styles.py [-h] [--output OUTPUT] [-n NAME] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Merge any styles which are the same for CSS
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -n NAME, --name NAME  Name of selected element's common class
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+motion.py,"usage: motion.py [-h] [--output OUTPUT] [-a ANGLE] [-m MAGNITUDE]
+                 [-f FILLWITHSTROKE] [--id IDS]
+                 [--selected-nodes SELECTED_NODES]
+                 [INPUT_FILE]
+
+Generate a motion path
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -a ANGLE, --angle ANGLE
+                        direction of the motion vector
+  -m MAGNITUDE, --magnitude MAGNITUDE
+                        magnitude of the motion vector
+  -f FILLWITHSTROKE, --fillwithstroke FILLWITHSTROKE
+                        fill shadow with stroke color if set
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+new_glyph_layer.py,"usage: new_glyph_layer.py [-h] [--output OUTPUT] [--text TEXT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --text TEXT           Unicode chars
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+next_glyph_layer.py,"usage: next_glyph_layer.py [-h] [--output OUTPUT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Show the next glyph layer
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+nicechart.py,"usage: nicechart.py [-h] [--output OUTPUT] [--tab TAB] [--encoding ENCODING]
+                    [-w WHAT] [-t TYPE] [-b BLUR] [-f FILENAME]
+                    [-i INPUT_TYPE] [-d DELIMITER] [-c COLORS]
+                    [--colors_override COLORS_OVERRIDE]
+                    [--reverse_colors REVERSE_COLORS] [-k COL_KEY]
+                    [-v COL_VAL] [--headings HEADINGS] [-r ROTATE]
+                    [-W BAR_WIDTH] [-p PIE_RADIUS] [-H BAR_HEIGHT]
+                    [-O BAR_OFFSET] [--stroke-width STROKE_WIDTH]
+                    [-o TEXT_OFFSET] [--heading-offset HEADING_OFFSET]
+                    [--segment-overlap SEGMENT_OVERLAP] [-F FONT]
+                    [-S FONT_SIZE] [-C FONT_COLOR] [-V SHOW_VALUES] [--id IDS]
+                    [--selected-nodes SELECTED_NODES]
+                    [INPUT_FILE]
+
+Inkscape extension that can draw pie charts and bar charts (stacked, single,
+horizontally or vertically) with optional drop shadow, from a csv file or from
+pasted text
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --encoding ENCODING
+  -w WHAT, --what WHAT  Chart Values
+  -t TYPE, --type TYPE  Chart Type
+  -b BLUR, --blur BLUR  Blur Type
+  -f FILENAME, --filename FILENAME
+                        Name of File
+  -i INPUT_TYPE, --input_type INPUT_TYPE
+                        Chart Type
+  -d DELIMITER, --delimiter DELIMITER
+                        delimiter
+  -c COLORS, --colors COLORS
+                        color-scheme
+  --colors_override COLORS_OVERRIDE
+                        color-scheme-override
+  --reverse_colors REVERSE_COLORS
+                        reverse color-scheme
+  -k COL_KEY, --col_key COL_KEY
+                        column that contains the keys
+  -v COL_VAL, --col_val COL_VAL
+                        column that contains the values
+  --headings HEADINGS   first line of the CSV file consists of headings for
+                        the columns
+  -r ROTATE, --rotate ROTATE
+                        Draw barchart horizontally
+  -W BAR_WIDTH, --bar-width BAR_WIDTH
+                        width of bars
+  -p PIE_RADIUS, --pie-radius PIE_RADIUS
+                        radius of pie-charts
+  -H BAR_HEIGHT, --bar-height BAR_HEIGHT
+                        height of bars
+  -O BAR_OFFSET, --bar-offset BAR_OFFSET
+                        distance between bars
+  --stroke-width STROKE_WIDTH
+  -o TEXT_OFFSET, --text-offset TEXT_OFFSET
+                        distance between bar and descriptions
+  --heading-offset HEADING_OFFSET
+                        distance between chart and chart title
+  --segment-overlap SEGMENT_OVERLAP
+                        Remove aliasing effects by letting pie chart segments
+                        overlap
+  -F FONT, --font FONT  font of description
+  -S FONT_SIZE, --font-size FONT_SIZE
+                        font size of description
+  -C FONT_COLOR, --font-color FONT_COLOR
+                        font color of description
+  -V SHOW_VALUES, --show_values SHOW_VALUES
+                        Show values in chart
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+output_scour.py,"usage: output_scour.py [-h] [--output OUTPUT] [--tab TAB]
+                       [--simplify-colors SIMPLE_COLORS]
+                       [--style-to-xml STYLE_TO_XML]
+                       [--group-collapsing GROUP_COLLAPSE]
+                       [--create-groups GROUP_CREATE]
+                       [--enable-id-stripping STRIP_IDS]
+                       [--shorten-ids SHORTEN_IDS]
+                       [--shorten-ids-prefix SHORTEN_IDS_PREFIX]
+                       [--embed-rasters EMBED_RASTERS]
+                       [--keep-unreferenced-defs KEEP_DEFS]
+                       [--keep-editor-data KEEP_EDITOR_DATA]
+                       [--remove-metadata REMOVE_METADATA]
+                       [--strip-xml-prolog STRIP_XML_PROLOG]
+                       [--set-precision DIGITS] [--indent INDENT_TYPE]
+                       [--nindent INDENT_DEPTH] [--line-breaks NEWLINES]
+                       [--strip-xml-space STRIP_XML_SPACE_ATTRIBUTE]
+                       [--protect-ids-noninkscape PROTECT_IDS_NONINKSCAPE]
+                       [--protect-ids-list PROTECT_IDS_LIST]
+                       [--protect-ids-prefix PROTECT_IDS_PREFIX]
+                       [--enable-viewboxing ENABLE_VIEWBOXING]
+                       [--enable-comment-stripping STRIP_COMMENTS]
+                       [--renderer-workaround RENDERER_WORKAROUND]
+                       [--scour-version SCOUR_VERSION]
+                       [--scour-version-warn-old SCOUR_VERSION_WARN_OLD]
+                       [--id IDS] [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Scour Inkscape Extension
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --simplify-colors SIMPLE_COLORS
+  --style-to-xml STYLE_TO_XML
+  --group-collapsing GROUP_COLLAPSE
+  --create-groups GROUP_CREATE
+  --enable-id-stripping STRIP_IDS
+  --shorten-ids SHORTEN_IDS
+  --shorten-ids-prefix SHORTEN_IDS_PREFIX
+  --embed-rasters EMBED_RASTERS
+  --keep-unreferenced-defs KEEP_DEFS
+  --keep-editor-data KEEP_EDITOR_DATA
+  --remove-metadata REMOVE_METADATA
+  --strip-xml-prolog STRIP_XML_PROLOG
+  --set-precision DIGITS
+  --indent INDENT_TYPE
+  --nindent INDENT_DEPTH
+  --line-breaks NEWLINES
+  --strip-xml-space STRIP_XML_SPACE_ATTRIBUTE
+  --protect-ids-noninkscape PROTECT_IDS_NONINKSCAPE
+  --protect-ids-list PROTECT_IDS_LIST
+  --protect-ids-prefix PROTECT_IDS_PREFIX
+  --enable-viewboxing ENABLE_VIEWBOXING
+  --enable-comment-stripping STRIP_COMMENTS
+  --renderer-workaround RENDERER_WORKAROUND
+  --scour-version SCOUR_VERSION
+  --scour-version-warn-old SCOUR_VERSION_WARN_OLD
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+param_curves.py,"usage: param_curves.py [-h] [--output OUTPUT] [--t_start T_START]
+                       [--t_end T_END] [--times2pi TIMES2PI] [--xleft XLEFT]
+                       [--xright XRIGHT] [--ybottom YBOTTOM] [--ytop YTOP]
+                       [-s SAMPLES] [--fofx FOFX] [--fofy FOFY]
+                       [--remove REMOVE] [--isoscale ISOSCALE]
+                       [--drawaxis DRAWAXIS] [--tab TAB] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --t_start T_START     Start t-value
+  --t_end T_END         End t-value
+  --times2pi TIMES2PI   Multiply t-range by 2*pi
+  --xleft XLEFT         x-value of left
+  --xright XRIGHT       x-value of right
+  --ybottom YBOTTOM     y-value of bottom
+  --ytop YTOP           y-value of top
+  -s SAMPLES, --samples SAMPLES
+                        Samples
+  --fofx FOFX           fx(t) for plotting
+  --fofy FOFY           fy(t) for plotting
+  --remove REMOVE       Remove rectangle
+  --isoscale ISOSCALE   Isotropic scaling
+  --drawaxis DRAWAXIS
+  --tab TAB
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+path_envelope.py,"usage: path_envelope.py [-h] [--output OUTPUT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Distort a path/group of paths to a second path
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+path_mesh_m2p.py,"usage: path_mesh_m2p.py [-h] [--output OUTPUT] [--tab TAB] [--mode MODE]
+                        [--id IDS] [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Effect extension to convert mesh geometry to path data.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB             The selected UI-tab
+  --mode MODE           Edge mode
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+path_mesh_p2m.py,"usage: path_mesh_p2m.py [-h] [--output OUTPUT] [--tab TAB] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Convert path data to mesh geometry.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB             The selected UI-tab
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+path_number_nodes.py,"usage: path_number_nodes.py [-h] [--output OUTPUT] [--dotsize DOTSIZE]
+                            [--fontsize FONTSIZE] [--start START]
+                            [--step STEP] [--tab TAB] [--id IDS]
+                            [--selected-nodes SELECTED_NODES]
+                            [INPUT_FILE]
+
+Replace the selection's nodes with numbered dots according to the options
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --dotsize DOTSIZE     Size of the dots on the path nodes
+  --fontsize FONTSIZE   Size of node labels
+  --start START         First number in the sequence
+  --step STEP           Numbering step between two nodes
+  --tab TAB             The selected UI-tab when OK was pressed
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+path_to_absolute.py,"usage: path_to_absolute.py [-h] [--output OUTPUT] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Convert any selected object to absolute/object-to-path/bezier only paths
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+pathalongpath.py,"usage: pathalongpath.py [-h] [--output OUTPUT] [-n NOFFSET] [-t TOFFSET]
+                        [-k KIND] [-c COPYMODE] [-p SPACE] [-v VERTICAL]
+                        [-d DUPLICATE] [--tab TAB] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Deform a path along a second path
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -n NOFFSET, --noffset NOFFSET
+                        normal offset
+  -t TOFFSET, --toffset TOFFSET
+                        tangential offset
+  -k KIND, --kind KIND
+  -c COPYMODE, --copymode COPYMODE
+                        repeat the path to fit deformer's length
+  -p SPACE, --space SPACE
+  -v VERTICAL, --vertical VERTICAL
+                        reference path is vertical
+  -d DUPLICATE, --duplicate DUPLICATE
+                        duplicate pattern before deformation
+  --tab TAB             The selected UI-tab when OK was pressed
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+pathmodifier.py,
+pathscatter.py,"usage: pathscatter.py [-h] [--output OUTPUT] [--id IDS]
+                      [--selected-nodes SELECTED_NODES] [-n NOFFSET]
+                      [-t TOFFSET] [-g GROUPPICK] [-m PICKMODE] [-f FOLLOW]
+                      [-s STRETCH] [-p SPACE] [-r VERTICAL] [-c COPYMODE]
+                      [--tab TAB]
+                      [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  -n NOFFSET, --noffset NOFFSET
+                        normal offset
+  -t TOFFSET, --toffset TOFFSET
+                        tangential offset
+  -g GROUPPICK, --grouppick GROUPPICK
+                        if pattern is a group then randomly pick group members
+  -m PICKMODE, --pickmode PICKMODE
+                        group pick mode (rand=random seq=sequentially)
+  -f FOLLOW, --follow FOLLOW
+                        choose between wave or snake effect
+  -s STRETCH, --stretch STRETCH
+                        repeat the path to fit deformer's length
+  -p SPACE, --space SPACE
+  -r VERTICAL, --rotate VERTICAL
+                        reference path is vertical
+  -c COPYMODE, --copymode COPYMODE
+                        How the pattern is duplicated. Default: 'move',
+                        Options: 'clone', 'duplicate', 'move'
+  --tab TAB             The selected UI-tab when OK was pressed"
+pdflatex.py,"usage: pdflatex.py [-h] [--output OUTPUT] [--formule FORMULE]
+                   [--preamble PREAMBLE] [--font_size FONT_SIZE]
+                   [--page {basic,advanced}] [--standalone STANDALONE]
+                   [--id IDS] [--selected-nodes SELECTED_NODES]
+                   [INPUT_FILE]
+
+Use pdflatex to generate LaTeX, this whole hack is required because we don't
+want to open a LaTeX document as a document, but as a generated fragment (like
+import, but done manually).
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --formule FORMULE
+  --preamble PREAMBLE
+  --font_size FONT_SIZE
+  --page {basic,advanced}
+  --standalone STANDALONE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+perfectboundcover.py,"usage: perfectboundcover.py [-h] [--output OUTPUT] [--width WIDTH]
+                            [--height HEIGHT] [--pages PAGES]
+                            [--paperthicknessmeasurement PAPERTHICKNESSMEASUREMENT]
+                            [--paperthickness PAPERTHICKNESS]
+                            [--coverthicknessmeasurement COVERTHICKNESSMEASUREMENT]
+                            [--coverthickness COVERTHICKNESS] [--bleed BLEED]
+                            [--removeguides REMOVEGUIDES] [--id IDS]
+                            [--selected-nodes SELECTED_NODES]
+                            [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --width WIDTH         cover width (in)
+  --height HEIGHT       cover height (in)
+  --pages PAGES         number of pages
+  --paperthicknessmeasurement PAPERTHICKNESSMEASUREMENT
+                        Measurement for determining the thickness of the
+                        spine. Options: 'ppi': pages per inch; 'caliper':
+                        caliper (inches); 'points': caliper in points (1/1000
+                        in); 'bond_weight': Bond (pounds); 'width': absolute
+                        width of spine (in)
+  --paperthickness PAPERTHICKNESS
+                        paper thickness
+  --coverthicknessmeasurement COVERTHICKNESSMEASUREMENT
+                        Measurement for determining the thickness of the
+                        cover. For available options, see
+                        --paperthicknessmeasurement
+  --coverthickness COVERTHICKNESS
+                        cover thickness
+  --bleed BLEED         cover bleed (in)
+  --removeguides REMOVEGUIDES
+                        remove guide
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+perspective.py,"usage: perspective.py [-h] [--output OUTPUT] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Apply a perspective to a path/group of paths
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+pixelsnap.py,
+plotter.py,"usage: plotter.py [-h] [--output OUTPUT] [--tab TAB]
+                  [--parallelPort PARALLELPORT] [--serialPort SERIALPORT]
+                  [--serialBaudRate SERIALBAUDRATE]
+                  [--serialByteSize SERIALBYTESIZE]
+                  [--serialStopBits SERIALSTOPBITS]
+                  [--serialParity SERIALPARITY]
+                  [--serialFlowControl SERIALFLOWCONTROL]
+                  [--resolutionX RESOLUTIONX] [--resolutionY RESOLUTIONY]
+                  [--pen PEN] [--force FORCE] [--speed SPEED]
+                  [--orientation ORIENTATION] [--mirrorX MIRRORX]
+                  [--mirrorY MIRRORY] [--center CENTER] [--overcut OVERCUT]
+                  [--precut PRECUT] [--flat FLAT] [--autoAlign AUTOALIGN]
+                  [--toolOffset TOOLOFFSET] [--portType TO_PORT]
+                  [--commandLanguage TO_LANGUAGE] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Generate a plot in HPGL output
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --parallelPort PARALLELPORT
+                        Parallel port
+  --serialPort SERIALPORT
+                        Serial port
+  --serialBaudRate SERIALBAUDRATE
+                        Serial Baud rate
+  --serialByteSize SERIALBYTESIZE
+                        Serial byte size
+  --serialStopBits SERIALSTOPBITS
+                        Serial stop bits
+  --serialParity SERIALPARITY
+                        Serial parity
+  --serialFlowControl SERIALFLOWCONTROL
+                        Flow control
+  --resolutionX RESOLUTIONX
+                        Resolution X (dpi)
+  --resolutionY RESOLUTIONY
+                        Resolution Y (dpi)
+  --pen PEN             Pen number
+  --force FORCE         Pen force (g)
+  --speed SPEED         Pen speed (cm/s)
+  --orientation ORIENTATION
+                        Rotation (Clockwise)
+  --mirrorX MIRRORX     Mirror X axis
+  --mirrorY MIRRORY     Mirror Y axis
+  --center CENTER       Center zero point
+  --overcut OVERCUT     Overcut (mm)
+  --precut PRECUT       Use precut
+  --flat FLAT           Curve flatness
+  --autoAlign AUTOALIGN
+                        Auto align
+  --toolOffset TOOLOFFSET
+                        Tool (Knife) offset correction (mm)
+  --portType TO_PORT    Port type
+  --commandLanguage TO_LANGUAGE
+                        Command Language Filter
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+polyhedron_3d.py,"usage: polyhedron_3d.py [-h] [--output OUTPUT] [--tab TAB] [--obj OBJ]
+                        [--spec_file SPEC_FILE] [--cw_wound CW_WOUND]
+                        [--type TYPE] [--r1_ax R1_AX] [--r2_ax R2_AX]
+                        [--r3_ax R3_AX] [--r4_ax R4_AX] [--r5_ax R5_AX]
+                        [--r6_ax R6_AX] [--r1_ang R1_ANG] [--r2_ang R2_ANG]
+                        [--r3_ang R3_ANG] [--r4_ang R4_ANG] [--r5_ang R5_ANG]
+                        [--r6_ang R6_ANG] [--scl SCL] [--show SHOW]
+                        [--shade SHADE] [--f_r F_R] [--f_g F_G] [--f_b F_B]
+                        [--f_opac F_OPAC] [--s_opac S_OPAC] [--th TH]
+                        [--lv_x LV_X] [--lv_y LV_Y] [--lv_z LV_Z]
+                        [--back BACK] [--z_sort Z_SORT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Generate a polyhedron from a wavefront 3d model file
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --obj OBJ
+  --spec_file SPEC_FILE
+  --cw_wound CW_WOUND
+  --type TYPE
+  --r1_ax R1_AX
+  --r2_ax R2_AX
+  --r3_ax R3_AX
+  --r4_ax R4_AX
+  --r5_ax R5_AX
+  --r6_ax R6_AX
+  --r1_ang R1_ANG
+  --r2_ang R2_ANG
+  --r3_ang R3_ANG
+  --r4_ang R4_ANG
+  --r5_ang R5_ANG
+  --r6_ang R6_ANG
+  --scl SCL
+  --show SHOW
+  --shade SHADE
+  --f_r F_R
+  --f_g F_G
+  --f_b F_B
+  --f_opac F_OPAC
+  --s_opac S_OPAC
+  --th TH
+  --lv_x LV_X
+  --lv_y LV_Y
+  --lv_z LV_Z
+  --back BACK
+  --z_sort Z_SORT
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+prepare_file_save_as.py,"usage: prepare_file_save_as.py [-h] [--output OUTPUT] [--id IDS]
+                               [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+previous_glyph_layer.py,"usage: previous_glyph_layer.py [-h] [--output OUTPUT] [--id IDS]
+                               [--selected-nodes SELECTED_NODES]
+                               [INPUT_FILE]
+
+Like next glyph layer, but for the previous
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+print_win32_vector.py,"usage: print_win32_vector.py [-h] [--output OUTPUT] [--id IDS]
+                             [--selected-nodes SELECTED_NODES]
+                             [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+printing_marks.py,"usage: printing_marks.py [-h] [--output OUTPUT] [--where WHERE]
+                         [--crop_marks CROP_MARKS] [--bleed_marks BLEED_MARKS]
+                         [--registration_marks REG_MARKS]
+                         [--star_target STAR_TARGET]
+                         [--colour_bars COLOUR_BARS] [--page_info PAGE_INFO]
+                         [--unit UNIT] [--crop_offset CROP_OFFSET]
+                         [--bleed_top BLEED_TOP] [--bleed_bottom BLEED_BOTTOM]
+                         [--bleed_left BLEED_LEFT] [--bleed_right BLEED_RIGHT]
+                         [--tab TAB] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --where WHERE         Apply crop marks to...
+  --crop_marks CROP_MARKS
+                        Draw crop Marks
+  --bleed_marks BLEED_MARKS
+                        Draw Bleed Marks
+  --registration_marks REG_MARKS
+                        Draw Registration Marks?
+  --star_target STAR_TARGET
+                        Draw Star Target?
+  --colour_bars COLOUR_BARS
+                        Draw Colour Bars?
+  --page_info PAGE_INFO
+                        Draw Page Information?
+  --unit UNIT           Draw measurement
+  --crop_offset CROP_OFFSET
+                        Offset
+  --bleed_top BLEED_TOP
+                        Bleed Top Size
+  --bleed_bottom BLEED_BOTTOM
+                        Bleed Bottom Size
+  --bleed_left BLEED_LEFT
+                        Bleed Left Size
+  --bleed_right BLEED_RIGHT
+                        Bleed Right Size
+  --tab TAB             The selected UI-tab when OK was pressed
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+ps_input.py,"usage: ps_input.py [-h] [--output OUTPUT] [--crop CROP]
+                   [--autorotate {None,PageByPage,All}]
+                   [INPUT_FILE]
+
+Load Postscript/EPS Files by calling ps2pdf program
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --crop CROP
+  --autorotate {None,PageByPage,All}"
+raster_output_jpg.py,"usage: raster_output_jpg.py [-h] [--output OUTPUT] [--tab TAB]
+                            [--quality QUALITY] [--progressive PROGRESSIVE]
+                            [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --quality QUALITY
+  --progressive PROGRESSIVE"
+raster_output_png.py,"usage: raster_output_png.py [-h] [--output OUTPUT] [--tab TAB]
+                            [--interlace INTERLACE] [--level LEVEL]
+                            [--bitdepth BITDEPTH] [--color COLOR]
+                            [--palette PALETTE]
+                            [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --interlace INTERLACE
+  --level LEVEL
+  --bitdepth BITDEPTH
+  --color COLOR
+  --palette PALETTE"
+raster_output_tiff.py,"usage: raster_output_tiff.py [-h] [--output OUTPUT] [--tab TAB]
+                             [--compression COMPRESSION] [--quality QUALITY]
+                             [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --compression COMPRESSION
+  --quality QUALITY"
+raster_output_webp.py,"usage: raster_output_webp.py [-h] [--output OUTPUT] [--tab TAB]
+                             [--quality QUALITY] [--speed SPEED]
+                             [--lossless LOSSLESS]
+                             [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE           Filename of the input file (default is stdin)
+
+options:
+  -h, --help           show this help message and exit
+  --output OUTPUT      Optional output filename for saving the result (default
+                       is stdout).
+  --tab TAB
+  --quality QUALITY
+  --speed SPEED
+  --lossless LOSSLESS"
+render_alphabetsoup.py,"usage: render_alphabetsoup.py [-h] [--output OUTPUT] [-t TEXT] [-z ZOOM]
+                              [-r RANDOMIZE] [--id IDS]
+                              [--selected-nodes SELECTED_NODES]
+                              [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -t TEXT, --text TEXT  The text for alphabet soup
+  -z ZOOM, --zoom ZOOM  The zoom on the output
+  -r RANDOMIZE, --randomize RANDOMIZE
+                        Generate random (unreadable) text
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+render_alphabetsoup_config.py,
+render_barcode.py,"usage: render_barcode.py [-h] [--output OUTPUT] [-l HEIGHT] [-t TYPE]
+                         [-d TEXT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Raw barcode Effect class, see Barcode base class.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -l HEIGHT, --height HEIGHT
+                        Barcode Height
+  -t TYPE, --type TYPE  Barcode Type
+  -d TEXT, --text TEXT  Text to print on barcode
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+render_barcode_datamatrix.py,"usage: render_barcode_datamatrix.py [-h] [--output OUTPUT] [--text TEXT]
+                                    --symbol SYMBOL [--size SIZE] [--id IDS]
+                                    [--selected-nodes SELECTED_NODES]
+                                    [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --text TEXT
+  --symbol SYMBOL
+  --size SIZE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+render_barcode_qrcode.py,"usage: render_barcode_qrcode.py [-h] [--output OUTPUT] [--text TEXT]
+                                [--typenumber TYPENUMBER]
+                                [--correctionlevel CORRECTIONLEVEL]
+                                [--qrmode QRMODE] [--encoding ENCODING]
+                                [--modulesize MODULESIZE] [--invert INVERT]
+                                [--drawtype {smooth,pathpreset,selection,symbol}]
+                                [--smoothness {neutral,greedy,proud}]
+                                [--pathtype {simple,circle}]
+                                [--smoothval SMOOTHVAL] [--symbolid SYMBOLID]
+                                [--groupid GROUPID] [--id IDS]
+                                [--selected-nodes SELECTED_NODES]
+                                [INPUT_FILE]
+
+Generate QR Code Extension
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --text TEXT
+  --typenumber TYPENUMBER
+  --correctionlevel CORRECTIONLEVEL
+  --qrmode QRMODE
+  --encoding ENCODING
+  --modulesize MODULESIZE
+  --invert INVERT
+  --drawtype {smooth,pathpreset,selection,symbol}
+  --smoothness {neutral,greedy,proud}
+  --pathtype {simple,circle}
+  --smoothval SMOOTHVAL
+  --symbolid SYMBOLID
+  --groupid GROUPID
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+render_gear_rack.py,"usage: render_gear_rack.py [-h] [--output OUTPUT] [--length LENGTH]
+                           [--spacing SPACING] [--angle ANGLE] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --length LENGTH       Rack Length
+  --spacing SPACING     Tooth Spacing
+  --angle ANGLE         Contact Angle
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+render_gears.py,"usage: render_gears.py [-h] [--output OUTPUT] [--teeth TEETH] [--pitch PITCH]
+                       [--angle ANGLE] [--centerdiameter CENTERDIAMETER]
+                       [--unit UNIT] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --teeth TEETH         Number of teeth
+  --pitch PITCH         Circular Pitch
+  --angle ANGLE         Pressure Angle
+  --centerdiameter CENTERDIAMETER
+                        Diameter of hole
+  --unit UNIT           unit for pitch and center diameter
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+replace_font.py,"usage: replace_font.py [-h] [--output OUTPUT] [--fr_find FR_FIND]
+                       [--fr_replace FR_REPLACE] [--r_replace R_REPLACE]
+                       [--action ACTION] [--scope SCOPE] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Replaces all instances of one font with another
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --fr_find FR_FIND
+  --fr_replace FR_REPLACE
+  --r_replace R_REPLACE
+  --action ACTION
+  --scope SCOPE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+restack.py,"usage: restack.py [-h] [--output OUTPUT] [--tab TAB] [--direction DIRECTION]
+                  [--angle ANGLE] [--xanchor XANCHOR] [--yanchor YANCHOR]
+                  [--zsort ZSORT] [--nb_direction NB_DIRECTION] [--id IDS]
+                  [--selected-nodes SELECTED_NODES]
+                  [INPUT_FILE]
+
+Change the z-order of objects based on their position on the canvas
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --direction DIRECTION
+                        direction to restack
+  --angle ANGLE         arbitrary angle
+  --xanchor XANCHOR     horizontal point to compare
+  --yanchor YANCHOR     vertical point to compare
+  --zsort ZSORT         Restack mode based on Z-Order
+  --nb_direction NB_DIRECTION
+                        Direction tab
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+rtree.py,"usage: rtree.py [-h] [--output OUTPUT] [--size SIZE] [--minimum MINIMUM]
+                [--pentoggle PENTOGGLE] [--id IDS]
+                [--selected-nodes SELECTED_NODES]
+                [INPUT_FILE]
+
+Create RTree Turtle path
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --size SIZE           initial branch size
+  --minimum MINIMUM     minimum branch size
+  --pentoggle PENTOGGLE
+                        Lift pen for backward steps
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+rubberstretch.py,"usage: rubberstretch.py [-h] [--output OUTPUT] [-r RATIO] [-c CURVE]
+                        [--id IDS] [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Distort selected paths
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -r RATIO, --ratio RATIO
+  -c CURVE, --curve CURVE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+scribus_export_pdf.py,"usage: scribus_export_pdf.py [-h] [--output OUTPUT] [--pdf-version PDFVERSION]
+                             [--bleed BLEED] [--bleed-marks BLEEDMARKS]
+                             [--color-marks COLORMARKS] [--intent INTENT]
+                             [--title TITLE] [--id IDS]
+                             [--selected-nodes SELECTED_NODES]
+                             [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --pdf-version PDFVERSION
+                        PDF version (e.g. integer numbers between 11 and 15,
+                        see Scribus documentation for details)
+  --bleed BLEED         Bleed value
+  --bleed-marks BLEEDMARKS
+                        Draw bleed marks
+  --color-marks COLORMARKS
+                        Draw color Marks
+  --intent INTENT       Rendering intent. Options: 0: Perceptual, 1: Relative
+                        Colorimetric, 2: Saturation, 3: Absolute Colorimetric
+  --title TITLE         PDF title, required for PDF/X
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+setup_typography_canvas.py,"usage: setup_typography_canvas.py [-h] [--output OUTPUT] [-e EMSIZE] [-c CAPS]
+                                  [-x XHEIGHT] [-a ASCENDER] [-d DESCENDER]
+                                  [--id IDS] [--selected-nodes SELECTED_NODES]
+                                  [INPUT_FILE]
+
+Resizes the canvas and creates typography-relevant guidelines
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -e EMSIZE, --emsize EMSIZE
+  -c CAPS, --caps CAPS  Caps Height
+  -x XHEIGHT, --xheight XHEIGHT
+  -a ASCENDER, --ascender ASCENDER
+  -d DESCENDER, --descender DESCENDER
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+spirograph.py,"usage: spirograph.py [-h] [--output OUTPUT] [--primaryr PRIMARYR]
+                     [--secondaryr SECONDARYR] [--penr PENR]
+                     [--gearplacement GEARPLACEMENT] [--rotation ROTATION]
+                     [--quality QUALITY] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --primaryr PRIMARYR   The radius of the outer gear
+  --secondaryr SECONDARYR
+                        The radius of the inner gear
+  --penr PENR           The distance of the pen from the inner gear
+  --gearplacement GEARPLACEMENT
+                        Selects whether the gear is inside or outside the ring
+  --rotation ROTATION   The number of degrees to rotate the image by
+  --quality QUALITY     The quality of the calculated output
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+straightseg.py,"usage: straightseg.py [-h] [--output OUTPUT] [-p PERCENT] [-b BEHAVIOR]
+                      [--id IDS] [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Make segments straiter
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -p PERCENT, --percent PERCENT
+                        move curve handles PERCENT percent closer to a
+                        straight line
+  -b BEHAVIOR, --behavior BEHAVIOR
+                        straightening behavior for cubic segments
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+svgcalendar.py,"usage: svgcalendar.py [-h] [--output OUTPUT] [--tab TAB] [--month MONTH]
+                      [--year YEAR] [--fill-empty-day-boxes FILL_EDB]
+                      [--show-week-number SHOW_WEEKNR] [--start-day START_DAY]
+                      [--weekend WEEKEND] [--auto-organize AUTO_ORGANIZE]
+                      [--months-per-line MONTHS_PER_LINE]
+                      [--month-width MONTH_WIDTH]
+                      [--month-margin MONTH_MARGIN] [--color-year COLOR_YEAR]
+                      [--color-month COLOR_MONTH]
+                      [--color-day-name COLOR_DAY_NAME]
+                      [--color-day COLOR_DAY] [--color-weekend COLOR_WEEKEND]
+                      [--color-nmd COLOR_NMD] [--color-weeknr COLOR_WEEKNR]
+                      [--font-year FONT_YEAR] [--font-month FONT_MONTH]
+                      [--font-day-name FONT_DAY_NAME] [--font-day FONT_DAY]
+                      [--month-names MONTH_NAMES] [--day-names DAY_NAMES]
+                      [--weeknr-name WEEKNR_NAME] [--encoding INPUT_ENCODE]
+                      [--id IDS] [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Generate Calendar in SVG
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --month MONTH         Month to be generated. If 0, then the entry year will
+                        be generated.
+  --year YEAR           Year to be generated. If 0, then the current year will
+                        be generated.
+  --fill-empty-day-boxes FILL_EDB
+                        Fill empty day boxes with next month days.
+  --show-week-number SHOW_WEEKNR
+                        Include a week number column.
+  --start-day START_DAY
+                        Week start day. (""sun"" or ""mon"")
+  --weekend WEEKEND     Define the weekend days. (""sat+sun"" or ""sat"" or ""sun"")
+  --auto-organize AUTO_ORGANIZE
+                        Automatically set the size and positions.
+  --months-per-line MONTHS_PER_LINE
+                        Number of months side by side.
+  --month-width MONTH_WIDTH
+                        The width of the month days box.
+  --month-margin MONTH_MARGIN
+                        The space between the month boxes.
+  --color-year COLOR_YEAR
+                        Color for the year header.
+  --color-month COLOR_MONTH
+                        Color for the month name header.
+  --color-day-name COLOR_DAY_NAME
+                        Color for the week day names header.
+  --color-day COLOR_DAY
+                        Color for the common day box.
+  --color-weekend COLOR_WEEKEND
+                        Color for the weekend days.
+  --color-nmd COLOR_NMD
+                        Color for the next month day, in empty day boxes.
+  --color-weeknr COLOR_WEEKNR
+                        Color for the week numbers.
+  --font-year FONT_YEAR
+                        Font for the year string.
+  --font-month FONT_MONTH
+                        Font for the month strings.
+  --font-day-name FONT_DAY_NAME
+                        Font for the days of the week strings.
+  --font-day FONT_DAY   Font for the day strings.
+  --month-names MONTH_NAMES
+                        The month names for localization.
+  --day-names DAY_NAMES
+                        The week day names for localization.
+  --weeknr-name WEEKNR_NAME
+                        The week number column name for localization.
+  --encoding INPUT_ENCODE
+                        The input encoding of the names.
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+svgfont2layers.py,"usage: svgfont2layers.py [-h] [--output OUTPUT] [--count COUNT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Convert an svg font to layers
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --count COUNT         Stop making layers after this number of glyphs.
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+synfig_fileformat.py,
+synfig_output.py,"usage: synfig_output.py [-h] [--output OUTPUT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+synfig_prepare.py,"usage: synfig_prepare.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+tar_layers.py,"usage: tar_layers.py [-h] [--output OUTPUT] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Entry point to our layers export
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+template.py,"usage: template.py [-h] [--output OUTPUT] [--background BACKGROUND]
+                   [--noborder NOBORDER] [--id IDS]
+                   [--selected-nodes SELECTED_NODES] [--size SIZE]
+                   [--width WIDTH] [--height HEIGHT]
+                   [--orientation ORIENTATION] [--unit UNIT] [--grid GRID]
+                   [INPUT_FILE]
+
+Most functionality is in TemplateExtension
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --background BACKGROUND
+  --noborder NOBORDER
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  --size SIZE
+  --width WIDTH
+  --height HEIGHT
+  --orientation ORIENTATION
+  --unit UNIT
+  --grid GRID"
+template_dvd_cover.py,"usage: template_dvd_cover.py [-h] [--output OUTPUT] [-s SPINE] [-b BLEED]
+                             [--id IDS] [--selected-nodes SELECTED_NODES]
+                             [--size SIZE] [--width WIDTH] [--height HEIGHT]
+                             [--orientation ORIENTATION] [--unit UNIT]
+                             [--grid GRID]
+                             [INPUT_FILE]
+
+Create an empty DVD Cover (in mm)
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -s SPINE, --spine SPINE
+                        Dvd spine width (mm)
+  -b BLEED, --bleed BLEED
+                        Bleed (extra area around image
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  --size SIZE
+  --width WIDTH
+  --height HEIGHT
+  --orientation ORIENTATION
+  --unit UNIT
+  --grid GRID"
+template_seamless_pattern.py,"usage: template_seamless_pattern.py [-h] [--output OUTPUT] [--id IDS]
+                                    [--selected-nodes SELECTED_NODES]
+                                    [--size SIZE] [--width WIDTH]
+                                    [--height HEIGHT]
+                                    [--orientation ORIENTATION] [--unit UNIT]
+                                    [--grid GRID]
+                                    [INPUT_FILE]
+
+Generate a seamless pattern template
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any
+  --size SIZE
+  --width WIDTH
+  --height HEIGHT
+  --orientation ORIENTATION
+  --unit UNIT
+  --grid GRID"
+text_braille.py,"usage: text_braille.py [-h] [--output OUTPUT] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Convert to ASCII Braille
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_extract.py,"usage: text_extract.py [-h] [--output OUTPUT] [-d DIRECTION] [-x XANCHOR]
+                       [-y YANCHOR] [--id IDS]
+                       [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+Extract text and print out
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -d DIRECTION, --direction DIRECTION
+                        direction to extract text
+  -x XANCHOR, --xanchor XANCHOR
+                        horiz point to compare
+  -y YANCHOR, --yanchor YANCHOR
+                        vertical point to compare
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_flipcase.py,"usage: text_flipcase.py [-h] [--output OUTPUT] [--id IDS]
+                        [--selected-nodes SELECTED_NODES]
+                        [INPUT_FILE]
+
+Change the case, cHANGE THE CASE
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_lowercase.py,"usage: text_lowercase.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+Convert to lowercase
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_merge.py,"usage: text_merge.py [-h] [--output OUTPUT] [-d DIRECTION] [-x XANCHOR]
+                     [-y YANCHOR] [-k KEEPSTYLE] [-t FLOWTEXT] [--id IDS]
+                     [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Merge text blocks together
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -d DIRECTION, --direction DIRECTION
+                        direction to merge text
+  -x XANCHOR, --xanchor XANCHOR
+                        horiz point to compare
+  -y YANCHOR, --yanchor YANCHOR
+                        vertical point to compare
+  -k KEEPSTYLE, --keepstyle KEEPSTYLE
+                        keep format
+  -t FLOWTEXT, --flowtext FLOWTEXT
+                        use a flow text structure instead of a normal text
+                        element
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_randomcase.py,"usage: text_randomcase.py [-h] [--output OUTPUT] [--id IDS]
+                          [--selected-nodes SELECTED_NODES]
+                          [INPUT_FILE]
+
+Randomise the case of the text (with bias)
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_sentencecase.py,"usage: text_sentencecase.py [-h] [--output OUTPUT] [--id IDS]
+                            [--selected-nodes SELECTED_NODES]
+                            [INPUT_FILE]
+
+Convert text to sentence case
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_split.py,"usage: text_split.py [-h] [--output OUTPUT] [--tab TAB]
+                     [-t {letter,word,line}] [-p PRESERVE] [-s SEPARATION]
+                     [--id IDS] [--selected-nodes SELECTED_NODES]
+                     [INPUT_FILE]
+
+Split text up.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB             The selected UI tab when OK was pressed
+  -t {letter,word,line}, --splittype {letter,word,line}
+                        type of split
+  -p PRESERVE, --preserve PRESERVE
+                        Preserve original
+  -s SEPARATION, --separation SEPARATION
+                        Threshold for separating text with manual kerns in
+                        multiples offont-size
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_titlecase.py,"usage: text_titlecase.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+To titlecase
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+text_uppercase.py,"usage: text_uppercase.py [-h] [--output OUTPUT] [--id IDS]
+                         [--selected-nodes SELECTED_NODES]
+                         [INPUT_FILE]
+
+To upper case
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+triangle.py,"usage: triangle.py [-h] [--output OUTPUT] [--s_a S_A] [--s_b S_B] [--s_c S_C]
+                   [--a_a A_A] [--a_b A_B] [--a_c A_C] [--mode MODE]
+                   [--id IDS] [--selected-nodes SELECTED_NODES]
+                   [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --s_a S_A             Side Length a
+  --s_b S_B             Side Length b
+  --s_c S_C             Side Length c
+  --a_a A_A             Angle a
+  --a_b A_B             Angle b
+  --a_c A_C             Angle c
+  --mode MODE           Side Length c
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+ungroup_deep.py,"usage: ungroup_deep.py [-h] [--output OUTPUT] [--startdepth STARTDEPTH]
+                       [--maxdepth MAXDEPTH] [--keepdepth KEEPDEPTH]
+                       [--id IDS] [--selected-nodes SELECTED_NODES]
+                       [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --startdepth STARTDEPTH
+                        starting depth for ungrouping
+  --maxdepth MAXDEPTH   maximum ungrouping depth
+  --keepdepth KEEPDEPTH
+                        levels of ungrouping to leave untouched
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+voronoi.py,
+voronoi2svg.py,"usage: voronoi2svg.py [-h] [--output OUTPUT] [--tab TAB]
+                      [--diagram-type {Voronoi,Delaunay,Both}]
+                      [--clip-box {Page,Automatic from seeds}]
+                      [--show-clip-box SHOWCLIPBOX]
+                      [--delaunay-fill-options DELAUNAYFILLOPTIONS] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Extension to create a Voronoi diagram.
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --diagram-type {Voronoi,Delaunay,Both}
+                        Defines the type of the diagram
+  --clip-box {Page,Automatic from seeds}
+                        Defines the bounding box of the Voronoi diagram
+  --show-clip-box SHOWCLIPBOX
+                        Set this to true to write the bounding box
+  --delaunay-fill-options DELAUNAYFILLOPTIONS
+                        Set the Delaunay triangles color options
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+web_interactive_mockup.py,"usage: web_interactive_mockup.py [-h] [--output OUTPUT] [--when WHEN]
+                                 [--tab TAB] [--id IDS]
+                                 [--selected-nodes SELECTED_NODES]
+                                 [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --when WHEN           Event that will trigger the action
+  --tab TAB
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+web_set_att.py,"usage: web_set_att.py [-h] [--output OUTPUT] [--tab TAB] [--att ATT]
+                      [--val VAL] [--when WHEN] [--from-and-to FROM_AND_TO]
+                      [--compatibility COMPATIBILITY] [--id IDS]
+                      [--selected-nodes SELECTED_NODES]
+                      [INPUT_FILE]
+
+Set a web attribute accross many objects
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB             The selected UI-tab when OK was pressed
+  --att ATT             Attribute to set.
+  --val VAL             Values to set.
+  --when WHEN           When it must to set?
+  --from-and-to FROM_AND_TO
+  --compatibility COMPATIBILITY
+                        Compatibility with previews code to this event.
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+web_transmit_att.py,"usage: web_transmit_att.py [-h] [--output OUTPUT] [--tab TAB] [--att ATT]
+                           [--when WHEN] [--from-and-to FROM_AND_TO]
+                           [--compatibility COMPATIBILITY] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --att ATT             Attribute to transmitted.
+  --when WHEN           When it must to transmit?
+  --from-and-to FROM_AND_TO
+  --compatibility COMPATIBILITY
+                        Compatibility with previews code to this event.
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+webslicer_create_group.py,"usage: webslicer_create_group.py [-h] [--output OUTPUT] [--tab TAB]
+                                 [--html-id HTML_ID] [--html-class HTML_CLASS]
+                                 [--width-unity WIDTH_UNITY]
+                                 [--height-unity HEIGHT_UNITY]
+                                 [--bg-color BG_COLOR] [--id IDS]
+                                 [--selected-nodes SELECTED_NODES]
+                                 [INPUT_FILE]
+
+Create new webslicer group
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --html-id HTML_ID
+  --html-class HTML_CLASS
+  --width-unity WIDTH_UNITY
+  --height-unity HEIGHT_UNITY
+  --bg-color BG_COLOR
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+webslicer_create_rect.py,"usage: webslicer_create_rect.py [-h] [--output OUTPUT] [--name NAME]
+                                [--format FORMAT] [--dpi DPI]
+                                [--dimension DIMENSION] [--bg-color BG_COLOR]
+                                [--quality QUALITY] [--gif-type GIF_TYPE]
+                                [--palette-size PALETTE_SIZE]
+                                [--html-id HTML_ID] [--html-class HTML_CLASS]
+                                [--layout-disposition LAYOUT_DISPOSITION]
+                                [--layout-position-anchor LAYOUT_POSITION_ANCHOR]
+                                [--tab TAB] [--id IDS]
+                                [--selected-nodes SELECTED_NODES]
+                                [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --name NAME
+  --format FORMAT
+  --dpi DPI
+  --dimension DIMENSION
+  --bg-color BG_COLOR
+  --quality QUALITY
+  --gif-type GIF_TYPE
+  --palette-size PALETTE_SIZE
+  --html-id HTML_ID
+  --html-class HTML_CLASS
+  --layout-disposition LAYOUT_DISPOSITION
+  --layout-position-anchor LAYOUT_POSITION_ANCHOR
+  --tab TAB
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+webslicer_effect.py,
+webslicer_export.py,"usage: webslicer_export.py [-h] [--output OUTPUT] [--tab TAB] [--dir DIR]
+                           [--create-dir CREATE_DIR] [--with-code WITH_CODE]
+                           [--id IDS] [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --tab TAB
+  --dir DIR
+  --create-dir CREATE_DIR
+  --with-code WITH_CODE
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+whirl.py,"usage: whirl.py [-h] [--output OUTPUT] [-t WHIRL] [-r ROTATION] [--id IDS]
+                [--selected-nodes SELECTED_NODES]
+                [INPUT_FILE]
+
+Modify a path by twisting the nodes around a point
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  -t WHIRL, --whirl WHIRL
+                        amount of whirl
+  -r ROTATION, --rotation ROTATION
+                        direction of rotation
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"
+wireframe_sphere.py,"usage: wireframe_sphere.py [-h] [--output OUTPUT] [--num_lat NUM_LAT]
+                           [--num_long NUM_LONG] [--radius RADIUS]
+                           [--tilt TILT] [--rotation ROT_OFFSET]
+                           [--hide_back HIDE_BACK] [--id IDS]
+                           [--selected-nodes SELECTED_NODES]
+                           [INPUT_FILE]
+
+Writeframe extension, generate a wireframe
+
+positional arguments:
+  INPUT_FILE            Filename of the input file (default is stdin)
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Optional output filename for saving the result
+                        (default is stdout).
+  --num_lat NUM_LAT
+  --num_long NUM_LONG
+  --radius RADIUS
+  --tilt TILT
+  --rotation ROT_OFFSET
+  --hide_back HIDE_BACK
+  --id IDS              id attribute of object to manipulate
+  --selected-nodes SELECTED_NODES
+                        id:subpath:position of selected nodes, if any"

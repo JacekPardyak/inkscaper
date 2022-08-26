@@ -1,0 +1,139 @@
+---
+title: "Inkscape extensions, actions and verbs - advanced"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    fig_caption: false
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+vignette: >
+  %\VignetteIndexEntry{The inkscaper package: R wrapper for Inkscape - advanced}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+The [inkscaper](https://github.com/JacekPardyak/inkscaper) package provide a modern and simple toolkit for Scalable Vector Graphics (SVG) processing in R. It wraps the [Inkscape](https://inkscape.org/) which is a Free and open source vector graphics editor for GNU/Linux, Windows and macOS.
+
+It offers a rich set of features and is widely used for both artistic and technical illustrations such as cartoons, clip art, logos, typography, diagramming and flowcharting. It uses vector graphics to allow for sharp printouts and renderings at unlimited resolution and is not bound to a fixed number of pixels like raster graphics. Inkscape uses the standardized SVG file format as its main format, which is supported by many other applications including web browsers.
+
+## Inkscape extensions
+
+[Extensions](https://inkscape.gitlab.io/extensions/documentation/tutorial/index.html) are small programs that extend Inkscape’s functionality. They can provide features for specific tasks, experimentation, or art styles. They can also add support for special hardware or different export formats. While many extensions are included with Inkscape, you can also install extensions written by third parties or write your own.
+
+To build a dataframe with the names and descriptions of the Inkscape extensions on Windows you can use this script:
+
+```{r, eval=FALSE}
+inx_extensions_list_win <- function(){
+  path = system('inkscape --system-data-directory', intern = TRUE)
+  inkscape_extensions_path = paste(path, "\\extensions", sep = "")
+  inkscape_python_home  = paste(gsub("\\share\\inkscape", "", path, fixed = T), "\\bin", sep = "")
+  inkscape_extension_names = list.files(path = inkscape_extensions_path, pattern = ".py")
+  df <- data.frame(Extension = inkscape_extension_names, Description = NA)
+  for (i in c(1:nrow(df))) {
+    inkscape_extension_name = df$Extension[i]
+    print(inkscape_extension_name)
+    output = tempfile("inx_", fileext = ".txt")
+    con  = tempfile(pattern = "inx_", fileext = ".bat")
+    fmt = '@ECHO OFF
+cd %s
+python.exe "%s" --help  > %s'
+    text = sprintf(fmt,
+                   inkscape_python_home,
+                   paste(inkscape_extensions_path, inkscape_extension_name, sep = "\\"),
+                   output)
+    writeLines(text, con)
+    system(con)
+    output
+    inkscape_extension_description <- readLines(output)
+    df$Description[i] <- paste(inkscape_extension_description, collapse = "\n")
+    }
+
+  df
+}
+
+inx_extensions_list_win() %>% readr::write_csv("../inst/extdata/extensions.csv")
+```
+
+To build a dataframe with the names and descriptions of the Inkscape extensions on Linux you can use this script:
+
+```{r, eval=FALSE}
+inx_extensions_list_linux <- function(){
+  path = system('inkscape --system-data-directory', intern = TRUE)
+  inkscape_extensions_path = paste(path, "/extensions", sep = "")
+  inkscape_extension_names = list.files(path = inkscape_extensions_path, pattern = ".py")
+  df <- data.frame(Extension = inkscape_extension_names, Description = NA)
+  for (i in c(1:nrow(df))) {
+    inkscape_extension_name = df$Extension[i]
+    print(inkscape_extension_name)
+    output = tempfile("inx_", fileext = ".txt")
+    command <- sprintf('python %s --help  > %s', paste(inkscape_extensions_path, inkscape_extension_name, sep = "/"), output)
+    system(command, intern = TRUE)
+    inkscape_extension_description <- readLines(output)
+    df$Description[i] <- paste(inkscape_extension_description, collapse = "\n")
+  }
+  df
+}
+
+```
+
+Here is the dataframe with the names and descriptions of the Inkscape (`r system('inkscape --version', intern = TRUE)`) extensions:
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(kableExtra)
+readr::read_csv("../inst/extdata/extensions.csv") %>% kbl() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+
+## Inkscape actions
+
+[Actions](https://wiki.inkscape.org/wiki/Using_the_Command_Line) give you the ability to batch SVG files in Inkscape without opening a Graphical User Interface (GUI).
+
+To build a dataframe with the names and descriptions of the Inkscape actions on Windows you can use this script:
+
+```{r, eval=FALSE}
+inx_actions_list_win <- function(){
+  output = tempfile("inx_", fileext = ".txt")
+  con  = tempfile(pattern = "inx_", fileext = ".bat")
+  fmt = '@ECHO OFF
+inkscape --action-list > %s'
+  text = sprintf(fmt, output)
+  writeLines(text, con)
+  system(con)
+  actions <- readr::read_delim(output, delim = ":", col_names = FALSE)
+  names(actions) = c("Action", "Description")
+  actions
+}
+inx_actions_list_win() %>% readr::write_csv("../inst/extdata/actions.csv")
+```
+
+To build a dataframe with the names and descriptions of the Inkscape actions on Linux you can use this script:
+
+```{r, eval=FALSE}
+inx_actions_list_linux <- function(){
+  output = tempfile("inx_", fileext = ".txt")
+  fmt = 'inkscape --action-list > %s'
+  text = sprintf(fmt, output)
+  system(text)
+  actions <- readr::read_delim(output, delim = ":", col_names = FALSE)
+  names(actions) = c("Action", "Description")
+  actions
+}
+```
+
+Here is the dataframe with the names and descriptions of the Inkscape (`r system('inkscape --version', intern = TRUE)`) actions:
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+readr::read_csv("../inst/extdata/actions.csv") %>% kbl() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+
+Here is the dataframe with the name, description and GUI requirement indicator of the Inkscape (`r system('inkscape --version', intern = TRUE)`) verbs:
+
