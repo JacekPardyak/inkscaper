@@ -43,7 +43,7 @@ input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext 
   png::readPNG() %>%
   grid::grid.raster()
 
-
+# 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
 #install.packages(
 #system("sudo add-apt-repository universe")
 #system("sudo add-apt-repository ppa:inkscape.dev/stable")
