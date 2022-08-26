@@ -37,3 +37,13 @@ inx_actions(actions = "", ext = ".png") %>%
   inx_actions(actions = "select-by-id:rectangle2,rectangle1;object-align:right | bottom", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
+
+
+#install.packages(
+system("sudo add-apt-repository universe")
+system("sudo add-apt-repository ppa:inkscape.dev/stable")
+system("sudo apt update")
+system("sudo apt install inkscape")
+system("inkscape --version", intern = TRUE)
+
+)
