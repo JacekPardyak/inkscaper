@@ -46,4 +46,12 @@ system("sudo apt update")
 system("sudo apt install inkscape")
 system("inkscape --version", intern = TRUE)
 
-)
+if(!(require(sf))){
+  system('apt-get -y update && apt-get install -y  libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
+  system('sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable')
+  system('sudo apt-get update')
+  system('sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
+  #library(remotes)
+  #install_github("r-spatial/sf")
+  install.packages('sf')
+}
