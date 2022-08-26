@@ -55,3 +55,6 @@ if(!(require(sf))){
   #install_github("r-spatial/sf")
   install.packages('sf')
 }
+
+
+# on linux python installed
