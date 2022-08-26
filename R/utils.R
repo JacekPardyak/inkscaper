@@ -59,7 +59,7 @@ inx_extension_linux <- function(input, inkscape_extension_name, ext){
     file.copy(input, input_file_path)
   }
   output <- tempfile("inx_", fileext = ext)
-  command <- sprintf('python %s --output="%s" "%s"', paste(inkscape_extensions_path, inkscape_extension_name, sep = "/"), output, input_file_path)
+  command <- sprintf('python3 %s --output="%s" "%s"', paste(inkscape_extensions_path, inkscape_extension_name, sep = "/"), output, input_file_path)
   system(command, intern = TRUE)
   output
 }

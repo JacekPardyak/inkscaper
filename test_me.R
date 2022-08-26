@@ -38,6 +38,11 @@ inx_actions(actions = "", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
 
+input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
+
 
 #install.packages(
 #system("sudo add-apt-repository universe")
