@@ -66,6 +66,31 @@ if(!(require(sf))){
   #install_github("r-spatial/sf")
   install.packages('sf')
 }
-=======
-# https://cfss.uchicago.edu/setup/git-configure/
->>>>>>> dd407dbcfa591f385d45b4f15de85a1a9ad40bd3
+
+
+
+# --------------------------------------
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
+  inx_actions(actions = "select-all;object-flip-vertical", ext = ".svg")
+
+#inx_actions <- function(input, actions, ext){
+#  if(is_url(input)) {
+#    input_file_path = download_svg(input)
+#  } else {
+actions = NA
+ext = ".png"
+  input_file_path = "./inst/extdata/MyStar.svg"
+  output = tempfile("inx_", fileext = ext)
+  actions <- ifelse(is.na(actions),
+                    paste(actions, "export-filename:%s;export-do", sep = ";"),
+                    "export-filename:%s;export-do")
+  actions =
+  actions
+  actions = sprintf(actions, output)
+  fmt = 'inkscape --batch-process --actions="%s" %s'
+  command <- sprintf(fmt, actions, input_file_path)
+  system(command, intern = TRUE)
+  output
+}
+
+
