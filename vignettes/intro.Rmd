@@ -79,10 +79,79 @@ library(tidyverse)
 library(sf)
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
   inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf") %>%
-  st_read() %>% ggplot() +
+  st_read() %>% 
+  ggplot() +
   geom_sf()
 ```
-### Function `inx_extension()`
 
-In this example we download `SVG`, convert it to `DXF` and read with `sf` package. Simple features (`LINESTRING`) are plotted with `ggplot2`.
+### Function `inx_svg2dxf()`
+
+Function `inx_svg2dxf()` is abbreviation of the `inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf")`
+
+```{r}
+library(tidyverse)
+library(sf)
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
+  inx_svg2dxf() %>%
+  st_read() %>% 
+  ggplot() +
+  geom_sf()
+```
+
+## More examples
+
+### w3c logo
+
+In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we flip object in Inkscape before conversion.
+
+```{r}
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>% 
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
+
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
+  inx_svg2dxf() %>%
+  st_read() %>% 
+  ggplot() +
+  geom_sf()
+
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
+  inx_actions(actions = "select-all;object-flip-vertical", ext = ".svg") %>%
+  inx_svg2dxf %>%
+  st_read() %>% 
+  ggplot() +
+  geom_sf()
+```
+
+### Italian flag
+
+In the first example we convert a `SVG` to `DXF` and plot `SF`. It turns that the plot is empty because SVG object `rectangle` can not be converted. In the other we "break" object into `path` in Inkscape before conversion.
+
+```{r}
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
+
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
+  inx_svg2dxf() %>%
+  st_read() %>% 
+  ggplot() +
+  geom_sf()
+
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
+inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
+  inx_svg2dxf() %>%
+  st_read() %>% 
+  ggplot() +
+  geom_sf()
+```
+
+
+## Limitations
+
+Some known limitations:
+
+- in a non-GUI environment such as [Colab](https://colab.research.google.com/), some actions will not work because they require a GUI to run, although the `inkscaper` package only requires the CLI to run commands.
 

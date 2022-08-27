@@ -13,12 +13,7 @@ download_svg <- function(url){
 }
 
 
-inx_source <- function(input) {
-  if(!require(XML)) {install.packages('XML')}
-  output <- tempfile("inx_", fileext = c(".xml"))
-  input %>% readLines(warn = FALSE) %>% writeLines(output)
-  XML::xmlParse(output)
-}
+
 
 inx_save <- function(input, output) {
   file.copy(input, output)
