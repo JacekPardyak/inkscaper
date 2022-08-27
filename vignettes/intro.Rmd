@@ -1,5 +1,5 @@
 ---
-title: "The magick package: Advanced Image-Processing in R"
+title: "The inkscaper package: R wrapper for Inkscape"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -147,6 +147,100 @@ inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
   ggplot() +
   geom_sf()
 ```
+
+### Heart
+
+In this example we define `SF` linestrings  from points given by a formula for [Heart Curve](https://mathworld.wolfram.com/HeartCurve.html) and convert it into `SVG` path.
+
+```{r}
+heart <- tibble(t = seq(0, 2*pi, 0.1)) %>%
+  mutate( x = 16*sin(t)^3 ) %>%
+  mutate( y = 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t))
+
+heart <- heart %>% bind_rows(heart %>% slice(1)) %>% select(x, y) %>% as.matrix() %>%
+  st_linestring() %>% st_sfc() %>% st_sf()
+heart %>% ggplot() +
+  geom_sf()
+input = tempfile("inx_", fileext = ".dxf")
+heart %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
+output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
+  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+```
+
+This is `SVG` generated with this procedure:
+
+![](`r output`)
+
+The source `XML` looks like this:
+
+```{r}
+output %>%
+  inx_source()
+```
+
+As a reference check heart from https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/heart.svg
+![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/heart.svg). This example resembles two Inkscape extensions:
+
+- `funcplot.py` 
+
+- `param_curves.py`
+
+Both are found under Extensions -> Render in the Inkscape GUI.
+
+### Natural Earth
+
+```{r}
+filename <- system.file("shape/nc.shp", package="sf")
+nc <- st_read(filename)
+nc %>% ggplot() +
+  geom_sf()
+```
+```{r}
+input = tempfile("inx_", fileext = ".dxf")
+nc %>% st_geometry() %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
+output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
+  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+```
+
+This is `SVG` generated with this procedure:
+
+![](`r output`){width=200%}
+
+### ddd
+
+```{r}
+element_1 = matrix(c(0,0,10,0,10,10,0,10,0,0),ncol=2, byrow=TRUE)  %>%
+  list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
+element_2 = matrix(c(1,1,1,2,2,2,2,1,1,1),ncol=2, byrow=TRUE) %>%
+  list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
+collection <- element_1 %>% bind_rows(element_2)
+collection %>% ggplot() +
+  geom_sf()
+```
+
+
+```{r}
+inx_svg = collection %>% inx_sf2svg()
+inx_svg %>%
+  inx_source()
+```
+
+![](`r inx_svg`){width=200%}
+
+
+```{r}
+collection_top <- inx_svg %>%
+  inx_actions(actions =  "select-by-id:path20,path18;object-align:left | top", ext = ".svg")
+```
+
+![](`r collection_top`){width=200%}
+
+```{r}
+collection_bottom <- inx_svg %>%
+  inx_actions(actions = "select-by-id:path20,path18;object-align:right | bottom", ext = ".svg")
+```
+
+![](`r collection_bottom`){width=200%}
 
 
 ## Limitations
