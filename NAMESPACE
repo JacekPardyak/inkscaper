@@ -3,5 +3,5 @@
 export("%>%")
 export(inx_actions)
 export(inx_extension)
-export(svg_to_dxf)
+export(inx_svg2dxf)
 importFrom(magrittr,"%>%")

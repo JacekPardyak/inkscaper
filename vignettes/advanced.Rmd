@@ -16,13 +16,11 @@ vignette: >
 ---
 
 
-The [inkscaper](https://github.com/JacekPardyak/inkscaper) package provide a modern and simple toolkit for Scalable Vector Graphics (SVG) processing in R. It wraps the [Inkscape](https://inkscape.org/) which is a Free and open source vector graphics editor for GNU/Linux, Windows and macOS.
 
-It offers a rich set of features and is widely used for both artistic and technical illustrations such as cartoons, clip art, logos, typography, diagramming and flowcharting. It uses vector graphics to allow for sharp printouts and renderings at unlimited resolution and is not bound to a fixed number of pixels like raster graphics. Inkscape uses the standardized SVG file format as its main format, which is supported by many other applications including web browsers.
 
 ## Inkscape extensions
 
-[Extensions](https://inkscape.gitlab.io/extensions/documentation/tutorial/index.html) are small programs that extend Inkscape’s functionality. They can provide features for specific tasks, experimentation, or art styles. They can also add support for special hardware or different export formats. While many extensions are included with Inkscape, you can also install extensions written by third parties or write your own.
+
 
 To build a dataframe with the names and descriptions of the Inkscape extensions on Windows you can use this script:
 

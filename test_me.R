@@ -39,10 +39,20 @@ inx_actions(actions = NA, ext = ".png") %>%
   grid::grid.raster()
 
 input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-input %>% inx_actions(actions = NA, ext = ".png") %>%
+input %>% inx_actions(actions = NA, ext = ".png")# %>%
   png::readPNG() %>%
   grid::grid.raster()
 input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
 
+
+input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+grid::grid.newpage()
+input %>% inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
+grid::grid.newpage()
+input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()

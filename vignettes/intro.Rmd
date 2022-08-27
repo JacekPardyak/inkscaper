@@ -21,28 +21,68 @@ dev.off <- function(){
 }
 ```
 
-The [magick](https://cran.r-project.org/package=magick) package provide a modern and simple toolkit for image processing in R. It wraps the [ImageMagick STL](https://www.imagemagick.org/Magick++/STL.html) which is the most comprehensive open-source image processing library available today.
+The [inkscaper](https://github.com/JacekPardyak/inkscaper) package provide a modern and simple toolkit for Scalable Vector Graphics (SVG) processing in R. It wraps the [Inkscape](https://inkscape.org/) which is a Free and open source vector graphics editor for GNU/Linux, Windows and macOS.
 
-The ImageMagick library has an overwhelming amount of functionality. Magick exposes a decent subset of it, but it is impossible to document everything in detail. This article introduces some basic concepts and examples to get started.
+It offers a rich set of features and is widely used for both artistic and technical illustrations such as cartoons, clip art, logos, typography, diagramming and flowcharting. It uses vector graphics to allow for sharp printouts and renderings at unlimited resolution and is not bound to a fixed number of pixels like raster graphics. Inkscape uses the standardized SVG file format as its main format, which is supported by many other applications including web browsers.
 
-## Installing `magick`
+## Installing `inkscape`
 
-installing on windows - add path
+To install Inkscape on your platform follow the instruction available at: [https://inkscape.org/](https://inkscape.org/) 
 
-On Windows or macOS the package is most easily installed via CRAN.
-
-```r
-#install.packages("magick")
-```
-
-The binary CRAN packages work out of the box and have most important features enabled.
-Use `magick_config` to see which features and formats are supported by your version of ImageMagick.
-
+## Installing `inkscaper` R package
 
 ```{r}
-
+library(devtools)
+install_github("JacekPardyak/inkscaper")
 ```
 
+## Using Inkscape Actions
 
-### Examples
+While obviously Inkscape is primarily intended as a GUI application, it can be used for doing SVG processing on the command line as well. [Inkscape Actions](https://inkscape.org/doc/inkscape-man.html) available in versions `r system('inkscape --version', intern = TRUE)` are listed below.
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(kableExtra)
+readr::read_csv("../inst/extdata/extensions.csv") %>% kbl() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+### cartman.svg
+
+In this example we download a SVG file from repository, convert it to PNG and plot it in R.
+
+```{r}
+library(inkscaper)
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
+```
+
+## Using Inkscape Extensions
+
+[Inkscape Extensions](https://inkscape.org/gallery/=extension/ ) are small programs that extend Inkscape’s functionality. They can provide features for specific tasks, experimentation, or art styles. They can also add support for special hardware or different export formats. While many extensions are included with Inkscape, you can also install extensions written by third parties or write your own. The table below shows the list of extensions available in Inkscape of version `r system('inkscape --version', intern = TRUE)` with descriptions.
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(kableExtra)
+readr::read_csv("../inst/extdata/extensions.csv") %>% kbl() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+### Function `inx_extension()`
+
+In this example we download `SVG`, convert it to `DXF` and read with `sf` package. Simple features (`LINESTRING`) are plotted with `ggplot2`.
+
+```{r}
+library(tidyverse)
+library(sf)
+"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
+  inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf") %>%
+  st_read() %>% ggplot() +
+  geom_sf()
+```
+### Function `inx_extension()`
+
+In this example we download `SVG`, convert it to `DXF` and read with `sf` package. Simple features (`LINESTRING`) are plotted with `ggplot2`.
 
