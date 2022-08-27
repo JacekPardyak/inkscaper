@@ -39,6 +39,9 @@ inx_actions(actions = "", ext = ".png") %>%
   grid::grid.raster()
 
 input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
+input %>% inx_actions(actions = "", ext = ".png") %>%
+  png::readPNG() %>%
+  grid::grid.raster()
 input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
@@ -62,10 +65,3 @@ if(!(require(sf))){
   #install_github("r-spatial/sf")
   install.packages('sf')
 }
-<<<<<<< HEAD
-
-
-# on linux python installed
-=======
->>>>>>> bdcbfee60751cf0ba1d88931cc5dd82643a82fb4
->>>>>>> 3d8248770ebe01a83883c4dfb4e5a10af475407d
