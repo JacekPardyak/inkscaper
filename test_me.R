@@ -55,6 +55,7 @@ input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext 
 system("inkscape --version", intern = TRUE)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 if(!(require(sf))){
   system('apt-get -y update && apt-get install -y  libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
@@ -65,3 +66,6 @@ if(!(require(sf))){
   #install_github("r-spatial/sf")
   install.packages('sf')
 }
+=======
+# https://cfss.uchicago.edu/setup/git-configure/
+>>>>>>> dd407dbcfa591f385d45b4f15de85a1a9ad40bd3
