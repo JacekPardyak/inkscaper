@@ -21,5 +21,12 @@ Title
 }
 \examples{
 input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-inx_actions(input = input, actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png")
+grid::grid.newpage()
+input \%>\% inx_actions(actions = NA, ext = ".png") \%>\%
+png::readPNG() \%>\%
+grid::grid.raster()
+grid::grid.newpage()
+input \%>\% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") \%>\%
+png::readPNG() \%>\%
+grid::grid.raster()
 }

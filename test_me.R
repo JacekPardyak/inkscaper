@@ -24,7 +24,7 @@ inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
 
 
 "align_me.svg" %>%
-inx_actions(actions = "", ext = ".png") %>%
+inx_actions(actions = NA, ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
 
@@ -39,58 +39,10 @@ inx_actions(actions = "", ext = ".png") %>%
   grid::grid.raster()
 
 input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-input %>% inx_actions(actions = "", ext = ".png") %>%
+input %>% inx_actions(actions = NA, ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
 input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
   png::readPNG() %>%
   grid::grid.raster()
-
-# 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
-#install.packages(
-#system("sudo add-apt-repository universe")
-#system("sudo add-apt-repository ppa:inkscape.dev/stable")
-#system("sudo apt update")
-#system("sudo apt install inkscape")
-system("inkscape --version", intern = TRUE)
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-if(!(require(sf))){
-  system('apt-get -y update && apt-get install -y  libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
-  system('sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable')
-  system('sudo apt-get update')
-  system('sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev')
-  #library(remotes)
-  #install_github("r-spatial/sf")
-  install.packages('sf')
-}
-
-
-
-# --------------------------------------
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
-  inx_actions(actions = "select-all;object-flip-vertical", ext = ".svg")
-
-#inx_actions <- function(input, actions, ext){
-#  if(is_url(input)) {
-#    input_file_path = download_svg(input)
-#  } else {
-actions = NA
-ext = ".png"
-  input_file_path = "./inst/extdata/MyStar.svg"
-  output = tempfile("inx_", fileext = ext)
-  actions <- ifelse(is.na(actions),
-                    paste(actions, "export-filename:%s;export-do", sep = ";"),
-                    "export-filename:%s;export-do")
-  actions =
-  actions
-  actions = sprintf(actions, output)
-  fmt = 'inkscape --batch-process --actions="%s" %s'
-  command <- sprintf(fmt, actions, input_file_path)
-  system(command, intern = TRUE)
-  output
-}
-
 
