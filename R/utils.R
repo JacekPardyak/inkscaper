@@ -88,7 +88,7 @@ python.exe "%s" --help  > %s'
   df
 }
 
-inx_extensions_list_win() %>% readr::write_csv("../inst/extdata/extensions.csv")
+#inx_extensions_list_win() %>% readr::write_csv("../inst/extdata/extensions.csv")
 
 
 inx_extensions_list_linux <- function(){
