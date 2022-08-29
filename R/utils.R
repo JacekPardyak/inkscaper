@@ -124,7 +124,7 @@ inkscape --action-list > %s'
   names(actions) = c("Action", "Description")
   actions
 }
-inx_actions_list_win() %>% readr::write_csv("./inst/extdata/actions.csv")
+#inx_actions_list_win() %>% readr::write_csv("./inst/extdata/actions.csv")
 
 
 inx_actions_list_linux <- function(){
