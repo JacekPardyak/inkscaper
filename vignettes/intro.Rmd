@@ -42,12 +42,19 @@ While obviously Inkscape is primarily intended as a GUI application, it can be u
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 library(kableExtra)
-readr::read_csv("../inst/extdata/extensions.csv") %>% kbl() %>%
+readr::read_csv("../inst/extdata/actions.csv") %>% kbl() %>%
   kable_paper() %>%
   scroll_box(width = "100%", height = "300px")
 ```
 
-### cartman.svg
+```{r}
+tbl = readr::read_csv("../inst/extdata/actions.csv") %>% as.data.frame()
+tbl
+?DT::datatable()
+```
+
+
+### Function `inx_actions()`
 
 In this example we download a SVG file from repository, convert it to PNG and plot it in R.
 
@@ -58,6 +65,10 @@ library(inkscaper)
   png::readPNG() %>%
   grid::grid.raster()
 ```
+
+
+
+
 
 ## Using Inkscape Extensions
 
@@ -249,3 +260,6 @@ Some known limitations:
 
 - in a non-GUI environment such as [Colab](https://colab.research.google.com/), some actions will not work because they require a GUI to run, although the `inkscaper` package only requires the CLI to run commands.
 
+```{r}
+DT::datatable(iris)
+```
