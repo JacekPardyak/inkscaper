@@ -1,6 +1,6 @@
 library(tidyverse)
 library(sf)
-
+library(inkscaper)
 
 
 
@@ -47,96 +47,23 @@ input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext 
   png::readPNG() %>%
   grid::grid.raster()
 
-# heart
+# actions
 
-st_circ
-CIRCULARSTRING
-
-
-df <- tibble(t = seq(0, 2*pi, 0.1)) %>%
-  mutate( x = 16*sin(t)^3 ) %>%
-  mutate( y = 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t))
-
-df <- df %>% bind_rows(df %>% slice(1)) %>% select(x, y) %>% as.matrix() %>%
-  st_linestring() %>% st_sfc() %>% st_sf()
+df <- system.file("extdata", "actions.csv", package = "inkscaper") %>%
+  readr::read_csv()
 df
-df
-df %>% ggplot() +
-  geom_sf()
-output = tempfile("inx_", fileext = ".dxf")
-df %>% st_write(dsn = output, driver ="DXF", delete_dsn = TRUE)
-inx_extension(output, inkscape_extension_name = "dxf_input.py", ext = ".svg") %>%
-  inx_source()
+input_file_path = system.file("extdata", "MyStar.svg", package = "inkscaper")
+actions <- "export-do" #df$Action[1067]
+actions <- "file-new" #df$Action[1067]
 
+fmt = 'inkscape --batch-process --actions="%s" %s'
+command <- sprintf(fmt, actions, input_file_path)
+system(command, intern = TRUE)
 
-inx_extension(output, inkscape_extension_name = "dxf_input.py", ext = ".svg") %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") %>%
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+system('inkscape --help-gapplication')
 
-CURVEPOLYGON(COMPOUNDCURVE(CIRCULARSTRING(0 0,2 0, 2 1, 2 3, 4 3),(4 3, 4 5, 1 4, 0 0)), CIRCULARSTRING(1.7 1, 1.4 0.4, 1.6 0.4, 1.6 0.5, 1.7 1) )
+system('inkscape --shell --actions="about"')
 
-POINT(c(2,3))
-
-?st_inscribed_circle()
-
-
-nc %>% ggplot() +
-  geom_sf()
-
-inx_dxf <- tempfile("inx", fileext = c(".dxf"))
-nc %>%
-  sf::st_geometry() %>%
-  sf::st_write(dsn = inx_dxf, driver ="DXF", delete_dsn = TRUE)
-inx_svg <- inx_dxf %>% inx_extension(inkscape_extension_name = "dxf_input.py", ext = ".svg") %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg")
-inx_svg  %>% inx_source()
-inx_svg %>%
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
-
-nc_t = st_transform(nc, 'EPSG:2264')
-x = st_inscribed_circle(st_geometry(nc_t))
-
-
-# -------------------------------------------------------------
-
-
-
-inx_svg
-output <- tempfile("inx_", fileext = c(".xml"))
-inx_svg %>% readLines(warn = FALSE) %>% writeLines(output)
-yy <- XML::xmlParse(output)
-yy
-xx <-XML::xmlTreeParse(output)
-xx
-
-inx_svg
-xml <- xml2::read_xml(inx_svg)
-xml <- xml2::xml_ns_strip(xml)
-svg <- xml2::xml_find_first(xml, "//svg")
-
-?xml2::xml_path()
-
-/svg/g/path[2]
-
-xml2::xml_path(xml2::xml_find_all(xml, ".//path"))
-
-
-XML::xpathSApply(doc = yy, path ="//doc")
-?XML::xpathSApply
-
-xx$doc$file
-xx$doc$children$svg
-
-XML::xmlValue(doc$doc)
-
-XML::xpathApply(doc, "//path")
-
-xmlValue([[1]])
-
-
-invisible(replaceNodes(doc[["//sequence/text()"]], newXMLTextNode( newSeq)))
-doc
+system('inkscape --batch-process --actions="debug-info"', intern = FALSE)
+system('inkscape --batch-process --actions="debug-info"', intern = TRUE)
+system('inkscape --shell --actions="debug-info"', intern = F)

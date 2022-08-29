@@ -85,8 +85,8 @@ object-rearrange    ,  Rearrange selected objects; usage: [graph | exchange | ex
 object-release-clip ,  Remove clipping path from selection
 object-release-mask ,  Remove mask from selection
 object-remove-overlaps,  Remove overlaps between objects: requires two comma separated numbers (horizontal and vertical gaps).
-object-rotate-90-ccw,  Rotate selection 90° counter-clockwise
-object-rotate-90-cw ,  Rotate selection 90° clockwise
+object-rotate-90-ccw,  Rotate selection 90Â° counter-clockwise
+object-rotate-90-cw ,  Rotate selection 90Â° clockwise
 object-set-attribute,"  Set or update an attribute of selected objects; usage: object-set-attribute:attribute name, attribute value;"
 object-set-clip     ,  Apply clipping path to selection (using the topmost object as clipping path)
 object-set-clip-group,  Create a self-clipping group to which objects (not contributing to the clip-path) can be added

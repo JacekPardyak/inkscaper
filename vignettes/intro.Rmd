@@ -10,7 +10,7 @@ output:
       smooth_scroll: false
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{The magick package: Advanced Image-Processing in R}
+  %\VignetteIndexEntry{The inkscaper package: R wrapper for Inkscape}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -29,6 +29,9 @@ It offers a rich set of features and is widely used for both artistic and techni
 
 To install Inkscape on your platform follow the instruction available at: [https://inkscape.org/](https://inkscape.org/) 
 
+Note: during Windows installation allow "set path"
+
+
 ## Installing `inkscaper` R package
 
 ```{r}
@@ -41,16 +44,9 @@ install_github("JacekPardyak/inkscaper")
 While obviously Inkscape is primarily intended as a GUI application, it can be used for doing SVG processing on the command line as well. [Inkscape Actions](https://inkscape.org/doc/inkscape-man.html) available in versions `r system('inkscape --version', intern = TRUE)` are listed below.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
-library(kableExtra)
-readr::read_csv("../inst/extdata/actions.csv") %>% kbl() %>%
-  kable_paper() %>%
-  scroll_box(width = "100%", height = "300px")
-```
-
-```{r}
-tbl = readr::read_csv("../inst/extdata/actions.csv") %>% as.data.frame()
-tbl
-?DT::datatable()
+library(dplyr)
+system.file("extdata", "actions.csv", package = "inkscaper") %>% 
+  readr::read_csv() %>% DT::datatable()
 ```
 
 
@@ -60,11 +56,12 @@ In this example we download a SVG file from repository, convert it to PNG and pl
 
 ```{r}
 library(inkscaper)
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
+  inx_actions(actions = NA, ext = ".png")
 ```
+This is `PNG` generated with this procedure:
+
+![](`r output`)
 
 
 
@@ -75,10 +72,8 @@ library(inkscaper)
 [Inkscape Extensions](https://inkscape.org/gallery/=extension/ ) are small programs that extend Inkscape’s functionality. They can provide features for specific tasks, experimentation, or art styles. They can also add support for special hardware or different export formats. While many extensions are included with Inkscape, you can also install extensions written by third parties or write your own. The table below shows the list of extensions available in Inkscape of version `r system('inkscape --version', intern = TRUE)` with descriptions.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
-library(kableExtra)
-readr::read_csv("../inst/extdata/extensions.csv") %>% kbl() %>%
-  kable_paper() %>%
-  scroll_box(width = "100%", height = "300px")
+system.file("extdata", "extensions.csv", package = "inkscaper") %>% 
+  readr::read_csv() %>% DT::datatable()
 ```
 
 ### Function `inx_extension()`
@@ -100,37 +95,37 @@ library(sf)
 Function `inx_svg2dxf()` is abbreviation of the `inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf")`
 
 ```{r}
-library(tidyverse)
-library(sf)
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 ```
 
 ## More examples
 
-### w3c logo
+### W3C logo
 
 In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we flip object in Inkscape before conversion.
 
 ```{r}
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>% 
+  inx_actions(actions = NA, ext = ".png") 
+```
 
+
+This is `PNG` generated with this procedure:
+
+![](`r output`)
+
+```{r}
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
   inx_actions(actions = "select-all;object-flip-vertical", ext = ".svg") %>%
-  inx_svg2dxf %>%
-  st_read() %>% 
+  inx_svg2sf %>% 
   ggplot() +
   geom_sf()
 ```
@@ -140,21 +135,23 @@ In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we 
 In the first example we convert a `SVG` to `DXF` and plot `SF`. It turns that the plot is empty because SVG object `rectangle` can not be converted. In the other we "break" object into `path` in Inkscape before conversion.
 
 ```{r}
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+output <- "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
+  inx_actions(actions = NA, ext = ".png")
+```
 
+This is `PNG` generated with this procedure:
+
+![](`r output`)
+
+```{r}
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
 inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 ```
@@ -172,10 +169,8 @@ heart <- heart %>% bind_rows(heart %>% slice(1)) %>% select(x, y) %>% as.matrix(
   st_linestring() %>% st_sfc() %>% st_sf()
 heart %>% ggplot() +
   geom_sf()
-input = tempfile("inx_", fileext = ".dxf")
-heart %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
-output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+
+output = heart %>% inx_sf2svg() 
 ```
 
 This is `SVG` generated with this procedure:
@@ -206,25 +201,24 @@ nc <- st_read(filename)
 nc %>% ggplot() +
   geom_sf()
 ```
+
+
 ```{r}
-input = tempfile("inx_", fileext = ".dxf")
-nc %>% st_geometry() %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
-output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+output = nc %>% inx_sf2svg() 
 ```
 
 This is `SVG` generated with this procedure:
 
 ![](`r output`){width=200%}
 
-### ddd
+### Actions on Simple Features
 
 ```{r}
-element_1 = matrix(c(0,0,10,0,10,10,0,10,0,0),ncol=2, byrow=TRUE)  %>%
+sf_1 = matrix(c(0,0,10,0,10,10,0,10,0,0),ncol=2, byrow=TRUE)  %>%
   list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
-element_2 = matrix(c(1,1,1,2,2,2,2,1,1,1),ncol=2, byrow=TRUE) %>%
+sf_2 = matrix(c(1,1,1,2,2,2,2,1,1,1),ncol=2, byrow=TRUE) %>%
   list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
-collection <- element_1 %>% bind_rows(element_2)
+collection <- sf_1 %>% bind_rows(sf_2)
 collection %>% ggplot() +
   geom_sf()
 ```
@@ -253,13 +247,68 @@ collection_bottom <- inx_svg %>%
 
 ![](`r collection_bottom`){width=200%}
 
+### R Logo
 
-## Limitations
+```{r}
+logo = system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
+  inx_svg2sf() %>% 
+  select(geometry)
+# POLYGON: ellipse
+ellipse <- logo %>% slice(1:128) %>% 
+  select(geometry) %>% st_union() %>% st_polygonize() %>% 
+  first() %>% 
+  first() %>% st_sfc()  %>% st_sf(geometry = .)
+
+hole <- logo %>% slice(129:215) %>%
+    select(geometry) %>% st_union() %>% st_polygonize() %>% 
+    first() %>% 
+    first() %>% st_sfc()  %>% st_sf(geometry = .)
+  
+ellipse <- ellipse %>% st_difference(hole) %>% mutate(colour = "#b8b8bdff")
+
+# POLYGON: R letter
+rletter <- logo %>% slice(217:301) %>% 
+  select(geometry) %>% st_union() %>% st_polygonize() %>% 
+  first() %>% 
+  first() %>% st_sfc() %>% st_sf(geometry = .) %>% mutate(colour = "#1c61b3ff")
+
+ggplot() +
+  geom_sf(data = ellipse, aes(fill = colour)) +
+  geom_sf(data = rletter, aes(fill = colour)) +
+  scale_fill_identity()
+
+```
+
+
+```{r}
+
+```
+
+
+### Inkscape Logo
+
+```{r}
+output = system.file("extdata", "Inkscape_logo.svg", package = "inkscaper") %>%
+  inx_svg2sf() %>% 
+  select(geometry) %>% st_union() %>% st_polygonize() %>% first()
+output = (output %>% nth(1)) %>% 
+  st_union(output %>% nth(2)) %>%
+  st_union(output %>% nth(3)) %>%
+  st_union(output %>% nth(4)) 
+output %>%
+  ggplot() + 
+  aes(fill = "black") +
+  geom_sf() +
+  scale_fill_identity()
+```
+
+
+## Non-GUI environments
 
 Some known limitations:
 
 - in a non-GUI environment such as [Colab](https://colab.research.google.com/), some actions will not work because they require a GUI to run, although the `inkscaper` package only requires the CLI to run commands.
 
-```{r}
-DT::datatable(iris)
-```
+=======
+- Only actions that don't require a desktop may be used.
+
