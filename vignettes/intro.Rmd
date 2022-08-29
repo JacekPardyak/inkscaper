@@ -29,6 +29,9 @@ It offers a rich set of features and is widely used for both artistic and techni
 
 To install Inkscape on your platform follow the instruction available at: [https://inkscape.org/](https://inkscape.org/) 
 
+Note: during Windows installation allow "set path"
+
+
 ## Installing `inkscaper` R package
 
 ```{r}
@@ -51,7 +54,6 @@ system.file("extdata", "actions.csv", package = "inkscaper") %>%
 In this example we download a SVG file from repository, convert it to PNG and plot it in R.
 
 ```{r}
-
 library(inkscaper)
 output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
   inx_actions(actions = NA, ext = ".png")
@@ -101,11 +103,16 @@ Function `inx_svg2dxf()` is abbreviation of the `inx_extension(inkscape_extensio
 In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we flip object in Inkscape before conversion.
 
 ```{r}
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>% 
+  inx_actions(actions = NA, ext = ".png") 
+```
 
+
+This is `PNG` generated with this procedure:
+
+![](`r output`)
+
+```{r}
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
   inx_svg2sf() %>% 
   ggplot() +
@@ -122,14 +129,14 @@ In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we 
 
 In the first example we convert a `SVG` to `DXF` and plot `SF`. It turns that the plot is empty because SVG object `rectangle` can not be converted. In the other we "break" object into `path` in Inkscape before conversion.
 
-This is `SVG` generated with this procedure:
-
 ```{r}
 output <- "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
   inx_actions(actions = NA, ext = ".png")
 ```
 
-![](`r output`){width=200%}
+This is `PNG` generated with this procedure:
+
+![](`r output`)
 
 ```{r}
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
@@ -157,10 +164,8 @@ heart <- heart %>% bind_rows(heart %>% slice(1)) %>% select(x, y) %>% as.matrix(
   st_linestring() %>% st_sfc() %>% st_sf()
 heart %>% ggplot() +
   geom_sf()
-input = tempfile("inx_", fileext = ".dxf")
-heart %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
-output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+
+output = heart %>% inx_sf2svg() 
 ```
 
 This is `SVG` generated with this procedure:
@@ -191,11 +196,10 @@ nc <- st_read(filename)
 nc %>% ggplot() +
   geom_sf()
 ```
+
+
 ```{r}
-input = tempfile("inx_", fileext = ".dxf")
-nc %>% st_geometry() %>% st_write(dsn = input, driver ="DXF", delete_dsn = TRUE)
-output = inx_extension(input, inkscape_extension_name = "dxf_input.py", ext = ".svg")  %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") 
+output = nc %>% inx_sf2svg() 
 ```
 
 This is `SVG` generated with this procedure:
@@ -237,6 +241,41 @@ collection_bottom <- inx_svg %>%
 ```
 
 ![](`r collection_bottom`){width=200%}
+
+### R Logo
+
+```{r}
+output = system.file("extdata", "Inkscape_logo.svg", package = "inkscaper") %>%
+  inx_svg2sf() %>% 
+  select(geometry) %>% st_union() %>% st_polygonize() %>% first()
+output = (output %>% nth(1)) %>% 
+  st_union(output %>% nth(2)) %>%
+  st_union(output %>% nth(3)) %>%
+  st_union(output %>% nth(4)) 
+output %>%
+  ggplot() + 
+  aes(fill = "black") +
+  geom_sf() +
+  scale_fill_identity()
+```
+
+
+### Inkscape Logo
+
+```{r}
+output = system.file("extdata", "Inkscape_logo.svg", package = "inkscaper") %>%
+  inx_svg2sf() %>% 
+  select(geometry) %>% st_union() %>% st_polygonize() %>% first()
+output = (output %>% nth(1)) %>% 
+  st_union(output %>% nth(2)) %>%
+  st_union(output %>% nth(3)) %>%
+  st_union(output %>% nth(4)) 
+output %>%
+  ggplot() + 
+  aes(fill = "black") +
+  geom_sf() +
+  scale_fill_identity()
+```
 
 
 ## Non-GUI environments
