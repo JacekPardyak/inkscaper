@@ -41,6 +41,7 @@ install_github("JacekPardyak/inkscaper")
 While obviously Inkscape is primarily intended as a GUI application, it can be used for doing SVG processing on the command line as well. [Inkscape Actions](https://inkscape.org/doc/inkscape-man.html) available in versions `r system('inkscape --version', intern = TRUE)` are listed below.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(dplyr)
 system.file("extdata", "actions.csv", package = "inkscaper") %>% 
   readr::read_csv() %>% DT::datatable()
 ```
@@ -50,6 +51,7 @@ system.file("extdata", "actions.csv", package = "inkscaper") %>%
 In this example we download a SVG file from repository, convert it to PNG and plot it in R.
 
 ```{r}
+
 library(inkscaper)
 output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
   inx_actions(actions = NA, ext = ".png")
@@ -86,18 +88,15 @@ library(sf)
 Function `inx_svg2dxf()` is abbreviation of the `inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf")`
 
 ```{r}
-library(tidyverse)
-library(sf)
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 ```
 
 ## More examples
 
-### w3c logo
+### W3C logo
 
 In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we flip object in Inkscape before conversion.
 
@@ -108,15 +107,13 @@ In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we 
   grid::grid.raster()
 
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/w3c.svg" %>%
   inx_actions(actions = "select-all;object-flip-vertical", ext = ".svg") %>%
-  inx_svg2dxf %>%
-  st_read() %>% 
+  inx_svg2sf %>% 
   ggplot() +
   geom_sf()
 ```
@@ -125,22 +122,24 @@ In the first example we convert a `SVG` to `DXF` and plot `SF`. In the other we 
 
 In the first example we convert a `SVG` to `DXF` and plot `SF`. It turns that the plot is empty because SVG object `rectangle` can not be converted. In the other we "break" object into `path` in Inkscape before conversion.
 
-```{r}
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+This is `SVG` generated with this procedure:
 
+```{r}
+output <- "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>% 
+  inx_actions(actions = NA, ext = ".png")
+```
+
+![](`r output`){width=200%}
+
+```{r}
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
 inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
-  inx_svg2dxf() %>%
-  st_read() %>% 
+  inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
 ```
@@ -203,14 +202,14 @@ This is `SVG` generated with this procedure:
 
 ![](`r output`){width=200%}
 
-### ddd
+### Actions on Simple Features
 
 ```{r}
-element_1 = matrix(c(0,0,10,0,10,10,0,10,0,0),ncol=2, byrow=TRUE)  %>%
+sf_1 = matrix(c(0,0,10,0,10,10,0,10,0,0),ncol=2, byrow=TRUE)  %>%
   list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
-element_2 = matrix(c(1,1,1,2,2,2,2,1,1,1),ncol=2, byrow=TRUE) %>%
+sf_2 = matrix(c(1,1,1,2,2,2,2,1,1,1),ncol=2, byrow=TRUE) %>%
   list() %>% st_multilinestring() %>% st_sfc() %>% st_sf()
-collection <- element_1 %>% bind_rows(element_2)
+collection <- sf_1 %>% bind_rows(sf_2)
 collection %>% ggplot() +
   geom_sf()
 ```
@@ -240,7 +239,7 @@ collection_bottom <- inx_svg %>%
 ![](`r collection_bottom`){width=200%}
 
 
-## Limitations
+## Non-GUI environments
 
 Some known limitations:
 
