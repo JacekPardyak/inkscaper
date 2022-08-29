@@ -41,41 +41,30 @@ install_github("JacekPardyak/inkscaper")
 While obviously Inkscape is primarily intended as a GUI application, it can be used for doing SVG processing on the command line as well. [Inkscape Actions](https://inkscape.org/doc/inkscape-man.html) available in versions `r system('inkscape --version', intern = TRUE)` are listed below.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
-library(kableExtra)
-readr::read_csv("../inst/extdata/actions.csv") %>% kbl() %>%
-  kable_paper() %>%
-  scroll_box(width = "100%", height = "300px")
+system.file("extdata", "actions.csv", package = "inkscaper") %>% 
+  readr::read_csv() %>% DT::datatable()
 ```
 
-
-```{r, warning=FALSE, message=FALSE, echo=FALSE}
-library(DT)
-df <- system.file("extdata", "actions.csv", package = "inkscaper") %>% 
-  readr::read_csv()
-datatable(df)
-```
-
-### cartman.svg
+### Function `inx_actions()`
 
 In this example we download a SVG file from repository, convert it to PNG and plot it in R.
 
 ```{r}
 library(inkscaper)
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+output = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>% 
+  inx_actions(actions = NA, ext = ".png")
 ```
+This is `PNG` generated with this procedure:
+
+![](`r output`)
 
 ## Using Inkscape Extensions
 
 [Inkscape Extensions](https://inkscape.org/gallery/=extension/ ) are small programs that extend Inkscape’s functionality. They can provide features for specific tasks, experimentation, or art styles. They can also add support for special hardware or different export formats. While many extensions are included with Inkscape, you can also install extensions written by third parties or write your own. The table below shows the list of extensions available in Inkscape of version `r system('inkscape --version', intern = TRUE)` with descriptions.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
-df <- system.file("extdata", "extensions.csv", package = "inkscaper") %>% 
-  readr::read_csv()
-datatable(df)
-
+system.file("extdata", "extensions.csv", package = "inkscaper") %>% 
+  readr::read_csv() %>% DT::datatable()
 ```
 
 ### Function `inx_extension()`
