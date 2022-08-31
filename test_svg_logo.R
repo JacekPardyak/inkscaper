@@ -64,12 +64,29 @@ svg_sf %>%
   ggplot() +
   geom_sf()
 
-"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2017_gegeneraliseerd&outputFormat=json" %>%
+# -----------------------------------------------------------------
+# sf to svg
+"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2022_gegeneraliseerd&outputFormat=json" %>%
   st_read() %>%
   ggplot() +
   geom_sf()
 
 "https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2017_gegeneraliseerd&outputFormat=json" %>%
+  st_read() %>%
+  filter(statnaam == "'s-Gravenhage") %>%
+  inx_sf2svg() %>%
+  inx_actions(actions = "export-area-drawing", ext = ".svg") %>%
+  inx_actions(actions = "select-all;transform-scale:0.1", ext = ".svg") %>%
+  inx_write("my_file.svg")
+"my_file.svg" %>%
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG(native = TRUE) %>%
+  grid::rasterGrob(interpolate=TRUE) -> img
+ggplot() +
+  annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
+
+
+"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2022_gegeneraliseerd&outputFormat=json" %>%
   st_read() %>%
   st_cast("MULTILINESTRING") %>%
   filter(statnaam == "'s-Gravenhage") %>%
@@ -77,14 +94,38 @@ svg_sf %>%
   inx_actions(actions = "select-all;transform-scale:0.001", ext = ".svg") %>%
   xml2::read_xml()
 
-"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2020_gegeneraliseerd&outputFormat=json" %>%
+"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2022_gegeneraliseerd&outputFormat=json" %>%
   st_read() %>%
- # st_cast("MULTILINESTRING") %>%
   filter(statnaam == "'s-Gravenhage") %>%
   inx_sf2svg() %>%
-  inx_actions(actions = "select-all;transform-scale:0.001", ext = ".svg") %>%
-  inx_actions(actions = "export-area-drawing", ext = ".svg") %>%
+ inx_actions(actions = "select-all;transform-scale:0.1", ext = ".svg") %>%
+ inx_actions(actions = "export-area-drawing", ext = ".svg") %>%
   inx_write("my_file.svg")
+
+"https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2022_gegeneraliseerd&outputFormat=json" %>%
+  st_read() %>%
+  filter(statnaam == "'s-Gravenhage") %>%
+  inx_sf2svg() %>%
+#  inx_actions(actions = "select-all;transform-scale:1", ext = ".svg") %>%
+#  inx_actions(actions = "export-area-drawing", ext = ".svg") %>%
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG(native = TRUE) %>%
+  grid::rasterGrob(interpolate=TRUE) -> img
+ggplot() +
+  annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
+
+
+tmp %>%
+  xml2::read_xml()
+tmp  %>%
+  ggplot() +
+  geom_sf()
+
+  %>%
+
+
+  inx_write("my_file.svg")
+
 library(xml2)
 x <- "my_file.svg" %>% xml2::read_xml()
 ns <- xml_ns(x)
@@ -120,9 +161,4 @@ xml_attr(xml_find_all(x, "//*[name()='g']//*[name()='path']"), "style") = "fill:
 xml_attr(x, "//svg")
 
 ?xml2_example
-system.file("shape/nc.shp", package="sf") %>%
-  st_read() %>%
-  inx_sf2svg() %>%
-#  inx_actions(actions = "select-all;transform-scale:0.001", ext = ".svg") %>%
-#  inx_actions(actions = 'export-area-drawing', ext = ".svg") %>%
-  inx_write("my_file.svg")
+
