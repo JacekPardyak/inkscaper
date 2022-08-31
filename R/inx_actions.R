@@ -1,22 +1,21 @@
-#' Title
+#' Run Inkscape actions
 #'
-#' @param input svg
-#' @param actions actions from list
-#' @param ext file output extension
+#' @param input Path or url of the SVG input file.
+#' @param actions vector of actions to be performed. Check vignetes for details.
+#' @param ext file format of the output (ex. ".svg", ".png", ...)
 #'
-#' @return file for conversion
+#' @return path of the outcome
 #' @export
 #'
 #' @examples
-#' input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-#' grid::grid.newpage()
-#' input %>% inx_actions(actions = NA, ext = ".png") %>%
-#' png::readPNG() %>%
-#' grid::grid.raster()
-#' grid::grid.newpage()
-#' input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
-#' png::readPNG() %>%
-#' grid::grid.raster()
+#' library(ggplot2)
+#' img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
+#' inx_actions(actions = NA, ext = ".png") %>%
+#' png::readPNG(native = TRUE) %>%
+#' grid::rasterGrob(interpolate=TRUE)
+#' ggplot() +
+#' annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
+
 
 inx_actions <- function(input, actions, ext){
    if(is_url(input)) {

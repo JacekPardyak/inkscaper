@@ -2,31 +2,29 @@
 % Please edit documentation in R/inx_actions.R
 \name{inx_actions}
 \alias{inx_actions}
-\title{Title}
+\title{Run Inkscape actions}
 \usage{
 inx_actions(input, actions, ext)
 }
 \arguments{
-\item{input}{svg}
+\item{input}{Path or url of the SVG input file.}
 
-\item{actions}{actions from list}
+\item{actions}{vector of actions to be performed. Check vignetes for details.}
 
-\item{ext}{file output extension}
+\item{ext}{file format of the output (ex. ".svg", ".png", ...)}
 }
 \value{
-file for conversion
+path of the outcome
 }
 \description{
-Title
+Run Inkscape actions
 }
 \examples{
-input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-grid::grid.newpage()
-input \%>\% inx_actions(actions = NA, ext = ".png") \%>\%
-png::readPNG() \%>\%
-grid::grid.raster()
-grid::grid.newpage()
-input \%>\% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") \%>\%
-png::readPNG() \%>\%
-grid::grid.raster()
+library(ggplot2)
+img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" \%>\%
+inx_actions(actions = NA, ext = ".png") \%>\%
+png::readPNG(native = TRUE) \%>\%
+grid::rasterGrob(interpolate=TRUE)
+ggplot() +
+annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 }

@@ -12,13 +12,6 @@ download_svg <- function(url){
   return(filename)
 }
 
-
-
-
-inx_save <- function(input, output) {
-  file.copy(input, output)
-}
-
 inx_extension_win <- function(input, inkscape_extension_name, ext){
   path = system('inkscape --system-data-directory', intern = TRUE)
   inkscape_extensions_path = paste(path, "\\extensions", sep = "")

@@ -1,23 +1,19 @@
 #' Title
 #'
-#' @param input file or url of the SVG
+#' @param input Path or url of the SVG input file.
 #'
-#' @return simple features
+#' @return Simple feature collection of geometry type LINESTRING.
 #' @export
 #'
 #' @examples
-#' library(tidyverse)
+#' library(ggplot2)
 #' library(sf)
-#' input = system.file("extdata", "R_logo.svg", package = "inkscaper", mustWork = TRUE)
-#' input %>%
-#' inx_svg2sf() %>%
+#' sf_from_svg <- "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
+#' inx_svg2sf()
+#' sf_from_svg
+#' sf_from_svg %>%
 #' ggplot() +
-#'   geom_sf()
-#'
-#' "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/tiger.svg" %>%
-#' inx_svg2sf() %>%
-#' ggplot() +
-#'   geom_sf()
+#' geom_sf()
 inx_svg2sf <- function(input){
   inx_extension(input, inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf") %>%
   sf::st_read()
