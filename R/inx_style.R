@@ -1,5 +1,4 @@
-library(xml2)
-#' Title
+#' Apply style to a node
 #'
 #' @param input SVG file
 #' @param id element id
@@ -9,7 +8,7 @@ library(xml2)
 #' @export
 #'
 #' @examples
-#' library(tidyverse)
+#' library(ggplot2)
 #' library(xml2)
 #' # plot the original file
 #' system.file("extdata", "rectangle.svg", package = "inkscaper") %>%
@@ -28,11 +27,10 @@ library(xml2)
 #' annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 inx_style <- function(input, id, style){
   output = tempfile("inx_", fileext = ".svg")
-  x <-  input %>% read_xml()
+  x <-  input %>% xml2::read_xml()
   xpath = sprintf("//*[@id='%s']", id) #paths = xml_path(xml_find_all(x, "//*[name()='path']"))
-  node = xml_find_all(x, xpath)
-  xml_attr(node, "style") = style
-  xml_attr(node, "style")
-  x %>% write_xml(output)
+  node = xml2::xml_find_all(x, xpath)
+  xml2::xml_attr(node, "style") = style #xml2::xml_attr(node, "style")
+  x %>% xml2::write_xml(output)
   output
 }

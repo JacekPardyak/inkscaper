@@ -1,14 +1,14 @@
-#' Title
+#' Run Inkscape extension
 #'
-#' @param input file path
-#' @param name of the inkscape_extension_name
-#' @param ext - extension of the output file
+#' @param input The path of the input file
+#' @param inkscape_extension_name The name of the Inkscape extension
+#' @param ext The extension of the output file
 #'
-#' @return a ouput file
+#' @return The output file
 #' @export
 #'
 #' @examples
-#' library(tidyverse)
+#' library(ggplot2)
 #' "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" %>%
 #' inx_extension("lorem_ipsum.py", ".svg") %>%
 #' inx_actions(actions="", ".png") %>% png::readPNG() -> img

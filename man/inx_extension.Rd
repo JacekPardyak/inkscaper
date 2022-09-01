@@ -2,22 +2,22 @@
 % Please edit documentation in R/inx_extension.R
 \name{inx_extension}
 \alias{inx_extension}
-\title{Title}
+\title{Run Inkscape extension}
 \usage{
 inx_extension(input, inkscape_extension_name, ext)
 }
 \arguments{
-\item{input}{file path}
+\item{input}{The path of the input file}
 
-\item{ext}{- extension of the output file}
+\item{inkscape_extension_name}{The name of the Inkscape extension}
 
-\item{name}{of the inkscape_extension_name}
+\item{ext}{The extension of the output file}
 }
 \value{
-a ouput file
+The output file
 }
 \description{
-Title
+Run Inkscape extension
 }
 \examples{
 library(tidyverse)

@@ -6,7 +6,6 @@
 #' @export
 #'
 #' @examples
-#' library(tidyverse)
 #' library(sf)
 #' filename <- system.file("shape/nc.shp", package="sf")
 #' nc <- st_read(filename)

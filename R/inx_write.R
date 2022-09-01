@@ -1,8 +1,9 @@
-#' Title
+#' Write the file in your working directory
 #'
-#' @param input Path of the file to be copied
+#' @param input The path of the file to be copied
+#' @param output The name of the file in the working directory
 #'
-#' @return Name of the file in Working Directory
+#' @return Logical
 #' @export
 #'
 #' @examples

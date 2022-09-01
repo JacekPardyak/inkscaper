@@ -110,7 +110,7 @@ inkscape --action-list > %s'
   writeLines(text, con)
   system(con)
   text <- readLines(output)
-  text <- gsub("<b0>", "°", x = text, useBytes = F, fixed = T)
+  text <- gsub("<b0>", "\u00B0", x = text, useBytes = F, fixed = T)
   #dd[agrep("object-rotate-90-ccw", dd, useBytes = F, fixed = T)]
   writeLines(text, output)
   actions <- readr::read_delim(output, delim = ":", col_names = FALSE)
@@ -118,7 +118,6 @@ inkscape --action-list > %s'
   actions
 }
 #inx_actions_list_win() %>% readr::write_csv("./inst/extdata/actions.csv")
-
 
 inx_actions_list_linux <- function(){
   output = tempfile("inx_", fileext = ".txt")

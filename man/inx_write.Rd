@@ -2,18 +2,20 @@
 % Please edit documentation in R/inx_write.R
 \name{inx_write}
 \alias{inx_write}
-\title{Title}
+\title{Write the file in your working directory}
 \usage{
 inx_write(input, output)
 }
 \arguments{
-\item{input}{Path of the file to be copied}
+\item{input}{The path of the file to be copied}
+
+\item{output}{The name of the file in the working directory}
 }
 \value{
-Name of the file in Working Directory
+Logical
 }
 \description{
-Title
+Write the file in your working directory
 }
 \examples{
 input = system.file("extdata", "R_logo.svg", package = "inkscaper")

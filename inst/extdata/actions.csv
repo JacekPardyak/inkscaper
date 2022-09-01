@@ -269,16 +269,18 @@ org.inkscape.effect.filter.ColorBlindness,  Simulate color blindness
 org.inkscape.effect.filter.ColorBlindness.noprefs,  Simulate color blindness
 org.inkscape.effect.filter.ColorDropShadow,  Colorizable Drop shadow
 org.inkscape.effect.filter.ColorDropShadow.noprefs,  Colorizable Drop shadow
-org.inkscape.effect.filter.ColorShift,  Rotate and desaturate hue
-org.inkscape.effect.filter.ColorShift.noprefs,  Rotate and desaturate hue
 org.inkscape.effect.filter.Colorize,  Blend image or object with a flood color
 org.inkscape.effect.filter.Colorize.noprefs,  Blend image or object with a flood color
+org.inkscape.effect.filter.ColorShift,  Rotate and desaturate hue
+org.inkscape.effect.filter.ColorShift.noprefs,  Rotate and desaturate hue
 org.inkscape.effect.filter.ComponentTransfer,  Basic component transfer structure
 org.inkscape.effect.filter.ComponentTransfer.noprefs,  Basic component transfer structure
 org.inkscape.effect.filter.CrossBlur,  Combine vertical and horizontal blur
 org.inkscape.effect.filter.CrossBlur.noprefs,  Combine vertical and horizontal blur
 org.inkscape.effect.filter.CrossEngraving,  Convert image to an engraving made of vertical and horizontal lines
 org.inkscape.effect.filter.CrossEngraving.noprefs,  Convert image to an engraving made of vertical and horizontal lines
+org.inkscape.effect.filter.crosssmooth,  Smooth edges and angles of shapes
+org.inkscape.effect.filter.crosssmooth.noprefs,  Smooth edges and angles of shapes
 org.inkscape.effect.filter.DiffuseLight,  Basic diffuse bevel to use for building textures
 org.inkscape.effect.filter.DiffuseLight.noprefs,  Basic diffuse bevel to use for building textures
 org.inkscape.effect.filter.Drawing,  Convert images to duochrome drawings
@@ -291,64 +293,6 @@ org.inkscape.effect.filter.Electrize,  Electro solarization effects
 org.inkscape.effect.filter.Electrize.noprefs,  Electro solarization effects
 org.inkscape.effect.filter.ExtractChannel,  Extract color channel as a transparent image
 org.inkscape.effect.filter.ExtractChannel.noprefs,  Extract color channel as a transparent image
-org.inkscape.effect.filter.FadeToBW,  Fade to black or white
-org.inkscape.effect.filter.FadeToBW.noprefs,  Fade to black or white
-org.inkscape.effect.filter.Feather,  Blurred mask on the edge without altering the contents
-org.inkscape.effect.filter.Feather.noprefs,  Blurred mask on the edge without altering the contents
-org.inkscape.effect.filter.FeltFeather,  Blur and displace edges of shapes and pictures
-org.inkscape.effect.filter.FeltFeather.noprefs,  Blur and displace edges of shapes and pictures
-org.inkscape.effect.filter.Greyscale,  Customize greyscale components
-org.inkscape.effect.filter.Greyscale.noprefs,  Customize greyscale components
-org.inkscape.effect.filter.ImageBlur,  Blur eroded by white or transparency
-org.inkscape.effect.filter.ImageBlur.noprefs,  Blur eroded by white or transparency
-org.inkscape.effect.filter.InkBlot,  Inkblot on tissue or rough paper
-org.inkscape.effect.filter.InkBlot.noprefs,  Inkblot on tissue or rough paper
-org.inkscape.effect.filter.Invert,"  Manage hue, lightness and transparency inversions"
-org.inkscape.effect.filter.Invert.noprefs,"  Manage hue, lightness and transparency inversions"
-org.inkscape.effect.filter.LightEraser,  Make the lightest parts of the object progressively transparent
-org.inkscape.effect.filter.LightEraser.noprefs,  Make the lightest parts of the object progressively transparent
-org.inkscape.effect.filter.Lighting,  Modify lights and shadows separately
-org.inkscape.effect.filter.Lighting.noprefs,  Modify lights and shadows separately
-org.inkscape.effect.filter.LightnessContrast,  Modify lightness and contrast separately
-org.inkscape.effect.filter.LightnessContrast.noprefs,  Modify lightness and contrast separately
-org.inkscape.effect.filter.MatteJelly,"  Bulging, matte jelly covering"
-org.inkscape.effect.filter.MatteJelly.noprefs,"  Bulging, matte jelly covering"
-org.inkscape.effect.filter.NeonDraw,  Posterize and draw smooth lines around color shapes
-org.inkscape.effect.filter.NeonDraw.noprefs,  Posterize and draw smooth lines around color shapes
-org.inkscape.effect.filter.NoiseFill,  Basic noise fill and transparency texture
-org.inkscape.effect.filter.NoiseFill.noprefs,  Basic noise fill and transparency texture
-org.inkscape.effect.filter.NudgeCMY,  Nudge CMY channels separately and blend them to different types of backgrounds
-org.inkscape.effect.filter.NudgeCMY.noprefs,  Nudge CMY channels separately and blend them to different types of backgrounds
-org.inkscape.effect.filter.NudgeRGB,  Nudge RGB channels separately and blend them to different types of backgrounds
-org.inkscape.effect.filter.NudgeRGB.noprefs,  Nudge RGB channels separately and blend them to different types of backgrounds
-org.inkscape.effect.filter.Opacity,  Set opacity and strength of opacity boundaries
-org.inkscape.effect.filter.Opacity.noprefs,  Set opacity and strength of opacity boundaries
-org.inkscape.effect.filter.Outline,  Adds a colorizable outline
-org.inkscape.effect.filter.Outline.noprefs,  Adds a colorizable outline
-org.inkscape.effect.filter.PointEngraving,  Convert image to a transparent point engraving
-org.inkscape.effect.filter.PointEngraving.noprefs,  Convert image to a transparent point engraving
-org.inkscape.effect.filter.Posterize,  Poster and painting effects
-org.inkscape.effect.filter.Posterize.noprefs,  Poster and painting effects
-org.inkscape.effect.filter.PosterizeBasic,  Simple posterizing effect
-org.inkscape.effect.filter.PosterizeBasic.noprefs,  Simple posterizing effect
-org.inkscape.effect.filter.Quadritone,  Replace hue by two colors
-org.inkscape.effect.filter.Quadritone.noprefs,  Replace hue by two colors
-org.inkscape.effect.filter.Roughen,  Small-scale roughening to edges and content
-org.inkscape.effect.filter.Roughen.noprefs,  Small-scale roughening to edges and content
-org.inkscape.effect.filter.Silhouette,  Repaint anything visible monochrome
-org.inkscape.effect.filter.Silhouette.noprefs,  Repaint anything visible monochrome
-org.inkscape.effect.filter.SimpleBlend,  Simple blend filter
-org.inkscape.effect.filter.SimpleBlend.noprefs,  Simple blend filter
-org.inkscape.effect.filter.Solarize,  Classic photographic solarization effect
-org.inkscape.effect.filter.Solarize.noprefs,  Classic photographic solarization effect
-org.inkscape.effect.filter.SpecularLight,  Basic specular bevel to use for building textures
-org.inkscape.effect.filter.SpecularLight.noprefs,  Basic specular bevel to use for building textures
-org.inkscape.effect.filter.Tritone,"  Create a custom tritone palette with additional glow, blend modes and hue moving"
-org.inkscape.effect.filter.Tritone.noprefs,"  Create a custom tritone palette with additional glow, blend modes and hue moving"
-org.inkscape.effect.filter.WaxBump,  Turns an image to jelly
-org.inkscape.effect.filter.WaxBump.noprefs,  Turns an image to jelly
-org.inkscape.effect.filter.crosssmooth,  Smooth edges and angles of shapes
-org.inkscape.effect.filter.crosssmooth.noprefs,  Smooth edges and angles of shapes
 org.inkscape.effect.filter.f000,  Does not filter but adds a filter region
 org.inkscape.effect.filter.f000.noprefs,  Does not filter but adds a filter region
 org.inkscape.effect.filter.f001,  Same as Matte jelly but with more controls
@@ -749,6 +693,12 @@ org.inkscape.effect.filter.f233,  Double reflection through glass with some refr
 org.inkscape.effect.filter.f233.noprefs,  Double reflection through glass with some refraction
 org.inkscape.effect.filter.f234,  Satiny glass effect
 org.inkscape.effect.filter.f234.noprefs,  Satiny glass effect
+org.inkscape.effect.filter.FadeToBW,  Fade to black or white
+org.inkscape.effect.filter.FadeToBW.noprefs,  Fade to black or white
+org.inkscape.effect.filter.Feather,  Blurred mask on the edge without altering the contents
+org.inkscape.effect.filter.Feather.noprefs,  Blurred mask on the edge without altering the contents
+org.inkscape.effect.filter.FeltFeather,  Blur and displace edges of shapes and pictures
+org.inkscape.effect.filter.FeltFeather.noprefs,  Blur and displace edges of shapes and pictures
 org.inkscape.effect.filter.filter106,"  Render Cyan, Magenta and Yellow channels with a colorizable background"
 org.inkscape.effect.filter.filter106.noprefs,"  Render Cyan, Magenta and Yellow channels with a colorizable background"
 org.inkscape.effect.filter.filter109,  Convoluted emboss effect
@@ -773,8 +723,58 @@ org.inkscape.effect.filter.filter672,  Sharp multiple contour for objects
 org.inkscape.effect.filter.filter672.noprefs,  Sharp multiple contour for objects
 org.inkscape.effect.filter.filter81,  Old chromolithographic effect
 org.inkscape.effect.filter.filter81.noprefs,  Old chromolithographic effect
+org.inkscape.effect.filter.Greyscale,  Customize greyscale components
+org.inkscape.effect.filter.Greyscale.noprefs,  Customize greyscale components
+org.inkscape.effect.filter.ImageBlur,  Blur eroded by white or transparency
+org.inkscape.effect.filter.ImageBlur.noprefs,  Blur eroded by white or transparency
+org.inkscape.effect.filter.InkBlot,  Inkblot on tissue or rough paper
+org.inkscape.effect.filter.InkBlot.noprefs,  Inkblot on tissue or rough paper
+org.inkscape.effect.filter.Invert,"  Manage hue, lightness and transparency inversions"
+org.inkscape.effect.filter.Invert.noprefs,"  Manage hue, lightness and transparency inversions"
+org.inkscape.effect.filter.LightEraser,  Make the lightest parts of the object progressively transparent
+org.inkscape.effect.filter.LightEraser.noprefs,  Make the lightest parts of the object progressively transparent
+org.inkscape.effect.filter.Lighting,  Modify lights and shadows separately
+org.inkscape.effect.filter.Lighting.noprefs,  Modify lights and shadows separately
+org.inkscape.effect.filter.LightnessContrast,  Modify lightness and contrast separately
+org.inkscape.effect.filter.LightnessContrast.noprefs,  Modify lightness and contrast separately
+org.inkscape.effect.filter.MatteJelly,"  Bulging, matte jelly covering"
+org.inkscape.effect.filter.MatteJelly.noprefs,"  Bulging, matte jelly covering"
+org.inkscape.effect.filter.NeonDraw,  Posterize and draw smooth lines around color shapes
+org.inkscape.effect.filter.NeonDraw.noprefs,  Posterize and draw smooth lines around color shapes
+org.inkscape.effect.filter.NoiseFill,  Basic noise fill and transparency texture
+org.inkscape.effect.filter.NoiseFill.noprefs,  Basic noise fill and transparency texture
+org.inkscape.effect.filter.NudgeCMY,  Nudge CMY channels separately and blend them to different types of backgrounds
+org.inkscape.effect.filter.NudgeCMY.noprefs,  Nudge CMY channels separately and blend them to different types of backgrounds
+org.inkscape.effect.filter.NudgeRGB,  Nudge RGB channels separately and blend them to different types of backgrounds
+org.inkscape.effect.filter.NudgeRGB.noprefs,  Nudge RGB channels separately and blend them to different types of backgrounds
+org.inkscape.effect.filter.Opacity,  Set opacity and strength of opacity boundaries
+org.inkscape.effect.filter.Opacity.noprefs,  Set opacity and strength of opacity boundaries
+org.inkscape.effect.filter.Outline,  Adds a colorizable outline
+org.inkscape.effect.filter.Outline.noprefs,  Adds a colorizable outline
+org.inkscape.effect.filter.PointEngraving,  Convert image to a transparent point engraving
+org.inkscape.effect.filter.PointEngraving.noprefs,  Convert image to a transparent point engraving
+org.inkscape.effect.filter.Posterize,  Poster and painting effects
+org.inkscape.effect.filter.Posterize.noprefs,  Poster and painting effects
+org.inkscape.effect.filter.PosterizeBasic,  Simple posterizing effect
+org.inkscape.effect.filter.PosterizeBasic.noprefs,  Simple posterizing effect
+org.inkscape.effect.filter.Quadritone,  Replace hue by two colors
+org.inkscape.effect.filter.Quadritone.noprefs,  Replace hue by two colors
+org.inkscape.effect.filter.Roughen,  Small-scale roughening to edges and content
+org.inkscape.effect.filter.Roughen.noprefs,  Small-scale roughening to edges and content
+org.inkscape.effect.filter.Silhouette,  Repaint anything visible monochrome
+org.inkscape.effect.filter.Silhouette.noprefs,  Repaint anything visible monochrome
+org.inkscape.effect.filter.SimpleBlend,  Simple blend filter
+org.inkscape.effect.filter.SimpleBlend.noprefs,  Simple blend filter
 org.inkscape.effect.filter.snow,  Snow has fallen on object
 org.inkscape.effect.filter.snow.noprefs,  Snow has fallen on object
+org.inkscape.effect.filter.Solarize,  Classic photographic solarization effect
+org.inkscape.effect.filter.Solarize.noprefs,  Classic photographic solarization effect
+org.inkscape.effect.filter.SpecularLight,  Basic specular bevel to use for building textures
+org.inkscape.effect.filter.SpecularLight.noprefs,  Basic specular bevel to use for building textures
+org.inkscape.effect.filter.Tritone,"  Create a custom tritone palette with additional glow, blend modes and hue moving"
+org.inkscape.effect.filter.Tritone.noprefs,"  Create a custom tritone palette with additional glow, blend modes and hue moving"
+org.inkscape.effect.filter.WaxBump,  Turns an image to jelly
+org.inkscape.effect.filter.WaxBump.noprefs,  Turns an image to jelly
 org.inkscape.effect.func-plot,  Function Plotter
 org.inkscape.effect.func-plot.noprefs,  Function Plotter
 org.inkscape.effect.grid,  Draw a path which is a grid

@@ -2,7 +2,7 @@
 % Please edit documentation in R/inx_style.R
 \name{inx_style}
 \alias{inx_style}
-\title{Title}
+\title{Apply style to a node}
 \usage{
 inx_style(input, id, style)
 }
@@ -17,10 +17,11 @@ inx_style(input, id, style)
 svg file
 }
 \description{
-Title
+Apply style to a node
 }
 \examples{
 library(tidyverse)
+library(xml2)
 # plot the original file
 system.file("extdata", "rectangle.svg", package = "inkscaper") \%>\%
 inx_actions(actions = NA, ext = ".png") \%>\%

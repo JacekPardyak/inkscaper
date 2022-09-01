@@ -3,13 +3,13 @@ library(sf)
 devtools::install_github("JacekPardyak/inkscaper")
 library(inkscaper)
 
-input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
-input %>% inx_actions(actions = NA, ext = ".png")# %>%
-  png::readPNG() %>%
-  grid::grid.raster()
-input %>% inx_actions(actions = "select-by-id:MyStar;object-flip-vertical", ext = ".png") %>%
-  png::readPNG() %>%
-  grid::grid.raster()
+img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
+  inx_actions(actions = NA, ext = ".png") %>%
+  png::readPNG(native = TRUE) %>%
+  grid::rasterGrob(interpolate=TRUE)
+ggplot() +
+  annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
+ggsave("man/figures/Den_Haag_wapen.png")
 
 
 input = system.file("extdata", "MyStar.svg", package = "inkscaper", mustWork = TRUE)
