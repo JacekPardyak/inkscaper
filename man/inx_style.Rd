@@ -20,7 +20,7 @@ svg file
 Apply style to a node
 }
 \examples{
-library(tidyverse)
+library(ggplot2)
 library(xml2)
 # plot the original file
 system.file("extdata", "rectangle.svg", package = "inkscaper") \%>\%

@@ -20,7 +20,7 @@ The output file
 Run Inkscape extension
 }
 \examples{
-library(tidyverse)
+library(ggplot2)
 "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/italian-flag.svg" \%>\%
 inx_extension("lorem_ipsum.py", ".svg") \%>\%
 inx_actions(actions="", ".png") \%>\% png::readPNG() -> img
