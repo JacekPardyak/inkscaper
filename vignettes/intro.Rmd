@@ -78,12 +78,14 @@ system.file("extdata", "extensions.csv", package = "inkscaper") %>%
 
 ### Function `inx_extension()`
 
+![](https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg)
+
 In this example we download `SVG`, convert it to `DXF` and read with `sf` package. Simple features (`LINESTRING`) are plotted with `ggplot2`.
 
 ```{r}
 library(tidyverse)
 library(sf)
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
+"https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
   inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf") %>%
   st_read() %>% 
   ggplot() +
@@ -95,7 +97,7 @@ library(sf)
 Function `inx_svg2dxf()` is abbreviation of the `inx_extension(inkscape_extension_name = "dxf12_outlines.py", ext = ".dxf")`
 
 ```{r}
-"https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg" %>%
+"https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
   inx_svg2sf() %>% 
   ggplot() +
   geom_sf()
@@ -180,8 +182,8 @@ This is `SVG` generated with this procedure:
 The source `XML` looks like this:
 
 ```{r}
-output %>%
-  inx_source()
+output %>% 
+  xml2::read_xml()
 ```
 
 As a reference check heart from https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/heart.svg
@@ -226,8 +228,7 @@ collection %>% ggplot() +
 
 ```{r}
 inx_svg = collection %>% inx_sf2svg()
-inx_svg %>%
-  inx_source()
+inx_svg  %>% xml2::read_xml()
 ```
 
 ![](`r inx_svg`){width=200%}
