@@ -107,6 +107,36 @@ and the SVG further modified:
 
 ![](man/figures/Den_Haag_stroke.svg)
 
+## GIF animation from SVG
+
+The old city logo:
+
+![](man/figures/https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg)
+
+with an animation of points passing from positive to negative space:
+
+```{r}
+library(gganimate)
+size = 2000
+svg_sf <- "https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg" %>%
+  inx_svg2sf() %>% st_union() %>% st_polygonize() %>% first()
+pos <- svg_sf %>% st_sample(size) %>% st_union() %>%
+  st_sfc() %>% st_sf() %>% mutate(states = 1)
+neg <- svg_sf %>% st_bbox() %>% st_as_sfc() %>%
+  st_difference(svg_sf) %>% st_sample(size) %>%
+  st_union() %>% st_sfc() %>% st_sf() %>% mutate(states = 2)
+anim <- pos %>%
+  bind_rows(neg) %>%
+  ggplot() +
+  geom_sf() +
+  transition_states(states) +
+  theme_void()
+animate(anim)
+anim_save("man/figures/Den_Haag_animated.gif")
+```
+
+![](man/figures/Den_Haag_animated.gif)
+
 ## Closing
 
 This is the first version of the package. If you have a comment, request or bug report, don't hesitate.
