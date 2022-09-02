@@ -111,7 +111,7 @@ and the SVG further modified:
 
 The old city logo:
 
-![](man/figures/https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg)
+![](https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg)
 
 with an animation of points passing from positive to negative space:
 

@@ -2,13 +2,30 @@ library(tidyverse)
 library(sf)
 devtools::install_github("JacekPardyak/inkscaper")
 library(inkscaper)
-# Basic text
+
+# SVG text to SVG path
 
 "man/figures/Den_Haag_text.svg" %>% xml2::read_xml()
 
 "man/figures/Den_Haag_text.svg" %>%
-  inx_actions(actions = "select-all;object-to-path", ext = ".svg") %>%
+  inx_actions(actions = "select-all;export-text-to-path", ext = ".svg") %>%
   xml2::read_xml()
+
+"man/figures/Den_Haag_text.svg" %>%
+  inx_actions(actions = "select-all;export-text-to-path", ext = ".svg") %>%
+  inx_write("man/figures/Den_Haag_path.svg")
+
+# we can parse the output SVG:
+
+"man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
+
+# to be completely sure we can traverse the XML tree up to the first path
+x = "man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
+paths = xml2::xml_path(xml2::xml_find_all(x, "//*[name()='path']"))
+node = xml2::xml_find_all(x, paths[[1]])
+node
+
+#
 
 img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
   inx_actions(actions = NA, ext = ".png") %>%
@@ -73,37 +90,35 @@ anim_save("man/figures/Den_Haag_animated.gif")
 library(rgl)
 
 result <- "https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg" %>%
-  inx_svg2sf() %>% st_union() %>% st_sfc() %>% st_sf()
+  inx_svg2sf() %>% st_union() %>%
+  st_polygonize() %>% st_sfc() %>% st_sf()
 
 result %>% ggplot() +
   geom_sf()
 
-grid_spacing = 10
+grid_spacing = .25
 grid <- result %>% st_make_grid(what = "centers", cellsize = c(grid_spacing, grid_spacing)) %>%
   st_sf()
-```
 
-```{r}
-heights <- st_join(grid, (result %>% select(geometry) %>% mutate(Z = 1))) %>% replace(is.na(.), 0)
+grid %>% ggplot() +
+  geom_sf()
+
+heights <- st_join(grid, (result %>% select(geometry) %>% mutate(Z = 5))) %>% replace(is.na(.), 0)
 z <- heights %>% st_coordinates() %>% as_tibble() %>%
   bind_cols(heights %>% st_drop_geometry()) %>%
   mutate(X = round(X,1)) %>%
   mutate(Y = round(Y,1)) %>% pivot_wider(names_from = Y, values_from = Z) %>%
   column_to_rownames("X") %>% as.matrix()
-```
 
-```{r, test-rgl, webgl=TRUE}
 x <- 1:nrow(z)
 y <- 1:ncol(z)
 
-colorlut <- c("#F2F2F2",  "#E34234") #"#ECB176",
+colorlut <- c("#FFFFFF", NA, NA, NA, NA, "#00555a") #"#ECB176",
 col <- colorlut[ z - min(z) + 1 ] # assign colors to heights for each point
 
 surface3d(x, y, z, color = col, back = "lines")
 
 htmlwidgets::saveWidget(rglwidget(width = 520, height = 520),
-                        file = "/tmp/surfaceR.html",
+                        file = "man/figures/Den_Haag_surface.html",
                         libdir = "libsR",
-                        selfcontained = TRUE
-)
-
+                        selfcontained = TRUE)
