@@ -136,8 +136,6 @@ tmp  %>%
   ggplot() +
   geom_sf()
 
-%>%
-
 
   inx_write("my_file.svg")
 

@@ -39,7 +39,7 @@ Inkscape commands are running in the background and you will notice that when yo
 
 The original SVG is rendered by the browser as:
 
-![](man/figures/Den_Haag_text.svg){width=500%}
+![](man/figures/Den_Haag_text.svg)
 
 With the following code, we convert the text to a path:
 
@@ -57,7 +57,7 @@ xml2::xml_find_all(doc, paths[[1]])
 ```
 ```
 {xml_nodeset (1)}
-[1] <path d="m 31.062506,37.590652 v -2.272729 h 0.782898 q 0.265101,0 0.404627,0.03256 0.195337,0 ...
+[1] <path d="M 33.756916,37.590652 V 10.3179 h 9.394775 q 3.181201,0 4.855517,0.390673 2.344043,0. ...
 ```
 
 ## SVG to PNG
