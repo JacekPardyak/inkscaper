@@ -20,10 +20,9 @@ library(inkscaper)
 "man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
 
 # to be completely sure we can traverse the XML tree up to the first path
-x = "man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
-paths = xml2::xml_path(xml2::xml_find_all(x, "//*[name()='path']"))
-node = xml2::xml_find_all(x, paths[[1]])
-node
+doc = "man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
+paths = xml2::xml_path(xml2::xml_find_all(doc, "//*[name()='path']"))
+xml2::xml_find_all(doc, paths[[1]])
 
 #
 
@@ -92,33 +91,27 @@ library(rgl)
 result <- "https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg" %>%
   inx_svg2sf() %>% st_union() %>%
   st_polygonize() %>% st_sfc() %>% st_sf()
-
-result %>% ggplot() +
-  geom_sf()
-
-grid_spacing = .25
+grid_spacing = .1
 grid <- result %>% st_make_grid(what = "centers", cellsize = c(grid_spacing, grid_spacing)) %>%
   st_sf()
-
-grid %>% ggplot() +
-  geom_sf()
-
 heights <- st_join(grid, (result %>% select(geometry) %>% mutate(Z = 5))) %>% replace(is.na(.), 0)
 z <- heights %>% st_coordinates() %>% as_tibble() %>%
   bind_cols(heights %>% st_drop_geometry()) %>%
   mutate(X = round(X,1)) %>%
   mutate(Y = round(Y,1)) %>% pivot_wider(names_from = Y, values_from = Z) %>%
   column_to_rownames("X") %>% as.matrix()
-
 x <- 1:nrow(z)
 y <- 1:ncol(z)
 
-colorlut <- c("#FFFFFF", NA, NA, NA, NA, "#00555a") #"#ECB176",
-col <- colorlut[ z - min(z) + 1 ] # assign colors to heights for each point
-
-surface3d(x, y, z, color = col, back = "lines")
+colors <- c("#FFFFFF", NA, NA, NA, NA, "#00555a") #"#ECB176",
+color <- colors[ z - min(z) + 1 ] # assign colors to heights for each point
+#color = col
+surface3d(x, y, z, color, back = "lines")
 
 htmlwidgets::saveWidget(rglwidget(width = 520, height = 520),
                         file = "man/figures/Den_Haag_surface.html",
                         libdir = "libsR",
                         selfcontained = TRUE)
+rgl.viewpoint(-20, -20)
+rgl.snapshot("man/figures/Den_Haag_surface.png")
+

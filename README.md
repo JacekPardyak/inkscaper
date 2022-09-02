@@ -6,7 +6,18 @@ The [inkscaper](https://github.com/JacekPardyak/inkscaper) package provide a mod
 
 To install Inkscape on your platform follow the instruction available at: [https://inkscape.org/](https://inkscape.org/) 
 
+On Linux it is:
+
+```
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt-get update
+sudo apt install inkscape
+```
+
 ## Installing `inkscaper` R package
+
+The `inkscaper` R package can be installed from GitHub with `devtools`:
 
 ```{r}
 library(devtools)
@@ -16,16 +27,44 @@ library(inkscaper)
 
 ## Primary packages
 
+The main purpose of the `inkscaper` package is to bridge the gap (existing today) between R and Inkscape. The trick is to use the `DXF` file format documented here http://images.autodesk.com/adsk/files/autocad_2012_pdf_dxf-reference_enu.pdf for path import/ export in/from R/Inkscape. But real fun starts when `tidyverse` and `sf` are on.
+
 ```{r}
 library(tidyverse)
 library(sf)
+```
+Inkscape commands are running in the background and you will notice that when you see a pop-up.
+
+## SVG text to SVG path
+
+The original SVG is rendered by the browser as:
+
+![](man/figures/Den_Haag_text.svg){width=500%}
+
+With the following code, we convert the text to a path:
+
+```{r}
+"man/figures/Den_Haag_text.svg" %>%
+  inx_actions(actions = "select-all;export-text-to-path", ext = ".svg") %>%
+  inx_write("man/figures/Den_Haag_path.svg")
+```
+We can now traverse the XML tree of output SVG up to the first "path" node:
+
+```{r}
+doc = "man/figures/Den_Haag_path.svg" %>% xml2::read_xml()
+paths = xml2::xml_path(xml2::xml_find_all(doc, "//*[name()='path']"))
+xml2::xml_find_all(doc, paths[[1]])
+```
+```
+{xml_nodeset (1)}
+[1] <path d="m 31.062506,37.590652 v -2.272729 h 0.782898 q 0.265101,0 0.404627,0.03256 0.195337,0 ...
 ```
 
 ## SVG to PNG
 
 The original SVG rendered by the browser as:
 
-![](https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg)
+![](man/figures/Den_Haag_wapen.svg)
 
 can be exported to PNG with Inkscape:
 
@@ -109,11 +148,11 @@ and the SVG further modified:
 
 ## GIF animation from SVG
 
-The old city logo:
+From an SVG containing the old city logo that is rendered by the browser as:
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg)
+![](man/figures/Den_Haag_logo_old.svg)
 
-with an animation of points passing from positive to negative space:
+we can create an animation of points passing from positive to negative space:
 
 ```{r}
 library(gganimate)
@@ -136,6 +175,44 @@ anim_save("man/figures/Den_Haag_animated.gif")
 ```
 
 ![](man/figures/Den_Haag_animated.gif)
+
+## RGL surface from SVG 
+
+From the same logo from the SVG file, we can get a surface mesh:
+
+```{r}
+library(rgl)
+result <- "https://upload.wikimedia.org/wikipedia/commons/4/44/Haags_logo.svg" %>%
+  inx_svg2sf() %>% st_union() %>%
+  st_polygonize() %>% st_sfc() %>% st_sf()
+grid_spacing = .1
+grid <- result %>% st_make_grid(what = "centers", cellsize = c(grid_spacing, grid_spacing)) %>%
+  st_sf()
+heights <- st_join(grid, (result %>% select(geometry) %>% mutate(Z = 5))) %>% replace(is.na(.), 0)
+z <- heights %>% st_coordinates() %>% as_tibble() %>%
+  bind_cols(heights %>% st_drop_geometry()) %>%
+  mutate(X = round(X,1)) %>%
+  mutate(Y = round(Y,1)) %>% pivot_wider(names_from = Y, values_from = Z) %>%
+  column_to_rownames("X") %>% as.matrix()
+x <- 1:nrow(z)
+y <- 1:ncol(z)
+
+colors <- c("#FFFFFF", NA, NA, NA, NA, "#00555a") #"#ECB176",
+color <- colors[ z - min(z) + 1 ] # assign colors to heights for each point
+#color = col
+surface3d(x, y, z, color, back = "lines")
+
+htmlwidgets::saveWidget(rglwidget(width = 520, height = 520),
+                        file = "man/figures/Den_Haag_surface.html",
+                        libdir = "libsR",
+                        selfcontained = TRUE)
+rgl.viewpoint(-20, -20)
+rgl.snapshot("man/figures/Den_Haag_surface.png")
+```
+This is a snapshot of the resulting interactive plot stored in https://jacekpardyak.github.io/inkscaper/Den_Haag_surface.html (size of the file is 30MB).
+
+![](man/figures/Den_Haag_surface.png)
+
 
 ## Closing
 
