@@ -2,26 +2,19 @@ library(tidyverse)
 library(sf)
 library(inkscaper)
 
-system.file("shape/nc.shp", package="sf") %>%
-  st_read() %>%
-  inx_sf2svg() %>%
-  inx_actions(actions = "select-all;transform-scale:50", ext = ".svg") %>%
-  inx_actions(actions = 'export-area-drawing', ext = ".svg") %>%
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG(native = TRUE) %>%
-  grid::rasterGrob(interpolate=TRUE) -> img
-ggplot() +
-  annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 
-library(tidyverse)
-library(sf)
-devtools::install_github("JacekPardyak/inkscaper")
-library(inkscaper)
+command = 'inkscape --batch-process --actions="export-filename:test_pdf.png;export-do" test_pdf.svg'
+command = 'inkscape --batch-process --actions="file-open;export-filename:test_pdf.png;export-do" test_pdf.pdf'
 
-img = "https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" %>%
-  inx_actions(actions = NA, ext = ".png") %>%
-  png::readPNG(native = TRUE) %>%
-  grid::rasterGrob(interpolate=TRUE)
+system(command, intern = TRUE)
+
+
+
+img = "test_pdf.pdf" %>%
+  inx_actions(actions = "file-open", ext = ".svg")
+
+img %>%
+  xml2::read_xml()
 
 ggplot() +
   annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
