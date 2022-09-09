@@ -1,6 +1,6 @@
 library(tidyverse)
 library(sf)
-library(inkscaper)
+devtools::install_github("JacekPardyak/inkscaper", upgrade = c("never"))
 
 
 command = 'inkscape --batch-process --actions="export-filename:test_pdf.png;export-do" test_pdf.svg'
@@ -168,13 +168,22 @@ xml_attr(x, "//svg")
 
 ?xml2_example
 
-library(ggplot2)
-"https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
-  inx_svg2png() %>%
-  png::readPNG(native = TRUE) %>%
-  grid::rasterGrob(interpolate=TRUE) %>% {
-    ggplot() +
-      annotation_custom(., xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)}
+library(tidyverse)
 
+plot <- ggplot(iris %>% slice(1:10),
+       aes(Petal.Length,
+           Petal.Width,
+           colour = Species)) +
+            geom_point()
+
+# Function to send plot produced with `ggplot()` to Inkscape window.
+# Works only on Desktop.
+inx_plot <- function(plot){
+  input <- tempfile(pattern = "inx_", fileext = ".svg")
+  ggsave(filename = input , plot = plot)
+  fmt = 'inkscape --with-gui --actions="file-open-window:"%s"'
+  command = sprintf(fmt, input)
+  system(command, intern = T)
+}
 
 

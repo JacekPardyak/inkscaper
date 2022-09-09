@@ -115,3 +115,30 @@ htmlwidgets::saveWidget(rglwidget(width = 520, height = 520),
 rgl.viewpoint(-20, -20)
 rgl.snapshot("man/figures/Den_Haag_surface.png")
 
+# ggplot to Inkscape
+
+{ggplot(iris,
+        aes(x = Petal.Length,
+            y = Petal.Width,
+            colour = Sepal.Length,
+            shape = Species)) +
+    geom_point()} %>%
+  inx_plot()
+
+
+{ggplot(mtcars,
+        aes(x = mpg,
+            y = wt,
+            colour = as.factor(cyl))) +
+    geom_line()} %>%
+  inx_plot()
+
+plot(mtcars$mpg, mtcars$wt,
+     col='steelblue',
+     main='Scatterplot',
+     xlab='mpg',
+     ylab='wt',
+     pch=19)
+
+data("mtcars")
+mtcars

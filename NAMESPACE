@@ -3,6 +3,7 @@
 export("%>%")
 export(inx_actions)
 export(inx_extension)
+export(inx_plot)
 export(inx_sf2svg)
 export(inx_style)
 export(inx_svg2png)

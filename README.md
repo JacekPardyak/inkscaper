@@ -213,6 +213,21 @@ This is a snapshot of the resulting interactive plot stored in https://jacekpard
 
 ![](man/figures/Den_Haag_surface.png)
 
+## R to Inkscape
+
+It's possible to send `ggplot` from `R` directly to `Inkscape` window with command `inx_plot()`. For example:
+
+```{r}
+{ggplot(iris,
+        aes(x = Petal.Length,
+            y = Petal.Width,
+            colour = Sepal.Length,
+            shape = Species)) +
+    geom_point()} %>%
+  inx_plot()
+```
+
+![](man/figures/Inkscape_Capture.PNG)
 
 ## Closing
 
