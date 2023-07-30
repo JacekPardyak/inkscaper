@@ -1,7 +1,18 @@
+# build -----------
+library(devtools)
+#usethis::use_package("dplyr")
+
+load_all()
+check()
+use_mit_license()
+
+document()
+install()
+# -------------------------------------
 library(tidyverse)
 library(sf)
 devtools::install_github("JacekPardyak/inkscaper", upgrade = c("never"))
-
+library(inkscaper)
 
 command = 'inkscape --batch-process --actions="export-filename:test_pdf.png;export-do" test_pdf.svg'
 command = 'inkscape --batch-process --actions="file-open;export-filename:test_pdf.png;export-do" test_pdf.pdf'
@@ -168,64 +179,24 @@ xml_attr(x, "//svg")
 
 ?xml2_example
 
-library(tidyverse)
-
-plot <- ggplot(iris %>% slice(1:10),
-       aes(Petal.Length,
-           Petal.Width,
-           colour = Species)) +
-            geom_point()
-
-# Function to send plot produced with `ggplot()` to Inkscape window.
-# Works only on Desktop.
-inx_plot <- function(plot){
-  input <- tempfile(pattern = "inx_", fileext = ".svg")
-  ggplot2::ggsave(filename = input , plot = plot)
-  fmt = 'inkscape --with-gui --actions="file-open-window:"%s"'
-  command = sprintf(fmt, input)
-  system(command, intern = T)
-}
 
 system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
   inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
 
-library(tidyverse)
-library(inkscaper)
-"https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
-  inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
 
-# build -----------
-library(devtools)
-usethis::use_package("dplyr")
 
-load_all()
-check()
-use_mit_license()
 
-document()
-install()
 
 # ------------------------
-image_ascii <- function(x) {
-  new_width = 100
-  scale = 0.5
-  chars = c(".", "S", "#", "&", "@", "€", "%", "*", "!", ":", ".")
-  x %>%
-    image_resize(., geometry_size_pixels(new_width, as.integer(image_info(.)$height / image_info(.)$width * new_width * scale), preserve_aspect = FALSE)) %>%
-    image_convert(., type = 'grayscale') %>% image_data() %>% as.integer() %>% {. %/% 25} %>%
-    {. + 1} %>% sapply(., function(x) {chars[x]}) %>%
-    matrix(., ncol = new_width) %>%
-    apply(., 1, function(x) paste(x, collapse = ""))
-}
-txt = image_ascii(tiger)
-print(txt)
-writeLines(mat, "ascii.txt")
-txt <- readLines("ascii.txt")
-
-system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
-  inx_svg2png() %>% magick::image_read()
-
-library(ggplot2)
-system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
-  inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
+"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/506px-1665_Girl_with_a_Pearl_Earring.jpg" %>%
+  magick::image_read() %>% image_ascii(chars = c(".", "S", "#", "&", "@", "\u20AC", "%", "*", "!", ":", ".")) -> txt
+df = tibble(label = txt) %>% mutate(x = 0, y = -row_number())
+ggplot(df,  aes(x = x, y = y, label = label)) +
+  geom_point(alpha = 0) +
+  geom_text(size=2, family = "mono") +
+  coord_fixed() +
+  theme_void() +
+  xlim(-20, 20)
+ggsave("man/figures/Girl_with_a_Pearl_Earring.png")
+txt %>% writeLines("man/figures/Girl_with_a_Pearl_Earring.txt")
 
