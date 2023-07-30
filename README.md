@@ -75,7 +75,7 @@ img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %
   grid::rasterGrob(interpolate=TRUE)
 ggplot() +
   annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
-ggsave("man/figures/Den_Haag_wapen.png")
+ggplot2::ggsave("man/figures/Den_Haag_wapen.png")
 ```
 
 ![](man/figures/Den_Haag_wapen.png)
@@ -113,7 +113,7 @@ First 10 features:
 svg_sf %>%
   ggplot() +
   geom_sf()
-ggsave("man/figures/Den_Haag_wapen_sf.png")  
+ggplot2::ggsave("man/figures/Den_Haag_wapen_sf.png")  
 ```
 
 ![](man/figures/Den_Haag_wapen_sf.png)

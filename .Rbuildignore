@@ -3,3 +3,4 @@
 read_me.R
 test_me.R
 PSL/
+^LICENSE\.md$

@@ -9,10 +9,10 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
+#' system.file("extdata", "Den_Haag_wapen.svg", package = "inkscaper") %>%
 #' inx_actions(actions = NA, ext = ".png") %>%
 #' png::readPNG(native = TRUE) %>%
-#' grid::rasterGrob(interpolate=TRUE)
+#' grid::rasterGrob(interpolate=TRUE) -> img
 #' ggplot() +
 #' annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 

@@ -19,7 +19,7 @@
 #' }
 inx_plot <- function(plot){
   input <- tempfile(pattern = "inx_", fileext = ".svg")
-  ggsave(filename = input , plot = plot)
+  ggplot2::ggsave(filename = input , plot = plot)
   fmt = 'inkscape --with-gui --actions="file-open-window:"%s"'
   command = sprintf(fmt, input)
   system(command, intern = T)

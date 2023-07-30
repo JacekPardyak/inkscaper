@@ -32,7 +32,7 @@ img = "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %
   grid::rasterGrob(interpolate=TRUE)
 ggplot() +
   annotation_custom(img, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
-ggsave("man/figures/Den_Haag_wapen.png")
+ggplot2::ggsave("man/figures/Den_Haag_wapen.png")
 
 
 svg_sf <- "https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
@@ -42,7 +42,7 @@ svg_sf
 svg_sf %>%
   ggplot() +
   geom_sf()
-ggsave("man/figures/Den_Haag_wapen_sf.png")
+ggplot2::ggsave("man/figures/Den_Haag_wapen_sf.png")
 
 
 "https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_gemeente_2022_gegeneraliseerd&outputFormat=json" %>%

@@ -255,33 +255,31 @@ logo = system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
   inx_svg2sf() %>% 
   select(geometry)
 # POLYGON: ellipse
-ellipse <- logo %>% slice(1:128) %>% 
-  select(geometry) %>% st_union() %>% st_polygonize() %>% 
-  first() %>% 
+ellipse <- logo %>% slice(1:128) %>%
+  select(geometry) %>% st_union() %>% st_polygonize() %>%
+  first() %>%
   first() %>% st_sfc()  %>% st_sf(geometry = .)
-
 hole <- logo %>% slice(129:215) %>%
-    select(geometry) %>% st_union() %>% st_polygonize() %>% 
-    first() %>% 
-    first() %>% st_sfc()  %>% st_sf(geometry = .)
-  
+  select(geometry) %>% st_union() %>% st_polygonize() %>%
+  first() %>%
+  first() %>% st_sfc()  %>% st_sf(geometry = .)
 ellipse <- ellipse %>% st_difference(hole) %>% mutate(colour = "#b8b8bdff")
 
 # POLYGON: R letter
-rletter <- logo %>% slice(217:301) %>% 
-  select(geometry) %>% st_union() %>% st_polygonize() %>% 
-  first() %>% 
-  first() %>% st_sfc() %>% st_sf(geometry = .) %>% mutate(colour = "#1c61b3ff")
+rletter <- logo %>% slice(216:276) %>%
+  select(geometry) %>% st_union() %>% st_polygonize() %>%
+  first() %>%
+  first() %>% st_sfc() %>% st_sf(geometry = .)
+hole <- logo %>% slice(277:301)  %>%
+  select(geometry) %>% st_union() %>% st_polygonize() %>%
+  first() %>%
+  first() %>% st_sfc()  %>% st_sf(geometry = .)
+rletter <- rletter %>% st_difference(hole) %>% mutate(colour = "#1c61b3ff")
 
 ggplot() +
   geom_sf(data = ellipse, aes(fill = colour)) +
   geom_sf(data = rletter, aes(fill = colour)) +
   scale_fill_identity()
-
-```
-
-
-```{r}
 
 ```
 

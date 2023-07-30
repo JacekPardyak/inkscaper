@@ -180,10 +180,52 @@ plot <- ggplot(iris %>% slice(1:10),
 # Works only on Desktop.
 inx_plot <- function(plot){
   input <- tempfile(pattern = "inx_", fileext = ".svg")
-  ggsave(filename = input , plot = plot)
+  ggplot2::ggsave(filename = input , plot = plot)
   fmt = 'inkscape --with-gui --actions="file-open-window:"%s"'
   command = sprintf(fmt, input)
   system(command, intern = T)
 }
 
+system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
+  inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
+
+library(tidyverse)
+library(inkscaper)
+"https://upload.wikimedia.org/wikipedia/commons/3/30/Den_Haag_wapen.svg" %>%
+  inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
+
+# build -----------
+library(devtools)
+usethis::use_package("dplyr")
+
+load_all()
+check()
+use_mit_license()
+
+document()
+install()
+
+# ------------------------
+image_ascii <- function(x) {
+  new_width = 100
+  scale = 0.5
+  chars = c(".", "S", "#", "&", "@", "€", "%", "*", "!", ":", ".")
+  x %>%
+    image_resize(., geometry_size_pixels(new_width, as.integer(image_info(.)$height / image_info(.)$width * new_width * scale), preserve_aspect = FALSE)) %>%
+    image_convert(., type = 'grayscale') %>% image_data() %>% as.integer() %>% {. %/% 25} %>%
+    {. + 1} %>% sapply(., function(x) {chars[x]}) %>%
+    matrix(., ncol = new_width) %>%
+    apply(., 1, function(x) paste(x, collapse = ""))
+}
+txt = image_ascii(tiger)
+print(txt)
+writeLines(mat, "ascii.txt")
+txt <- readLines("ascii.txt")
+
+system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
+  inx_svg2png() %>% magick::image_read()
+
+library(ggplot2)
+system.file("extdata", "R_logo.svg", package = "inkscaper") %>%
+  inx_svg2png() %>% magick::image_read() %>% image_ascii() %>% print()
 
